@@ -1,0 +1,21 @@
+{
+  "name": "geopagescan-frontend",
+  "version": "2.0.0",
+  "description": "GeoPageScan — AI Visibility Scanner (React + Vite)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "blog:build": "node blog/generate.mjs",
+    "blog:agent": "node blog/agent.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.2"
+  }
+}

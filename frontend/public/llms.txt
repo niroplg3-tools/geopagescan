@@ -1,0 +1,34 @@
+# GeoPageScan
+
+> GeoPageScan is a free AI visibility audit tool that analyzes any website's readiness for the generative search era — scoring GEO (Generative Engine Optimization), AEO (Answer Engine Optimization), and traditional SEO signals.
+
+GeoPageScan was founded in 2026 to help websites get understood and cited by AI engines such as ChatGPT, Claude, Gemini and Perplexity. Enter any URL and receive a 0–100 AI-visibility score across six categories, with prioritized, copy-ready fixes.
+
+## Key Definitions
+
+- **GEO (Generative Engine Optimization):** the practice of structuring a website so that generative AI engines can understand, trust and cite it in their answers.
+- **AEO (Answer Engine Optimization):** optimizing content for direct-answer and question-answering surfaces, including voice and AI assistants.
+- **llms.txt:** a markdown file at a domain's root that gives AI assistants a clean, structured summary of the entity, its services and key pages.
+
+## Services
+
+- Free AI-visibility website audit (GEO / AEO / SEO) — no login required
+- Six-category scoring: LLM Optimization, Structured Data, AI Crawlability, Authority Signals, Content Clarity, Technical SEO
+- Prioritized fix recommendations with effort estimates and quick wins
+- Educational blog covering GEO, AEO and AI search strategy
+
+## Key Pages
+
+- Home & audit tool: https://geopagescan.com/
+- Blog (15 articles): https://geopagescan.com/blog.html
+- GEO guide: https://geopagescan.com/blog.html#geo-guide
+- llms.txt guide: https://geopagescan.com/blog.html#llms-txt-guide
+
+## Target Audience
+
+Marketers, SEO professionals, agencies, founders and developers who want their websites to be visible to and cited by AI search engines.
+
+## Contact
+
+- Email: hello@geopagescan.com
+- Web: https://geopagescan.com

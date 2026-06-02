@@ -1,0 +1,39 @@
+name: Blog Agent — auto-publish
+
+# Posts 2–3 queued articles twice a week, then commits the regenerated pages.
+# Vercel auto-redeploys on the push. No server required.
+on:
+  schedule:
+    - cron: "0 14 * * 1,4"   # Mondays & Thursdays at 14:00 UTC (3 on Mon, 2 on Thu)
+  workflow_dispatch: {}        # allow manual runs from the Actions tab
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # needed to commit the new pages back
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # The generator/agent use only Node built-ins — no npm install needed.
+      - name: Publish queued articles
+        run: node frontend/blog/agent.mjs
+
+      - name: Commit & push new pages
+        run: |
+          git config user.name "geopagescan-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add frontend/public/blog.html frontend/public/blog frontend/public/blog-img \
+                  frontend/public/blog-assets.css frontend/public/sitemap.xml \
+                  frontend/blog/articles.generated.json frontend/blog/state.json \
+                  frontend/blog/AGENT_BLOG_LOG.md
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish (queue empty)."
+          else
+            git commit -m "chore(blog): auto-publish queued articles [skip ci]"
+            git push
+          fi

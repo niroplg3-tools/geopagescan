@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" role="img" aria-label="GeoPageScan logo">
+  <defs>
+    <linearGradient id="gps-g" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00E5FF"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <path d="M24 3 41 13v22L24 45 7 35V13L24 3z" stroke="url(#gps-g)" stroke-width="2.4" fill="rgba(0,229,255,0.05)"/>
+  <circle cx="24" cy="24" r="9" stroke="url(#gps-g)" stroke-width="2" fill="none"/>
+  <circle cx="24" cy="24" r="3" fill="url(#gps-g)"/>
+  <path d="M24 15v-4M24 37v-4M33 24h4M11 24h4" stroke="url(#gps-g)" stroke-width="2" stroke-linecap="round"/>
+</svg>

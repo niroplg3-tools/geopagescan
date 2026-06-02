@@ -1,0 +1,920 @@
+// ─────────────────────────────────────────────────────────────────────────
+//  GeoPageScan Blog — publishing QUEUE
+//  Ready-to-publish articles the agent draws from (2–3 per run, twice a week).
+//  Same shape as articles.mjs entries, but WITHOUT a `date` — the agent stamps
+//  the publish date when it ships each one. Add as many as you like; the agent
+//  publishes the oldest-in-queue first and never repeats an id.
+//
+//  Refill this file whenever it runs low (the agent logs how many remain).
+//  Later you can have Claude auto-write new entries here — see AGENT_BLOG.md.
+// ─────────────────────────────────────────────────────────────────────────
+
+export const QUEUE = [
+  {
+    id: "perplexity-citations", cat: "GEO", emoji: "🔎",
+    title: "How to Get Cited by Perplexity AI: A Practical GEO Guide",
+    dek: "Perplexity shows its sources on every answer. Here's how to become one of them — crawler access, citable structure and the signals Perplexity rewards.",
+    keywords: "Perplexity AI, PerplexityBot, get cited by Perplexity, GEO, AI citations",
+    sections: [
+      { h: "How does Perplexity choose sources?", p: [
+        "Perplexity retrieves live web pages for each query and lists the sources it used right in the answer. Unlike a chatbot that hides its references, Perplexity makes citations visible — which means being citable is directly, measurably valuable.",
+        "It favors pages that are crawlable, recent, factually specific and clearly structured around the question being asked." ] },
+      { h: "Make sure PerplexityBot can reach you", p: [
+        "Allow <code>PerplexityBot</code> and <code>Perplexity-User</code> in robots.txt, ship a sitemap, and keep important content in server-rendered HTML rather than JavaScript-only rendering.",
+        "A blocked or unreadable page simply never enters Perplexity's candidate set." ] },
+      { h: "Structure content for citation", p: [
+        "Lead each section with a direct, self-contained answer, add specific facts and dates, and wrap Q&A in FAQPage schema. Perplexity tends to quote the single sentence that most cleanly answers the query." ] },
+    ],
+    faq: [
+      { q: "What is PerplexityBot?", a: "PerplexityBot is Perplexity's crawler for indexing pages, and Perplexity-User fetches pages live during a search. Allow both in robots.txt to be eligible for citation." },
+      { q: "How do I get cited by Perplexity?", a: "Be crawlable, answer questions directly in the first sentence, add FAQ and Organization schema, and publish specific, up-to-date facts Perplexity can quote." },
+      { q: "Does Perplexity show sources?", a: "Yes — Perplexity lists the sources it used on every answer, which makes being a cited source a concrete, trackable GEO goal." },
+    ],
+    related: ["chatgpt-cite", "geo-guide", "schema-7-types"],
+  },
+
+  {
+    id: "ai-overviews", cat: "SEO", emoji: "🟣",
+    title: "Winning Google AI Overviews in 2026: What Actually Works",
+    dek: "Google's AI Overviews answer the query before the blue links. Here's how to be one of the sources they synthesize — and keep your organic visibility.",
+    keywords: "Google AI Overviews, SGE, Google-Extended, AI Overviews SEO, GEO",
+    sections: [
+      { h: "What are Google AI Overviews?", p: [
+        "AI Overviews are the AI-generated summaries Google places above traditional results for many queries. They synthesize several sources into a direct answer — and link to the pages they drew from.",
+        "Appearing as a cited source is the new top-of-page real estate." ] },
+      { h: "How to become an AI Overview source", p: [
+        "Keep strong classic SEO (crawlability, topical authority, Core Web Vitals), allow <code>Google-Extended</code>, and structure content as clear question-and-answer blocks with supporting facts.",
+        "Pages that already rank well and answer the query concisely are the most likely to be pulled in." ] },
+      { h: "Protect your click-through", p: [
+        "Because AI Overviews can reduce clicks, lead with value the summary can't fully replace — depth, tools, original data — so users still have a reason to visit." ] },
+    ],
+    faq: [
+      { q: "What is Google-Extended?", a: "Google-Extended is the robots.txt control for whether your content can be used by Google's generative AI (Gemini and AI Overviews). Allow it to be eligible as a source." },
+      { q: "How do I appear in AI Overviews?", a: "Maintain strong technical SEO and topical authority, allow Google-Extended, and structure content as concise question-and-answer blocks with specific supporting facts." },
+      { q: "Do AI Overviews hurt traffic?", a: "They can reduce clicks for purely informational queries. Offset this with depth, original data and tools that give users a reason to click through." },
+    ],
+    related: ["seo-ai-era", "geo-guide", "technical-seo-checklist"],
+  },
+
+  {
+    id: "gemini-optimization", cat: "GEO", emoji: "✨",
+    title: "Optimizing for Google Gemini: A GEO Checklist",
+    dek: "Gemini powers answers across Google's surfaces. Here's a concrete checklist to make your entity and content easy for Gemini to understand and cite.",
+    keywords: "Google Gemini, Gemini optimization, GEO, Google-Extended, entity",
+    sections: [
+      { h: "How does Gemini source information?", p: [
+        "Gemini draws on Google's index plus structured data and entity signals from the knowledge graph. Clear entities and schema make you easier to surface and attribute." ] },
+      { h: "The Gemini GEO checklist", list: [
+        "Allow <code>Google-Extended</code> and <code>Googlebot</code> in robots.txt.",
+        "Add Organization + FAQPage schema and link your entity with <code>sameAs</code>.",
+        "Write answer-first content with specific, verifiable facts.",
+        "Keep an up-to-date llms.txt summarizing your entity and key pages." ] },
+      { h: "Reinforce entity authority", p: [
+        "Gemini leans on Google's knowledge graph, so the stronger and more consistent your entity (named people, sameAs links, consistent NAP), the more confidently it can cite you." ] },
+    ],
+    faq: [
+      { q: "How do I optimize for Google Gemini?", a: "Allow Google-Extended, add Organization and FAQPage schema, link your entity with sameAs, write answer-first factual content, and keep an llms.txt current." },
+      { q: "Does Gemini use the same crawler as Search?", a: "Gemini's AI use is governed by Google-Extended, while Googlebot handles core indexing. Allow both to be eligible across Google's surfaces." },
+      { q: "What matters most for Gemini citations?", a: "Entity clarity. A consistent, well-linked brand entity in Google's knowledge graph is the strongest signal Gemini can attribute to." },
+    ],
+    related: ["geo-guide", "entity-authority", "ai-overviews"],
+  },
+
+  {
+    id: "robots-ai-guide", cat: "SEO", emoji: "🤖",
+    title: "The robots.txt Guide for AI Crawlers: Allow the Right Bots",
+    dek: "A copy-paste robots.txt that welcomes the AI crawlers you want citing you — GPTBot, ClaudeBot, PerplexityBot, Google-Extended and more.",
+    keywords: "robots.txt, AI crawlers, GPTBot, ClaudeBot, PerplexityBot, Google-Extended",
+    sections: [
+      { h: "Why robots.txt matters for AI visibility", p: [
+        "robots.txt is the first gate every crawler checks. If an AI user-agent is disallowed — or just ambiguous — that engine may never read or cite your content.",
+        "Being explicit signals intent and maximizes coverage across AI surfaces." ] },
+      { h: "A copy-paste robots.txt for AI", p: [
+        "Allow the major AI user-agents and point to your sitemap:" ],
+        code: `User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml` },
+      { h: "Decide what you actually want", p: [
+        "If you want AI citations, allow these bots. If you want to keep content out of AI training, disallow specific agents — but know that blocking them removes you from those engines' answers entirely." ] },
+    ],
+    faq: [
+      { q: "Which AI bots should I allow in robots.txt?", a: "To be cited, allow GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended, and link your sitemap." },
+      { q: "Does blocking GPTBot remove me from ChatGPT?", a: "Blocking GPTBot and OAI-SearchBot prevents OpenAI from indexing or citing your content in ChatGPT's answers. Only block if you intend to opt out." },
+      { q: "Where does robots.txt go?", a: "At your domain root: https://yourdomain.com/robots.txt. Add explicit per-user-agent Allow rules for the AI crawlers you want." },
+    ],
+    related: ["technical-seo-checklist", "chatgpt-cite", "perplexity-citations"],
+  },
+
+  {
+    id: "saas-geo", cat: "GEO", emoji: "🧩",
+    title: "GEO for SaaS: How to Get Your Product Recommended by AI",
+    dek: "When buyers ask AI \"what's the best tool for X\", SaaS products with clear entities and structured proof win. Here's the GEO playbook for SaaS.",
+    keywords: "SaaS GEO, AI product recommendations, software AI citations, SaaS SEO",
+    sections: [
+      { h: "AI is the new software shortlist", p: [
+        "Buyers increasingly ask AI to compare and recommend tools before they ever visit a vendor site. If AI can't clearly understand what your product does and who it's for, you're left off the shortlist." ] },
+      { h: "Define the product entity", p: [
+        "State plainly what category you're in, who it's for and what problem you solve — in your hero, your About page and your llms.txt. Add Organization and Product/SoftwareApplication schema.",
+        "Vague positioning (\"the platform for modern teams\") gives AI nothing to match a query against." ] },
+      { h: "Provide structured proof", p: [
+        "Surface comparisons, integrations, pricing and reviews as real HTML (and AggregateRating schema). These are exactly the facts AI needs to recommend you with confidence." ] },
+    ],
+    faq: [
+      { q: "How do I get my SaaS recommended by AI?", a: "Define a clear product entity (category, audience, problem) in copy, schema and llms.txt, and provide structured proof — comparisons, pricing and reviews — as crawlable HTML." },
+      { q: "What schema should a SaaS site use?", a: "Organization plus SoftwareApplication or Product, FAQPage for common questions, and AggregateRating for reviews." },
+      { q: "Why isn't my SaaS mentioned by AI?", a: "Usually vague positioning and thin structured data. Make your category and audience explicit and back claims with crawlable, marked-up facts." },
+    ],
+    related: ["geo-guide", "ecommerce-aeo", "entity-authority"],
+  },
+
+  {
+    id: "measuring-ai-visibility", cat: "Tool", emoji: "📊",
+    title: "How to Measure Your AI Visibility: The KPIs That Matter",
+    dek: "You can't improve what you don't measure. Here are the practical KPIs for AI visibility — from your GeoPageScan score to real AI-citation tracking.",
+    keywords: "measure AI visibility, AI visibility KPI, GEO metrics, AI citation tracking",
+    sections: [
+      { h: "Start with an AI-visibility score", p: [
+        "A single 0–100 score across GEO/AEO/SEO categories — like the one GeoPageScan produces — gives you a baseline and a trend to manage. Re-scan after each change to measure the lift." ] },
+      { h: "Track real AI citations", p: [
+        "Periodically ask the major engines (ChatGPT, Claude, Gemini, Perplexity) the questions your customers ask, and record whether — and how — you're cited. Watch your referral analytics for AI sources too." ] },
+      { h: "Monitor the inputs", p: [
+        "Track the signals that drive visibility: llms.txt present, schema coverage, AI bots allowed, and the share of pages with answer-first content. These move before citations do." ] },
+    ],
+    faq: [
+      { q: "How do I measure AI visibility?", a: "Use an AI-visibility score (0–100) as your baseline, track real citations by querying the major AI engines for your key questions, and monitor inputs like schema coverage and crawler access." },
+      { q: "What's a good AI-visibility KPI?", a: "The overall score tracked over time, the number of resolved critical/high findings, and the count of AI citations for your priority queries." },
+      { q: "How often should I check?", a: "Re-scan after each fix to confirm the lift, and review citations and score monthly as the AI landscape shifts." },
+    ],
+    related: ["introducing-geopagescan", "agency-workflow", "geo-guide"],
+  },
+
+  {
+    id: "faq-schema-howto", cat: "AEO", emoji: "❓",
+    title: "How to Add FAQ Schema: A Step-by-Step Guide (with Examples)",
+    dek: "FAQPage schema is the most-quoted markup in AI answers. Here's exactly how to add it — with copy-paste JSON-LD and the mistakes to avoid.",
+    keywords: "FAQ schema, FAQPage, JSON-LD, how to add FAQ schema, AEO",
+    sections: [
+      { h: "Why FAQPage schema is worth it", p: [
+        "FAQPage markup explicitly maps questions to answers — exactly the structure AI engines lift into responses and the format Google uses for rich results. It's high-impact and quick to add." ] },
+      { h: "Add the JSON-LD", p: [
+        "Place this in your page <code>&lt;head&gt;</code>, with the questions and answers matching your visible content:" ],
+        code: `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is llms.txt?",
+    "acceptedAnswer": { "@type": "Answer",
+      "text": "A markdown file at your domain root that summarizes your site for AI." }
+  }]
+}
+</script>` },
+      { h: "Avoid the common mistakes", p: [
+        "The schema answers must match what's visible on the page, every Question needs exactly one acceptedAnswer, and you should validate with Google's Rich Results Test before shipping." ] },
+    ],
+    comparison: {
+      title: "FAQ schema: do vs don't",
+      cols: ["Do", "Don't"],
+      rows: [
+        ["Match schema to visible Q&A", "Mark up hidden or fake questions"],
+        ["One acceptedAnswer per Question", "Multiple or missing answers"],
+        ["Validate before publishing", "Ship unvalidated JSON-LD"],
+        ["Keep answers concise & factual", "Stuff keywords into answers"],
+      ],
+    },
+    faq: [
+      { q: "How do I add FAQ schema?", a: "Add a FAQPage JSON-LD script to your page head with Question/acceptedAnswer pairs that match your visible FAQ, then validate with Google's Rich Results Test." },
+      { q: "Does FAQ schema help with AI?", a: "Yes — FAQPage is one of the most-quoted schema types in AI answers because it maps questions directly to answers." },
+      { q: "Can I fake questions in FAQ schema?", a: "No. The schema must match visible content; mismatched or hidden Q&A can be ignored or penalized. Mark up only real, visible FAQs." },
+    ],
+    related: ["schema-7-types", "aeo-guide", "voice-aeo"],
+  },
+
+  {
+    id: "ai-crawler-list-2026", cat: "SEO", emoji: "🗂️",
+    title: "The Complete List of AI Crawlers in 2026 (and How to Handle Each)",
+    dek: "Every major AI crawler in 2026 — who runs it, what it does, and whether to allow it. A reference table for your robots.txt strategy.",
+    keywords: "AI crawlers list, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended",
+    sections: [
+      { h: "Why keep a crawler list?", p: [
+        "New AI user-agents appear regularly, and each one is a potential source of citations — or, if mishandled, a gap. Knowing who's crawling lets you make deliberate robots.txt decisions." ] },
+      { h: "The major AI crawlers", p: [
+        "The table below lists the crawlers worth knowing in 2026. To be cited across AI surfaces, allow the ones whose engines you want answering with your content." ] },
+      { h: "Keep it current", p: [
+        "Re-check your robots.txt quarterly against the latest crawler list — GeoPageScan tracks new AI bots in its audit config and flags any you're blocking." ] },
+    ],
+    comparison: {
+      title: "AI crawlers worth knowing in 2026",
+      cols: ["Crawler", "Company", "Purpose"],
+      rows: [
+        ["GPTBot", "OpenAI", "ChatGPT training & retrieval"],
+        ["OAI-SearchBot", "OpenAI", "ChatGPT Search index"],
+        ["ClaudeBot", "Anthropic", "Claude training & retrieval"],
+        ["PerplexityBot", "Perplexity", "Perplexity answer index"],
+        ["Google-Extended", "Google", "Gemini & AI Overviews"],
+        ["Applebot-Extended", "Apple", "Apple Intelligence"],
+        ["Amazonbot", "Amazon", "Alexa / Rufus answers"],
+      ],
+    },
+    faq: [
+      { q: "How many AI crawlers are there in 2026?", a: "More than a dozen matter, including GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended and Amazonbot. Allow the ones whose engines you want citing you." },
+      { q: "Which AI crawlers should I block?", a: "Only block crawlers whose engines you deliberately want to opt out of — blocking removes you from those AI answers. Most sites seeking visibility allow them all." },
+      { q: "How do I keep my crawler list current?", a: "Re-audit quarterly. GeoPageScan tracks new AI bots in its config and flags any your robots.txt is blocking." },
+    ],
+    related: ["robots-ai-guide", "technical-seo-checklist", "perplexity-citations"],
+  },
+
+  {
+    id: "geo-mistakes", cat: "GEO", emoji: "🚧",
+    title: "7 GEO Mistakes That Keep You Out of AI Answers",
+    dek: "The most common reasons AI engines ignore a site — and the quick fixes for each. Avoid these and you're ahead of most competitors.",
+    keywords: "GEO mistakes, AI visibility errors, llms.txt, schema, crawlability",
+    sections: [
+      { h: "The mistakes that cost you citations", list: [
+        "No llms.txt — AI has no clean entry point to your entity.",
+        "Zero structured data — engines must guess what you are.",
+        "Blocking or ignoring AI crawlers in robots.txt.",
+        "Key content trapped in video, images or JavaScript.",
+        "Vague, promotional copy with no concrete facts.",
+        "No named authors or external profile links.",
+        "Unmarked reviews and ratings." ] },
+      { h: "Why these matter so much", p: [
+        "Each mistake removes a signal AI relies on to understand, trust or reach you. Fix even three of them and your AI-visibility score typically jumps." ] },
+      { h: "Fix them in order of impact", p: [
+        "Start with llms.txt and crawler access (minutes), then schema and content structure (hours). Re-scan after each change to confirm the lift." ] },
+    ],
+    faq: [
+      { q: "What's the most damaging GEO mistake?", a: "Blocking or not explicitly allowing AI crawlers — a blocked bot can never cite you, no matter how good your content is." },
+      { q: "How do I find my GEO mistakes?", a: "Run a free GeoPageScan audit; it flags missing llms.txt, schema gaps, crawler issues and weak content structure with prioritized fixes." },
+      { q: "How long do the fixes take?", a: "The highest-impact ones — llms.txt and robots.txt — take minutes. Schema and content restructuring take a few hours." },
+    ],
+    related: ["geo-guide", "invisible-to-ai", "schema-7-types"],
+  },
+
+  {
+    id: "geo-vs-seo", cat: "GEO", emoji: "⚖️",
+    title: "GEO vs SEO: How They Differ and Why You Need Both",
+    dek: "GEO and SEO aren't rivals — they're layers. Here's exactly how they differ and how to invest in both without duplicating work.",
+    keywords: "GEO vs SEO, generative engine optimization, search optimization, AI visibility",
+    sections: [
+      { h: "Same foundation, different goal", p: [
+        "SEO and GEO both start with crawlable, well-structured content. The difference is the target: SEO competes for a ranked link, GEO competes to be the cited answer inside an AI response." ] },
+      { h: "Where they diverge", p: [
+        "SEO leans on keywords, links and rankings. GEO adds entity clarity, llms.txt, answer-first content and machine-readable trust signals so an LLM can confidently quote you." ] },
+      { h: "How to invest in both", p: [
+        "Keep your technical SEO strong as the base, then layer GEO on top: it mostly reuses the same content, just structured and marked up for extraction." ] },
+    ],
+    comparison: {
+      title: "GEO vs SEO",
+      cols: ["Dimension", "SEO", "GEO"],
+      rows: [
+        ["Goal", "Rank a link", "Be the cited answer"],
+        ["Core signal", "Keywords + links", "Entity clarity + structure"],
+        ["Key assets", "Titles, backlinks", "llms.txt, schema, FAQs"],
+        ["Surface", "Search results page", "AI-generated answers"],
+      ],
+    },
+    faq: [
+      { q: "Is GEO replacing SEO?", a: "No. GEO layers on top of SEO. Strong technical SEO is the foundation that lets your GEO work reach AI engines." },
+      { q: "Do I need to do both?", a: "Yes, if you want both blue-link traffic and AI citations. They reuse most of the same content, so the extra effort is mostly structure and markup." },
+      { q: "Which should I start with?", a: "Fix technical SEO basics first (crawlability, metadata), then add GEO signals like llms.txt and schema." },
+    ],
+    related: ["seo-ai-era", "geo-guide", "technical-seo-checklist"],
+  },
+
+  {
+    id: "brand-mentions-ai", cat: "GEO", emoji: "📣",
+    title: "Why Brand Mentions (Not Just Links) Drive AI Citations",
+    dek: "AI engines weigh unlinked brand mentions as entity signals. Here's how to earn and structure mentions so AI associates them with you.",
+    keywords: "brand mentions, unlinked mentions, entity SEO, AI citations, GEO",
+    sections: [
+      { h: "Mentions are entity signals", p: [
+        "Where classic SEO counts backlinks, AI engines also read plain brand mentions across the web as evidence that an entity exists and matters. A consistent name showing up in context builds recognition." ] },
+      { h: "Make your brand unambiguous", p: [
+        "Use a consistent brand name everywhere, define your entity in Organization schema with a sameAs array, and keep your About page and llms.txt aligned so mentions map cleanly to you." ] },
+      { h: "Earn mentions in context", p: [
+        "Guest posts, podcasts, directories, reviews and PR all create mentions. What matters is that they appear near the topics you want to be known for." ] },
+    ],
+    faq: [
+      { q: "Do unlinked brand mentions help AI visibility?", a: "Yes. AI engines treat consistent, contextual brand mentions as entity signals, even without a hyperlink." },
+      { q: "How do I connect mentions to my entity?", a: "Use a consistent brand name, Organization schema with sameAs links, and an aligned About page and llms.txt so mentions resolve to you." },
+      { q: "Where do I earn mentions?", a: "Guest articles, podcasts, industry directories, reviews and PR — ideally in content about the topics you want to be cited for." },
+    ],
+    related: ["entity-authority", "geo-guide", "chatgpt-cite"],
+  },
+
+  {
+    id: "geo-for-blogs", cat: "GEO", emoji: "📝",
+    title: "GEO for Bloggers: How to Get Your Posts Quoted by AI",
+    dek: "Bloggers can win big in AI search with the right structure. Here's how to make every post quotable by ChatGPT, Claude and Perplexity.",
+    keywords: "GEO for blogs, blog AI citations, BlogPosting schema, answer-first blogging",
+    sections: [
+      { h: "Write posts AI wants to quote", p: [
+        "Lead each section with a direct, self-contained answer, use question-style headings, and include specific facts, dates and named examples. That's the content AI lifts into answers." ] },
+      { h: "Mark up every post", p: [
+        "Add BlogPosting schema with a named author and publish date, plus FAQPage schema for your Q&A sections. These editorial signals raise trust and quotability." ] },
+      { h: "Build topical depth", p: [
+        "Cover a topic thoroughly across linked posts. AI favors sources with clear, connected expertise over one-off articles." ] },
+    ],
+    faq: [
+      { q: "How do bloggers get cited by AI?", a: "Write answer-first posts with question headings and specific facts, add BlogPosting and FAQPage schema with a named author, and build topical depth." },
+      { q: "What schema should a blog post use?", a: "BlogPosting with author and datePublished, plus FAQPage for Q&A sections." },
+      { q: "Does author attribution matter?", a: "Yes. A named, linkable author with a publish date increases editorial trust for both Google E-E-A-T and AI engines." },
+    ],
+    related: ["geo-content", "schema-7-types", "entity-authority"],
+  },
+
+  {
+    id: "geo-startups", cat: "GEO", emoji: "🌱",
+    title: "GEO for Startups: Build AI Visibility From Day One",
+    dek: "Startups can out-rank incumbents in AI answers by getting the fundamentals right early. Here's the day-one GEO setup.",
+    keywords: "GEO for startups, startup AI visibility, llms.txt, entity, early-stage SEO",
+    sections: [
+      { h: "Why startups have an edge", p: [
+        "Incumbents are slow to adopt GEO. A startup that ships llms.txt, schema and answer-first content early can become the cited source in its category before bigger players react." ] },
+      { h: "The day-one setup", list: [
+        "Publish llms.txt defining your category, audience and offering.",
+        "Add Organization + FAQPage schema and a clear About page.",
+        "Allow AI crawlers in robots.txt and ship a sitemap.",
+        "Write a few deep, answer-first pages on your core topic." ] },
+      { h: "Reinforce the entity", p: [
+        "List your founders with Person schema and sameAs links, and keep your name and positioning consistent everywhere so AI can resolve you confidently." ] },
+    ],
+    faq: [
+      { q: "Should an early-stage startup invest in GEO?", a: "Yes — it's cheap, fast and incumbents are slow. Early GEO can make you the cited source in your category before competitors catch up." },
+      { q: "What's the minimum GEO setup?", a: "llms.txt, Organization + FAQPage schema, AI crawlers allowed in robots.txt, and a few deep answer-first pages on your core topic." },
+      { q: "How do I define a new category to AI?", a: "State it plainly in your hero, About page and llms.txt, and reinforce it with consistent messaging and Organization schema." },
+    ],
+    related: ["saas-geo", "geo-guide", "entity-authority"],
+  },
+
+  {
+    id: "ai-knowledge-graph", cat: "GEO", emoji: "🕸️",
+    title: "How to Get Your Brand Into the AI Knowledge Graph",
+    dek: "AI engines trust entities they can resolve in a knowledge graph. Here's how to become a recognized, well-connected entity.",
+    keywords: "knowledge graph, entity, Wikidata, sameAs, AI entity recognition, GEO",
+    sections: [
+      { h: "What the knowledge graph does", p: [
+        "A knowledge graph maps entities — people, organizations, products — and their relationships. When AI can place you in that graph, it cites you with confidence and attributes you correctly." ] },
+      { h: "Become a resolvable entity", p: [
+        "Add Organization and Person schema with sameAs links to authoritative profiles (LinkedIn, Crunchbase, Wikidata), and keep your name, description and details consistent across the web." ] },
+      { h: "Earn third-party validation", p: [
+        "Mentions, reviews, directory listings and — where warranted — a Wikidata entry all strengthen your node in the graph." ] },
+    ],
+    faq: [
+      { q: "How do I get into the AI knowledge graph?", a: "Define your entity with Organization/Person schema and sameAs links, keep details consistent across the web, and earn third-party validation like reviews and directory listings." },
+      { q: "Does Wikidata help AI visibility?", a: "Yes, when warranted. A Wikidata entry is a strong, machine-readable entity signal that AI engines trust." },
+      { q: "What is sameAs?", a: "A schema property that links your entity to its official profiles, letting machines confirm you're the same entity across sites." },
+    ],
+    related: ["entity-authority", "wikipedia-wikidata", "geo-guide"],
+  },
+
+  {
+    id: "geo-roi", cat: "GEO", emoji: "💹",
+    title: "The ROI of GEO: Is AI Visibility Worth the Effort?",
+    dek: "Most GEO wins are cheap and durable. Here's how to think about the return on AI-visibility work — and how to prove it.",
+    keywords: "GEO ROI, AI visibility value, GEO business case, AI search traffic",
+    sections: [
+      { h: "Low cost, compounding return", p: [
+        "The highest-impact GEO moves — llms.txt, schema, crawler access — cost hours, not budget, and keep paying off as AI search grows. The downside risk is essentially zero." ] },
+      { h: "What you're actually buying", p: [
+        "Citations in AI answers put your brand in front of users at the exact moment of intent, often before competitors appear. As zero-click search grows, being the answer is the new page-one." ] },
+      { h: "How to prove it", p: [
+        "Track your AI-visibility score over time, monitor referral traffic from AI sources, and periodically check whether the engines cite you for your priority questions." ] },
+    ],
+    faq: [
+      { q: "Is GEO worth the effort?", a: "For most sites, yes — the core moves are cheap, durable and low-risk, and AI citations reach users at the moment of intent as zero-click search grows." },
+      { q: "How do I measure GEO ROI?", a: "Track your AI-visibility score, referral traffic from AI sources, and citation rate for your priority queries over time." },
+      { q: "When does GEO pay off?", a: "Quick wins like llms.txt can affect AI answers within weeks; entity and content work compounds over months." },
+    ],
+    related: ["measuring-ai-visibility", "geo-guide", "agency-workflow"],
+  },
+
+  {
+    id: "multilingual-geo", cat: "GEO", emoji: "🌍",
+    title: "Multilingual GEO: Getting Cited by AI Across Languages",
+    dek: "AI answers questions in many languages. Here's how to make your content citable across all of them with hreflang and localized entities.",
+    keywords: "multilingual GEO, hreflang, international AI visibility, localization, GEO",
+    sections: [
+      { h: "AI answers in the user's language", p: [
+        "When someone asks in Hebrew, German or Spanish, AI prefers sources it can read in that language. Single-language sites miss citations in every other market." ] },
+      { h: "Connect your language versions", p: [
+        "Use hreflang to link each language and region variant so AI and search understand they're the same entity in different languages. This is the most common miss for international sites." ] },
+      { h: "Localize the entity, not just the words", p: [
+        "Provide localized llms.txt and meta descriptions, and keep entity details consistent across languages so AI resolves you correctly everywhere." ] },
+    ],
+    faq: [
+      { q: "How do I get cited by AI in other languages?", a: "Offer content in those languages, connect versions with hreflang, and provide localized llms.txt and metadata while keeping your entity consistent." },
+      { q: "What is hreflang and why does it matter?", a: "hreflang links language/region variants of a page so AI and search treat them as one entity in different languages — critical for international visibility." },
+      { q: "Is English-only enough?", a: "Only for English queries. To be cited in other markets, you need readable content and metadata in those languages." },
+    ],
+    related: ["technical-seo-checklist", "geo-guide", "local-geo"],
+  },
+
+  {
+    id: "featured-snippets-2026", cat: "AEO", emoji: "📌",
+    title: "Featured Snippets in 2026: Still Worth Optimizing For?",
+    dek: "Featured snippets and AI answers reward the same thing — a clean, direct answer. Here's how to win both at once.",
+    keywords: "featured snippets, position zero, AEO, direct answers, AI Overviews",
+    sections: [
+      { h: "Snippets and AI want the same content", p: [
+        "A concise, well-structured answer under a clear question heading wins both featured snippets and AI citations. Optimizing for one optimizes for the other." ] },
+      { h: "How to win the snippet", p: [
+        "Put a 40–60 word direct answer immediately under the question, support it with a list or table, and mark it up with FAQPage or HowTo schema where it fits." ] },
+      { h: "Don't over-optimize", p: [
+        "Answer genuinely and completely. Engines increasingly favor trustworthy depth over content engineered purely to grab a snippet." ] },
+    ],
+    faq: [
+      { q: "Are featured snippets still worth it in 2026?", a: "Yes — the same concise, structured answers that win snippets also win AI citations, so the work pays off twice." },
+      { q: "How do I win a featured snippet?", a: "Place a 40–60 word direct answer under a question heading, support it with a list or table, and add FAQPage or HowTo schema." },
+      { q: "Do snippets and AI Overviews overlap?", a: "Heavily. Both reward a clear, direct answer to a specific question, so optimize once for both." },
+    ],
+    related: ["aeo-guide", "ai-overviews", "faq-schema-howto"],
+  },
+
+  {
+    id: "howto-schema", cat: "AEO", emoji: "🪜",
+    title: "HowTo Schema: The AEO Magnet for Step-by-Step Content",
+    dek: "Step-by-step content is exactly what AI assistants love to surface. Here's how to add HowTo schema and structure it right.",
+    keywords: "HowTo schema, step-by-step, AEO, JSON-LD, instructions",
+    sections: [
+      { h: "Why HowTo content wins", p: [
+        "\"How do I…\" is one of the most common query types, and step-by-step instructions map perfectly to how AI assistants and voice answers present information." ] },
+      { h: "Structure and mark it up", p: [
+        "Break the task into clear, numbered steps with one action each, then add HowTo JSON-LD listing the steps. Keep each step short and self-contained so it can be read aloud." ] },
+      { h: "Pair it with visuals", p: [
+        "Add a relevant image or short description per step. It helps both human readers and the engines that surface your instructions." ] },
+    ],
+    faq: [
+      { q: "What is HowTo schema?", a: "JSON-LD that marks up step-by-step instructions so search and AI can present them as a guided sequence." },
+      { q: "When should I use HowTo schema?", a: "For any task-based content — setup guides, recipes, tutorials — where the answer is a sequence of steps." },
+      { q: "Does HowTo help with voice and AI?", a: "Yes. Clear, numbered steps are ideal for voice assistants and AI answers, and HowTo markup makes them machine-readable." },
+    ],
+    related: ["schema-7-types", "aeo-guide", "voice-aeo"],
+  },
+
+  {
+    id: "answer-first-writing", cat: "AEO", emoji: "🎯",
+    title: "Answer-First Writing: The AEO Copywriting Method",
+    dek: "Lead with the answer, then explain. This one habit makes your content dramatically more quotable by AI and snippets.",
+    keywords: "answer-first writing, AEO copywriting, inverted pyramid, direct answers",
+    sections: [
+      { h: "Lead with the answer", p: [
+        "State the answer in the first sentence under each heading, then add context and detail. AI engines lift that opening sentence; readers get value immediately." ] },
+      { h: "Use the question as the heading", p: [
+        "Phrase headings as the literal questions people ask. The heading-plus-direct-answer pattern is what snippets and AI both extract." ] },
+      { h: "Cut the warm-up", p: [
+        "Delete throat-clearing intros and filler. Front-load facts, numbers and specifics — they're what make an answer worth citing." ] },
+    ],
+    faq: [
+      { q: "What is answer-first writing?", a: "A method where you state the direct answer in the first sentence under a question heading, then elaborate — ideal for AI extraction and snippets." },
+      { q: "How long should the answer be?", a: "About 40–60 words: a self-contained answer that stands on its own before you add detail." },
+      { q: "Why does answer-first work for AI?", a: "AI engines tend to quote the single sentence that most cleanly answers the query, so leading with it makes you the easy choice." },
+    ],
+    related: ["geo-content", "aeo-guide", "featured-snippets-2026"],
+  },
+
+  {
+    id: "people-also-ask", cat: "AEO", emoji: "🔁",
+    title: "Winning \"People Also Ask\" and AI Follow-Up Questions",
+    dek: "Related questions are a goldmine for AEO. Here's how to map them and answer each one so you appear across the whole question cluster.",
+    keywords: "people also ask, related questions, AEO, question clusters, FAQ",
+    sections: [
+      { h: "Answer the whole cluster", p: [
+        "Users and AI rarely stop at one question. Mapping and answering the follow-ups around a topic makes you the source for the entire conversation, not just the opening query." ] },
+      { h: "Find the questions", p: [
+        "Mine \"People Also Ask\", autocomplete, your own support tickets and AI follow-ups to build a list of real questions, then answer each concisely on the page." ] },
+      { h: "Structure for extraction", p: [
+        "Use each question as a heading with a direct answer, and wrap the set in FAQPage schema so engines can pull any of them." ] },
+    ],
+    faq: [
+      { q: "How do I rank for People Also Ask?", a: "Answer the related questions around your topic, each as a question heading with a concise direct answer, and mark them up with FAQPage schema." },
+      { q: "Where do I find related questions?", a: "People Also Ask boxes, search autocomplete, your support tickets, and the follow-up questions AI suggests." },
+      { q: "Why answer follow-up questions?", a: "Because users and AI continue the conversation; covering the cluster makes you the source for the whole topic." },
+    ],
+    related: ["faq-schema-howto", "aeo-guide", "answer-first-writing"],
+  },
+
+  {
+    id: "conversational-content", cat: "AEO", emoji: "💭",
+    title: "Writing Conversational Content for AI Assistants",
+    dek: "AI assistants answer in natural language — and prefer sources that sound the way people ask. Here's how to write for them.",
+    keywords: "conversational content, AI assistants, natural language, AEO, voice",
+    sections: [
+      { h: "Match how people actually ask", p: [
+        "People query in full, natural questions. Mirror that phrasing in your headings and copy so AI can match the query to your answer." ] },
+      { h: "Plain language beats jargon", p: [
+        "Write clearly and define terms. AI summarizes plain, well-explained content far more reliably than dense, jargon-heavy prose." ] },
+      { h: "Keep answers self-contained", p: [
+        "Each answer should make sense on its own, without needing the paragraph before it — that's how it survives being lifted into a response." ] },
+    ],
+    faq: [
+      { q: "What is conversational content?", a: "Content written in natural, question-and-answer language that matches how people ask — making it easy for AI assistants to match and quote." },
+      { q: "Does jargon hurt AI visibility?", a: "Often, yes. Plain, well-defined language is easier for AI to summarize accurately than dense jargon." },
+      { q: "How do I write for voice assistants?", a: "Use natural question phrasing, keep answers short and self-contained, and add Speakable schema for key sentences." },
+    ],
+    related: ["voice-aeo", "answer-first-writing", "geo-content"],
+  },
+
+  {
+    id: "aeo-healthcare", cat: "AEO", emoji: "🩺",
+    title: "AEO for Healthcare: Answering Patient Questions the Right Way",
+    dek: "Health content faces a higher trust bar with AI. Here's how to answer patient questions clearly, safely and citably.",
+    keywords: "healthcare AEO, medical content, E-E-A-T, patient questions, trust signals",
+    sections: [
+      { h: "Trust is the gatekeeper", p: [
+        "For health topics, AI heavily weighs expertise and trust. Named medical authors, citations to authoritative sources and clear review dates are essential to be cited." ] },
+      { h: "Answer patient questions directly", p: [
+        "Structure content around the real questions patients ask, with concise, accurate answers up front, and mark them up with FAQPage schema." ] },
+      { h: "Be careful and clear", p: [
+        "Avoid overclaiming, include appropriate disclaimers, and link to authoritative medical sources. Safety and accuracy are part of trust." ] },
+    ],
+    faq: [
+      { q: "How does AEO work for healthcare?", a: "By answering real patient questions clearly and accurately, backed by named medical experts, authoritative citations and review dates that establish trust." },
+      { q: "Why is E-E-A-T critical for health content?", a: "AI applies a higher trust bar to health topics, so demonstrable expertise and authority strongly affect whether you're cited." },
+      { q: "Should health content have disclaimers?", a: "Yes. Clear, responsible framing and links to authoritative sources support both safety and trust." },
+    ],
+    related: ["eeat-ai", "aeo-guide", "entity-authority"],
+  },
+
+  {
+    id: "zero-click-strategy", cat: "AEO", emoji: "🚫",
+    title: "A Zero-Click Content Strategy That Still Wins",
+    dek: "Zero-click search isn't the enemy — it's a branding and authority channel. Here's how to win even when users don't click.",
+    keywords: "zero-click search, AEO strategy, brand visibility, AI answers",
+    sections: [
+      { h: "Reframe zero-click", p: [
+        "When AI answers without a click, being the cited source still builds brand recognition and authority at the moment of intent. Visibility itself has value." ] },
+      { h: "Give a reason to click anyway", p: [
+        "Lead with the answer for the citation, but offer depth the summary can't replace — tools, original data, examples — so motivated users still visit." ] },
+      { h: "Measure beyond clicks", p: [
+        "Track citations, branded search lift and assisted conversions, not just direct sessions, to see the real impact of AI visibility." ] },
+    ],
+    faq: [
+      { q: "Is zero-click search bad for my site?", a: "Not necessarily. Being the cited source builds brand authority at the moment of intent, and you can still earn clicks with depth the summary can't replace." },
+      { q: "How do I win in a zero-click world?", a: "Provide the concise answer for the citation plus unique depth, tools or data that give users a reason to click through." },
+      { q: "How do I measure zero-click impact?", a: "Track AI citations, branded search lift and assisted conversions, not just direct sessions." },
+    ],
+    related: ["aeo-guide", "geo-roi", "measuring-ai-visibility"],
+  },
+
+  {
+    id: "core-web-vitals-2026", cat: "SEO", emoji: "⚡",
+    title: "Core Web Vitals in 2026: What to Optimize and Why",
+    dek: "Fast, stable pages help crawlers, users and AI alike. Here's a practical Core Web Vitals checklist for 2026.",
+    keywords: "Core Web Vitals, LCP, INP, CLS, page speed, technical SEO",
+    sections: [
+      { h: "The three metrics that matter", p: [
+        "Largest Contentful Paint (loading), Interaction to Next Paint (responsiveness) and Cumulative Layout Shift (stability) summarize real user experience — and influence how efficiently your pages are crawled." ] },
+      { h: "Quick wins", list: [
+        "Serve images in modern formats with width/height set.",
+        "Defer non-critical JavaScript and third-party scripts.",
+        "Reserve space for async content to avoid layout shift.",
+        "Use a CDN and cache aggressively." ] },
+      { h: "Why it helps AI too", p: [
+        "Faster, more stable pages crawl better and signal quality. They won't make you citable on their own, but they remove friction from everything else." ] },
+    ],
+    faq: [
+      { q: "What are Core Web Vitals in 2026?", a: "LCP (loading), INP (responsiveness) and CLS (visual stability) — Google's user-experience metrics that affect rankings and crawl efficiency." },
+      { q: "Do Core Web Vitals affect AI visibility?", a: "Indirectly. Fast, stable pages crawl better and signal quality, supporting the rest of your GEO and SEO work." },
+      { q: "What's the fastest CWV win?", a: "Optimize images (modern formats, set dimensions) and defer non-critical JavaScript." },
+    ],
+    related: ["technical-seo-checklist", "js-rendering-seo", "seo-ai-era"],
+  },
+
+  {
+    id: "internal-linking-ai", cat: "SEO", emoji: "🔗",
+    title: "Internal Linking for AI Crawlers and Topic Authority",
+    dek: "Smart internal links help AI understand your topic structure and find every page. Here's how to do it well.",
+    keywords: "internal linking, topic clusters, crawlability, topical authority, SEO",
+    sections: [
+      { h: "Links map your expertise", p: [
+        "Internal links show AI and search how your content connects, reinforcing topical authority and ensuring every page is discoverable." ] },
+      { h: "Build topic clusters", p: [
+        "Create a pillar page for each core topic and link it to supporting articles (and back). This cluster structure signals depth and helps engines understand your focus." ] },
+      { h: "Use descriptive anchors", p: [
+        "Anchor text should describe the destination in plain language. It helps users, crawlers and AI understand what each linked page is about." ] },
+    ],
+    faq: [
+      { q: "How does internal linking help AI visibility?", a: "It helps AI discover every page and understand how your content connects, reinforcing topical authority around your core subjects." },
+      { q: "What is a topic cluster?", a: "A pillar page on a core topic linked to and from supporting articles, signaling depth and structure to engines." },
+      { q: "What anchor text should I use?", a: "Descriptive, plain-language anchors that say what the linked page is about — avoid generic 'click here'." },
+    ],
+    related: ["technical-seo-checklist", "content-pruning", "entity-authority"],
+  },
+
+  {
+    id: "sitemap-guide", cat: "SEO", emoji: "🗺️",
+    title: "The XML Sitemap Guide for AI and Search",
+    dek: "A clean sitemap helps every crawler — AI included — find and prioritize your pages. Here's how to build and submit one.",
+    keywords: "XML sitemap, sitemap.xml, crawl, indexing, AI crawlers",
+    sections: [
+      { h: "What a sitemap does", p: [
+        "A sitemap lists your important URLs so crawlers discover them quickly and understand which pages matter, with optional lastmod and priority hints." ] },
+      { h: "Build a good one", p: [
+        "Include canonical, indexable URLs only; keep it current with lastmod dates; and reference it from robots.txt so AI crawlers find it automatically." ] },
+      { h: "Submit and monitor", p: [
+        "Submit your sitemap in Google Search Console and Bing Webmaster Tools, and keep it updated as you publish — your blog generator can rebuild it automatically." ] },
+    ],
+    faq: [
+      { q: "Do AI crawlers use sitemaps?", a: "Yes — a sitemap referenced in robots.txt helps AI and search crawlers discover and prioritize your pages faster." },
+      { q: "What belongs in a sitemap?", a: "Only canonical, indexable URLs, ideally with lastmod dates. Exclude redirects, duplicates and noindex pages." },
+      { q: "Where do I submit my sitemap?", a: "Reference it in robots.txt and submit it in Google Search Console and Bing Webmaster Tools." },
+    ],
+    related: ["technical-seo-checklist", "robots-ai-guide", "sitemap-guide"],
+  },
+
+  {
+    id: "structured-data-mistakes", cat: "SEO", emoji: "🧱",
+    title: "7 Structured Data Mistakes That Hurt AI Visibility",
+    dek: "Bad schema is worse than none. Here are the most common JSON-LD mistakes and how to fix them before they cost you citations.",
+    keywords: "structured data mistakes, JSON-LD errors, schema validation, rich results",
+    sections: [
+      { h: "Common schema mistakes", p: [
+        "Most schema problems come down to mismatches, omissions and invalid syntax that cause engines to ignore your markup — or distrust it." ] },
+      { h: "Fix them before shipping", p: [
+        "Validate every change in Google's Rich Results Test, make sure schema matches visible content, and fill required properties for each type." ] },
+    ],
+    comparison: {
+      title: "Schema mistakes vs fixes",
+      cols: ["Mistake", "Fix"],
+      rows: [
+        ["Schema doesn't match visible content", "Mark up only what's on the page"],
+        ["Missing required properties", "Fill all required fields per type"],
+        ["Invalid JSON-LD syntax", "Validate with Rich Results Test"],
+        ["Marking up hidden/fake content", "Only mark up real, visible content"],
+        ["One @type doing everything", "Use the correct specific types"],
+      ],
+    },
+    faq: [
+      { q: "Is bad schema worse than no schema?", a: "Often yes — invalid or mismatched markup can be ignored or erode trust. Always validate before shipping." },
+      { q: "How do I check my structured data?", a: "Use Google's Rich Results Test and Schema.org validator, and confirm the markup matches your visible content." },
+      { q: "What's the most common schema mistake?", a: "Marking up content that isn't visible on the page, which engines may ignore or penalize." },
+    ],
+    related: ["schema-7-types", "faq-schema-howto", "technical-seo-checklist"],
+  },
+
+  {
+    id: "content-pruning", cat: "SEO", emoji: "✂️",
+    title: "Content Pruning: Cut the Pages Dragging Down Your Authority",
+    dek: "Thin, outdated pages dilute your topical authority for both Google and AI. Here's how to prune safely and strengthen the rest.",
+    keywords: "content pruning, thin content, topical authority, content audit, SEO",
+    sections: [
+      { h: "Why pruning helps", p: [
+        "Low-quality, outdated or redundant pages dilute the signals that define your expertise. Removing or consolidating them concentrates authority on the pages that matter." ] },
+      { h: "How to prune safely", p: [
+        "Audit pages by value and traffic, then update, consolidate or redirect the weak ones. Never delete without redirecting if a URL has links or history." ] },
+      { h: "Strengthen what remains", p: [
+        "Merge thin posts into comprehensive ones, refresh facts and dates, and re-link them into your topic clusters." ] },
+    ],
+    faq: [
+      { q: "What is content pruning?", a: "Auditing and removing, consolidating or improving low-value pages so your strongest content carries more topical authority." },
+      { q: "Does pruning help AI visibility?", a: "Yes — concentrating quality signals on fewer, stronger pages makes your expertise clearer to AI and search." },
+      { q: "Should I delete old pages?", a: "Only after redirecting URLs with links or history. Prefer updating or consolidating over outright deletion." },
+    ],
+    related: ["internal-linking-ai", "ai-content-freshness", "seo-ai-era"],
+  },
+
+  {
+    id: "js-rendering-seo", cat: "SEO", emoji: "🧩",
+    title: "JavaScript Rendering and Why AI Crawlers Skip Your Site",
+    dek: "Many AI crawlers don't run JavaScript. If your content only appears after JS, you may be invisible. Here's how to fix it.",
+    keywords: "JavaScript rendering, SSR, AI crawlers, crawlability, hydration",
+    sections: [
+      { h: "The JS visibility problem", p: [
+        "Unlike Googlebot, many AI crawlers fetch raw HTML and don't execute JavaScript. If your text, links or schema only appear after client-side rendering, those crawlers see an empty shell." ] },
+      { h: "Serve content in the HTML", p: [
+        "Use server-side rendering or static generation so your key content, headings and JSON-LD are present in the initial HTML response, not injected later by JS." ] },
+      { h: "Verify what crawlers see", p: [
+        "Check your page's raw HTML (view source or curl) — if the main content isn't there, neither AI crawlers nor your audit will see it." ] },
+    ],
+    faq: [
+      { q: "Do AI crawlers run JavaScript?", a: "Many don't. They fetch raw HTML, so content that only appears after client-side JS rendering can be invisible to them." },
+      { q: "How do I fix JS-only content?", a: "Use server-side rendering or static generation so key content and schema are in the initial HTML response." },
+      { q: "How do I check what crawlers see?", a: "View the page source or curl the URL — if the main content and JSON-LD aren't in the raw HTML, crawlers likely can't read them." },
+    ],
+    related: ["technical-seo-checklist", "core-web-vitals-2026", "invisible-to-ai"],
+  },
+
+  {
+    id: "eeat-ai", cat: "SEO", emoji: "🏅",
+    title: "E-E-A-T in the AI Era: Trust Signals That Travel",
+    dek: "Experience, Expertise, Authoritativeness and Trust matter to AI as much as to Google. Here's how to make them machine-readable.",
+    keywords: "E-E-A-T, trust signals, expertise, authority, AI trust, GEO",
+    sections: [
+      { h: "Why E-E-A-T crosses over to AI", p: [
+        "AI engines, like Google, prefer sources they can trust. Demonstrable experience, named experts and authoritative references make you a safer source to cite." ] },
+      { h: "Make trust signals machine-readable", p: [
+        "Add named authors with Person schema and sameAs links, show credentials and review dates, and cite authoritative sources. Mark up reviews and ratings so trust travels." ] },
+      { h: "Show real experience", p: [
+        "First-hand examples, original data and case studies signal genuine experience — increasingly the differentiator both Google and AI reward." ] },
+    ],
+    faq: [
+      { q: "Does E-E-A-T affect AI visibility?", a: "Yes. AI engines favor trustworthy sources, so named experts, authoritative references and real experience make you more citable." },
+      { q: "How do I show E-E-A-T to machines?", a: "Use Person schema with sameAs links, display credentials and review dates, cite authoritative sources, and mark up reviews." },
+      { q: "What is the extra 'E' in E-E-A-T?", a: "Experience — first-hand knowledge shown through examples, original data and case studies." },
+    ],
+    related: ["entity-authority", "reviews-ai-trust", "aeo-healthcare"],
+  },
+
+  {
+    id: "image-seo-ai", cat: "SEO", emoji: "🖼️",
+    title: "Image SEO for AI: Alt Text, Captions and Context",
+    dek: "AI can't see your images — it reads the text around them. Here's how to make visual content count for AI visibility.",
+    keywords: "image SEO, alt text, captions, ImageObject, AI visibility",
+    sections: [
+      { h: "AI reads text, not pixels", p: [
+        "Most crawlers and AI engines understand images through their alt text, captions, file names and surrounding context — not the pixels themselves." ] },
+      { h: "Describe images well", p: [
+        "Write descriptive alt text for meaningful images, add captions where useful, use clear file names, and place images near relevant text." ] },
+      { h: "Mark up key images", p: [
+        "Use ImageObject in your schema for important visuals (logos, product shots) so engines can associate them with your entity." ] },
+    ],
+    faq: [
+      { q: "Does image SEO help AI visibility?", a: "Yes, indirectly. AI reads alt text, captions and surrounding context, so well-described images add to the signals it understands." },
+      { q: "What makes good alt text?", a: "A concise, accurate description of the image's content and purpose — not keyword stuffing." },
+      { q: "Should I use ImageObject schema?", a: "For important images like logos and product shots, yes — it helps engines associate them with your entity." },
+    ],
+    related: ["technical-seo-checklist", "schema-7-types", "ecommerce-aeo"],
+  },
+
+  {
+    id: "geopagescan-score-explained", cat: "Tool", emoji: "🧮",
+    title: "Your GeoPageScan Score, Explained Category by Category",
+    dek: "What each of the six audit categories measures, why it matters, and the fastest way to improve each one.",
+    keywords: "GeoPageScan score, AI visibility score, audit categories, GEO AEO SEO",
+    sections: [
+      { h: "One score, six categories", p: [
+        "Your overall score blends six categories: LLM Optimization, Structured Data, AI Crawlability, Authority Signals, Content Clarity and Technical SEO. Each reflects a different slice of AI readiness." ] },
+      { h: "What moves each category", list: [
+        "LLM Optimization — publish and enrich llms.txt; add FAQ content.",
+        "Structured Data — add Organization, FAQPage, AggregateRating schema.",
+        "AI Crawlability — allow AI bots, ship a sitemap, avoid JS-only content.",
+        "Authority — named authors, sameAs links, marked-up reviews.",
+        "Content Clarity — question headings, answer-first, fewer superlatives.",
+        "Technical SEO — canonical, hreflang, Open Graph, viewport, vitals." ] },
+      { h: "Work the lowest scores first", p: [
+        "Start with your weakest categories and the Quick Wins, then re-scan to confirm each lift." ] },
+    ],
+    faq: [
+      { q: "What does the GeoPageScan score measure?", a: "Your overall AI readiness, blended from six categories: LLM Optimization, Structured Data, AI Crawlability, Authority, Content Clarity and Technical SEO." },
+      { q: "How do I raise my score fastest?", a: "Fix your lowest-scoring categories and the listed Quick Wins first — usually llms.txt, crawler access and core schema — then re-scan." },
+      { q: "What's a good score?", a: "70+ is a solid foundation, 40–69 needs improvement, and below 40 signals significant gaps." },
+    ],
+    related: ["introducing-geopagescan", "quick-wins-playbook", "measuring-ai-visibility"],
+  },
+
+  {
+    id: "quick-wins-playbook", cat: "Tool", emoji: "🏆",
+    title: "The 10 GEO Quick Wins You Can Ship This Week",
+    dek: "Ten high-impact, low-effort changes that move your AI-visibility score fast — most take under an hour each.",
+    keywords: "GEO quick wins, AI visibility checklist, llms.txt, schema, robots.txt",
+    sections: [
+      { h: "Ship these first", list: [
+        "Publish an llms.txt at your domain root.",
+        "Allow GPTBot, ClaudeBot, PerplexityBot and Google-Extended in robots.txt.",
+        "Add Organization schema with a sameAs array.",
+        "Add FAQPage schema to your top pages.",
+        "Add AggregateRating for existing reviews.",
+        "Write a one-sentence entity definition in your hero/About.",
+        "Add a FAQ section answering your top questions.",
+        "Set canonical, viewport and html lang on every page.",
+        "Add hreflang if you have multiple languages.",
+        "Ship a sitemap and reference it in robots.txt." ] },
+      { h: "Then measure", p: [
+        "Re-scan after each change. Most of these take under an hour and together they typically move the score significantly." ] },
+    ],
+    faq: [
+      { q: "What's the single best GEO quick win?", a: "Publishing an llms.txt — it's the highest-impact, lowest-effort change and most competitors don't have one." },
+      { q: "How long do these quick wins take?", a: "Most take under an hour each; llms.txt and robots.txt take minutes." },
+      { q: "How do I know they worked?", a: "Re-run a GeoPageScan audit after each change to see the score lift and any remaining gaps." },
+    ],
+    related: ["geopagescan-score-explained", "geo-guide", "invisible-to-ai"],
+  },
+
+  {
+    id: "competitor-ai-audit", cat: "Tool", emoji: "🔬",
+    title: "How to Run a Competitor AI-Visibility Audit",
+    dek: "See exactly where you stand against competitors in AI search — and find the gaps you can exploit this quarter.",
+    keywords: "competitor audit, AI visibility benchmark, GEO competitive analysis",
+    sections: [
+      { h: "Benchmark the field", p: [
+        "Scan your top competitors with the same audit you use on yourself. Comparing scores and category gaps shows exactly where you can leapfrog them." ] },
+      { h: "Find the exploitable gaps", p: [
+        "Look for categories where everyone scores low — often llms.txt and structured data. Being first to fix a shared weakness is the fastest path to citations." ] },
+      { h: "Check who AI cites today", p: [
+        "Ask the major engines your category's key questions and note who's cited. That's your real competitive set in AI search." ] },
+    ],
+    faq: [
+      { q: "How do I audit a competitor's AI visibility?", a: "Run the same AI-visibility scan on their site, compare scores and category gaps, and check which sources AI cites for your shared key questions." },
+      { q: "What gaps should I look for?", a: "Categories where competitors score low — often llms.txt and structured data — since being first to fix them wins citations fastest." },
+      { q: "Can I scan any website?", a: "Yes. GeoPageScan works on any public URL, so you can benchmark competitors freely." },
+    ],
+    related: ["agency-workflow", "measuring-ai-visibility", "geopagescan-score-explained"],
+  },
+
+  {
+    id: "geo-checklist-2026", cat: "Tool", emoji: "📋",
+    title: "The Complete GEO Checklist for 2026",
+    dek: "A single, printable checklist covering every GEO, AEO and SEO signal that affects whether AI cites your site.",
+    keywords: "GEO checklist, AI visibility checklist 2026, GEO AEO SEO checklist",
+    sections: [
+      { h: "Foundations", list: [
+        "Publish and maintain llms.txt.",
+        "Allow AI crawlers; ship and submit a sitemap.",
+        "Serve key content as crawlable HTML, not JS-only." ] },
+      { h: "Structure & entity", list: [
+        "Organization + FAQPage schema, validated.",
+        "sameAs links and named authors (Person schema).",
+        "Marked-up reviews (AggregateRating)." ] },
+      { h: "Content & technical", list: [
+        "Question-led, answer-first content with specific facts.",
+        "Canonical, hreflang, Open Graph, viewport, html lang.",
+        "Green Core Web Vitals." ] },
+    ],
+    faq: [
+      { q: "What's on a complete GEO checklist?", a: "Foundations (llms.txt, crawler access, crawlable HTML), structure and entity (schema, sameAs, reviews), and content and technical (answer-first content, canonical/hreflang, Core Web Vitals)." },
+      { q: "How do I work through it?", a: "Tackle foundations first, then entity and structure, then content and technical — re-scanning to confirm each lift." },
+      { q: "Is there a tool to check it for me?", a: "Yes. A free GeoPageScan audit checks most of this automatically and prioritizes the fixes." },
+    ],
+    related: ["quick-wins-playbook", "geo-guide", "technical-seo-checklist"],
+  },
+
+  {
+    id: "wikipedia-wikidata", cat: "GEO", emoji: "📚",
+    title: "Wikipedia & Wikidata: The Entity Boost AI Trusts",
+    dek: "A presence on Wikipedia or Wikidata is one of the strongest entity signals for AI. Here's how to approach it the right way.",
+    keywords: "Wikipedia, Wikidata, entity, knowledge graph, AI trust, GEO",
+    sections: [
+      { h: "Why these sources carry weight", p: [
+        "Wikipedia and Wikidata are heavily used to ground AI knowledge. A verifiable presence strengthens your entity and how confidently AI can describe and cite you." ] },
+      { h: "Earn it, don't fake it", p: [
+        "Notability rules are strict. Build genuine third-party coverage first; a Wikidata entry is more attainable than a Wikipedia article and still a strong, structured signal." ] },
+      { h: "Connect it back", p: [
+        "Reference your Wikidata/Wikipedia entity in your Organization schema's sameAs array so machines link your site to the entity record." ] },
+    ],
+    faq: [
+      { q: "Does Wikipedia help AI visibility?", a: "Yes — Wikipedia and Wikidata are major grounding sources for AI, so a verifiable presence strengthens your entity and citability." },
+      { q: "Is Wikidata easier than Wikipedia?", a: "Generally yes. A structured Wikidata entry is more attainable than a notable Wikipedia article and is still a strong entity signal." },
+      { q: "How do I connect it to my site?", a: "Add the Wikidata/Wikipedia URL to your Organization schema's sameAs array so engines link your entity to the record." },
+    ],
+    related: ["entity-authority", "ai-knowledge-graph", "brand-mentions-ai"],
+  },
+
+  {
+    id: "reviews-ai-trust", cat: "GEO", emoji: "⭐",
+    title: "How Reviews Shape AI Recommendations (and How to Mark Them Up)",
+    dek: "Ratings are a top signal when AI recommends businesses and products. Here's how to surface and structure yours for maximum effect.",
+    keywords: "reviews, AggregateRating, Review schema, AI recommendations, social proof",
+    sections: [
+      { h: "Ratings drive recommendations", p: [
+        "When AI suggests businesses or products, it leans heavily on ratings and review signals. An unmarked 5-star reputation is invisible to engines that can't read it." ] },
+      { h: "Mark up your reviews", p: [
+        "Add AggregateRating and Review JSON-LD with ratingValue and reviewCount that match what's visible on the page, then validate it." ] },
+      { h: "Surface real proof", p: [
+        "Display genuine testimonials and ratings prominently, and keep them current — freshness and authenticity matter to both users and AI." ] },
+    ],
+    faq: [
+      { q: "Do reviews affect AI recommendations?", a: "Strongly. Ratings are a top signal when AI recommends businesses and products — but only if they're marked up so engines can read them." },
+      { q: "What schema do reviews use?", a: "AggregateRating for the overall score and Review for individual reviews, with values matching the visible content." },
+      { q: "Are unmarked reviews enough?", a: "No. Without Review/AggregateRating markup, AI may not factor your ratings into recommendations." },
+    ],
+    related: ["schema-7-types", "local-geo", "eeat-ai"],
+  },
+
+  {
+    id: "ai-content-freshness", cat: "GEO", emoji: "🕒",
+    title: "Why Content Freshness Matters for AI Citations",
+    dek: "AI engines prefer current, dated content for many queries. Here's how to keep your pages fresh without churning out filler.",
+    keywords: "content freshness, dateModified, updating content, AI citations, GEO",
+    sections: [
+      { h: "Recency is a trust signal", p: [
+        "For many topics, AI favors recent, clearly dated content over stale pages. Visible publish and update dates signal that your information is current." ] },
+      { h: "Refresh, don't churn", p: [
+        "Update your best pages with new facts, dates and examples, and bump the dateModified in your Article schema. Maintaining strong pages beats publishing thin new ones." ] },
+      { h: "Show the dates", p: [
+        "Display publish and updated dates on the page and in schema so both users and engines can see your content is maintained." ] },
+    ],
+    faq: [
+      { q: "Does content freshness affect AI visibility?", a: "Yes, for many queries. AI favors recent, clearly dated content, so keeping key pages current improves citability." },
+      { q: "How do I keep content fresh?", a: "Refresh your strongest pages with new facts and examples and update the dateModified in your Article schema, rather than churning out thin new posts." },
+      { q: "Should I show update dates?", a: "Yes — visible publish and updated dates, mirrored in schema, signal that your content is maintained." },
+    ],
+    related: ["content-pruning", "geo-content", "entity-authority"],
+  },
+];

@@ -1,0 +1,105 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-06-02",
+  "description": "Living configuration for the GeoPageScan audit engine. Maintained by the Optimizer Agent (see CLAUDE.md). Weights, signals and crawler lists evolve as the GEO/AEO/SEO landscape changes.",
+
+  "aiCrawlers": [
+    { "name": "GPTBot", "company": "OpenAI", "purpose": "ChatGPT training & retrieval", "added": "2023-08-07" },
+    { "name": "ChatGPT-User", "company": "OpenAI", "purpose": "ChatGPT live browsing", "added": "2023-09-25" },
+    { "name": "OAI-SearchBot", "company": "OpenAI", "purpose": "ChatGPT Search index", "added": "2024-11-04" },
+    { "name": "ClaudeBot", "company": "Anthropic", "purpose": "Claude training & retrieval", "added": "2024-04-01" },
+    { "name": "Claude-Web", "company": "Anthropic", "purpose": "Claude live browsing", "added": "2024-04-01" },
+    { "name": "anthropic-ai", "company": "Anthropic", "purpose": "Legacy Anthropic crawler", "added": "2023-09-01" },
+    { "name": "PerplexityBot", "company": "Perplexity", "purpose": "Perplexity answer index", "added": "2023-11-01" },
+    { "name": "Perplexity-User", "company": "Perplexity", "purpose": "Perplexity live fetch", "added": "2024-12-01" },
+    { "name": "Google-Extended", "company": "Google", "purpose": "Gemini / AI Overviews", "added": "2023-09-28" },
+    { "name": "Googlebot", "company": "Google", "purpose": "Google Search & AI Overviews", "added": "2001-01-01" },
+    { "name": "Applebot-Extended", "company": "Apple", "purpose": "Apple Intelligence", "added": "2024-06-01" },
+    { "name": "Bingbot", "company": "Microsoft", "purpose": "Bing & Copilot", "added": "2010-10-01" },
+    { "name": "Amazonbot", "company": "Amazon", "purpose": "Alexa / Rufus answers", "added": "2024-04-01" },
+    { "name": "YouBot", "company": "You.com", "purpose": "You.com answer engine", "added": "2023-02-01" },
+    { "name": "Meta-ExternalAgent", "company": "Meta", "purpose": "Meta AI", "added": "2024-08-01" }
+  ],
+
+  "schemaTypes": [
+    { "type": "FAQPage", "geoImpact": "critical", "note": "Directly marks Q&A pairs for AI answer extraction" },
+    { "type": "LocalBusiness", "geoImpact": "critical", "note": "Business entity definition for local AI queries" },
+    { "type": "Organization", "geoImpact": "high", "note": "Brand entity recognition & knowledge graph" },
+    { "type": "Article", "geoImpact": "high", "note": "Editorial signal with author + datePublished" },
+    { "type": "BlogPosting", "geoImpact": "high", "note": "Editorial content signal" },
+    { "type": "HowTo", "geoImpact": "high", "note": "Step-by-step content is an AEO magnet" },
+    { "type": "AggregateRating", "geoImpact": "high", "note": "Star ratings surface in AI recommendations" },
+    { "type": "Review", "geoImpact": "high", "note": "Individual review signal for trust" },
+    { "type": "Product", "geoImpact": "medium", "note": "E-commerce AI product recommendations" },
+    { "type": "SpeakableSpecification", "geoImpact": "medium", "note": "Marks content for voice / AI reading" },
+    { "type": "BreadcrumbList", "geoImpact": "medium", "note": "Site hierarchy for AI understanding" },
+    { "type": "WebSite", "geoImpact": "medium", "note": "Site-level entity + sitelinks search" },
+    { "type": "Person", "geoImpact": "medium", "note": "Author / founder entity linking" }
+  ],
+
+  "categoryWeights": {
+    "content": 0.22,
+    "structured-data": 0.2,
+    "crawlability": 0.18,
+    "llms": 0.16,
+    "authority": 0.14,
+    "technical": 0.1
+  },
+
+  "scoringThresholds": {
+    "green": 70,
+    "yellow": 40,
+    "red": 0
+  },
+
+  "llmsTxtSignals": {
+    "requiredSections": ["overview", "services", "key pages", "contact"],
+    "positiveSignals": [
+      "company / entity definition",
+      "founding year",
+      "explicit service or product list",
+      "key page URLs with descriptions",
+      "target audience description",
+      "contact information",
+      "key term definitions"
+    ]
+  },
+
+  "contentSignals": {
+    "positive": [
+      "question-style headings (What / How / Why / When)",
+      "direct answer in first sentence",
+      "definition sentences ('X is a ...')",
+      "FAQ or Q&A blocks",
+      "specific numbers, dates and named entities",
+      "scannable lists and tables"
+    ],
+    "negative": [
+      "marketing superlatives ('best', 'leading', 'world-class')",
+      "vague value propositions with no facts",
+      "wall-of-text with no headings",
+      "content locked behind JavaScript or video only",
+      "no author or publish date"
+    ]
+  },
+
+  "researchSources": [
+    "https://platform.openai.com/docs/bots",
+    "https://docs.anthropic.com",
+    "https://schema.org/docs/releases.html",
+    "https://developers.google.com/search/blog",
+    "https://llmstxt.org",
+    "https://searchengineland.com",
+    "https://www.searchenginejournal.com",
+    "https://ahrefs.com/blog",
+    "https://www.semrush.com/blog"
+  ],
+
+  "changeLog": [
+    {
+      "version": "2.0.0",
+      "date": "2026-06-02",
+      "summary": "Initial living config: 15 AI crawlers, 13 schema types with GEO impact ratings, category weights, llms.txt + content signal libraries, research sources."
+    }
+  ]
+}
