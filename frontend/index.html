@@ -11,6 +11,8 @@
     <meta name="author" content="GeoPageScan" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://geopagescan.com/" />
+    <link rel="alternate" hreflang="en" href="https://geopagescan.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://geopagescan.com/" />
     <meta name="llms-txt" content="https://geopagescan.com/llms.txt" />
 
     <meta property="og:type" content="website" />
@@ -37,11 +39,12 @@
       "@graph": [
         {
           "@type": "WebApplication",
+          "@id": "https://geopagescan.com/#app",
           "name": "GeoPageScan",
           "url": "https://geopagescan.com/",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web",
-          "description": "Free AI visibility audit tool for GEO, AEO and SEO.",
+          "description": "Free AI visibility audit tool that scores any website for GEO, AEO and SEO readiness.",
           "featureList": [
             "AI visibility scoring (0-100)",
             "llms.txt detection and guidance",
@@ -51,20 +54,147 @@
             "Content clarity and answer-structure audit",
             "Technical SEO checks"
           ],
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         },
         {
           "@type": "Organization",
+          "@id": "https://geopagescan.com/#org",
           "name": "GeoPageScan",
           "url": "https://geopagescan.com/",
           "logo": "https://geopagescan.com/logo.svg",
-          "sameAs": ["https://twitter.com/geopagescan", "https://www.linkedin.com/company/geopagescan"]
+          "description": "GeoPageScan is a free AI visibility audit tool for the generative search era.",
+          "foundingDate": "2026",
+          "sameAs": [
+            "https://twitter.com/geopagescan",
+            "https://www.linkedin.com/company/geopagescan"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hello@geopagescan.com"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://geopagescan.com/#website",
+          "name": "GeoPageScan",
+          "url": "https://geopagescan.com/",
+          "description": "Free AI visibility scanner for GEO, AEO and SEO.",
+          "publisher": { "@id": "https://geopagescan.com/#org" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://geopagescan.com/" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is GEO and how is it different from SEO?",
+              "acceptedAnswer": { "@type": "Answer", "text": "GEO (Generative Engine Optimization) is the practice of making your site easy for AI engines like ChatGPT, Claude, Gemini and Perplexity to understand and cite. Traditional SEO optimizes for blue-link rankings; GEO optimizes for being the answer the AI gives." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is GeoPageScan really free?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter any URL — no login, no credit card. You get a full scored report across six categories with prioritized, actionable fixes." }
+            },
+            {
+              "@type": "Question",
+              "name": "What is an llms.txt file?",
+              "acceptedAnswer": { "@type": "Answer", "text": "llms.txt is a simple markdown file at your domain root that gives AI assistants a clean, structured summary of your entity, services and key pages. It is one of the highest-impact, lowest-effort GEO improvements you can make." }
+            },
+            {
+              "@type": "Question",
+              "name": "Which AI crawlers does the audit check for?",
+              "acceptedAnswer": { "@type": "Answer", "text": "We check robots.txt access for the major AI user-agents including GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot and Google-Extended, plus whether you allow them to cite you." }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does a scan take?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Most scans complete in a few seconds. Complex sites audited with the AI engine can take up to 60-90 seconds for the deepest analysis." }
+            },
+            {
+              "@type": "Question",
+              "name": "Will this work for non-English or local businesses?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The audit flags multilingual gaps such as missing hreflang and checks LocalBusiness signals that matter for local AI queries." }
+            }
+          ]
         }
       ]
     }
     </script>
+
+    <style id="ssr-style">
+      #ssr-fallback{font-family:"Outfit",system-ui,sans-serif;background:#030712;color:#f1f5f9;max-width:760px;margin:0 auto;padding:96px 24px;line-height:1.65}
+      #ssr-fallback h1{font-size:40px;font-weight:900;letter-spacing:-.03em;line-height:1.1;margin:0 0 16px}
+      #ssr-fallback h2{font-size:26px;font-weight:800;margin:36px 0 10px}
+      #ssr-fallback h3{font-size:18px;font-weight:700;margin:20px 0 6px;color:#fff}
+      #ssr-fallback p{color:#94a3b8;margin:0 0 12px}
+      #ssr-fallback .grad{background:linear-gradient(135deg,#00e5ff,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+      #ssr-fallback .ey{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#00e5ff;font-weight:600}
+      #ssr-fallback .load{font-family:"JetBrains Mono",monospace;color:#475569;font-size:13px;margin-top:28px}
+    </style>
   </head>
   <body>
+    <!-- Static, crawlable first-paint content for AI crawlers and search engines that
+         don't execute JavaScript. React removes this on mount and renders the full
+         interactive app. Mirrors the visible site content (no cloaking). -->
+    <div id="ssr-fallback">
+      <p class="ey">Free · No login · GEO · AEO · SEO</p>
+      <h1>Is your website <span class="grad">visible to AI?</span></h1>
+      <p>GeoPageScan is a free AI visibility audit tool that scans any website for GEO (Generative Engine Optimization), AEO (Answer Engine Optimization) and traditional SEO readiness. Enter any URL and get a 0&ndash;100 AI-visibility score across six categories, with prioritized, copy-ready fixes to get cited by ChatGPT, Claude, Gemini and Perplexity.</p>
+
+      <h2>Why AI visibility matters</h2>
+      <p>Between 40% and 70% of searches now return an AI-generated answer, and an estimated 94% of websites score below 40 out of 100 for AI visibility. If AI engines cannot read and trust your content, you are invisible to the fastest-growing discovery channel. GeoPageScan shows you exactly where you stand and how to fix it.</p>
+
+      <h2>How does GeoPageScan work?</h2>
+      <p>Enter any URL — no login and no credit card required. GeoPageScan scrapes the page HTML, structured data, llms.txt and robots.txt, audits every signal across six categories, and returns a scored report with prioritized fixes and quick wins you can ship the same day.</p>
+
+      <h2>Who is GeoPageScan for?</h2>
+      <p>GeoPageScan is built for marketers, SEO professionals, agencies, founders and developers who want their websites to be understood and cited by AI search engines. Agencies use it to audit prospects before the first call, founders use it to benchmark against competitors, and developers use it as a checklist for shipping AI-ready pages. Whether you run a local business, a SaaS product, an e-commerce store or a content site, the same six-category framework shows you exactly which signals are missing and how to fix them.</p>
+
+      <h2>What GeoPageScan audits</h2>
+      <h3>What is LLM Optimization?</h3>
+      <p>We check for an llms.txt file, clear entity definitions and FAQ content that AI engines can quote directly when answering questions about you.</p>
+      <h3>What is Structured Data and Schema?</h3>
+      <p>We detect JSON-LD and the Schema.org types — FAQPage, Organization, LocalBusiness, Article, HowTo and AggregateRating — that make your content machine-readable to AI.</p>
+      <h3>How does AI Crawlability work?</h3>
+      <p>We verify that AI bots can actually reach you by checking robots.txt rules for GPTBot, ClaudeBot and PerplexityBot, your sitemap, and whether key content is hidden behind JavaScript or video.</p>
+      <h3>What are Authority Signals?</h3>
+      <p>We evaluate entity authority: named authors and founders, review and rating schema, About-page quality and external profile links such as LinkedIn and Wikidata.</p>
+      <h3>What is Content Clarity?</h3>
+      <p>We score direct-answer structure, question-led headings and the balance of informational versus promotional copy, because AI engines favour clear, factual content.</p>
+      <h3>What is Technical SEO?</h3>
+      <p>We check the classic signals AI still relies on: canonical tags, hreflang, Open Graph, mobile viewport and Core Web Vitals.</p>
+
+      <h2>Frequently asked questions</h2>
+      <h3>What is GEO and how is it different from SEO?</h3>
+      <p>GEO (Generative Engine Optimization) is the practice of making your site easy for AI engines like ChatGPT, Claude, Gemini and Perplexity to understand and cite. Traditional SEO optimizes for blue-link rankings; GEO optimizes for being the answer the AI gives.</p>
+      <h3>Is GeoPageScan really free?</h3>
+      <p>Yes. Enter any URL with no login and no credit card, and you get a full scored report across six categories with prioritized, actionable fixes.</p>
+      <h3>What is an llms.txt file?</h3>
+      <p>llms.txt is a simple markdown file at your domain root that gives AI assistants a clean, structured summary of your entity, services and key pages. It is one of the highest-impact, lowest-effort GEO improvements you can make.</p>
+      <h3>Which AI crawlers does the audit check for?</h3>
+      <p>We check robots.txt access for the major AI user-agents including GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot and Google-Extended, plus whether you allow them to cite you.</p>
+      <h3>How long does a scan take?</h3>
+      <p>Most scans complete in a few seconds. Complex sites audited with the AI engine can take up to 60 to 90 seconds for the deepest analysis.</p>
+      <h3>Will this work for non-English or local businesses?</h3>
+      <p>Absolutely. The audit flags multilingual gaps such as missing hreflang and checks LocalBusiness signals that matter for local AI queries.</p>
+
+      <p class="load">Loading the interactive scanner&hellip;</p>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

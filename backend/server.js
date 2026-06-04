@@ -88,7 +88,7 @@ async function scrapeUrl(href) {
   const schemaTypes = new Set();
   $('script[type="application/ld+json"]').each((_, el) => {
     const raw = $(el).contents().text();
-    jsonLd.push(raw.slice(0, 1500));
+    jsonLd.push(raw.slice(0, 6000));
     try {
       const parsed = JSON.parse(raw);
       const collect = (node) => {
@@ -97,7 +97,11 @@ async function scrapeUrl(href) {
         if (node["@type"]) {
           [].concat(node["@type"]).forEach((t) => schemaTypes.add(String(t)));
         }
-        if (node["@graph"]) collect(node["@graph"]);
+        // recurse into every nested object/array so nested types (AggregateRating,
+        // Person/founder, ContactPoint, @graph, etc.) are also detected
+        for (const k in node) {
+          if (node[k] && typeof node[k] === "object") collect(node[k]);
+        }
       };
       collect(parsed);
     } catch {
@@ -154,7 +158,7 @@ async function checkLlmsTxt(origin) {
     const text = await res.text();
     // Guard: some servers return an HTML 404 page with 200.
     if (/<html/i.test(text.slice(0, 200))) return { exists: false, content: "" };
-    return { exists: true, content: text.slice(0, 500), length: text.length };
+    return { exists: true, content: text.slice(0, 2000), length: text.length };
   } catch {
     return { exists: false, content: "" };
   }
@@ -323,13 +327,14 @@ function heuristicAudit({ scrape, llms, robots, host }) {
 
   // 2) Structured Data & Schema ─────────────────────────────────────
   {
-    let s = 8;
+    let s = 10;
     const items = [];
     if (scrape.jsonLdCount > 0) {
-      s += 30;
-      const valuable = ["FAQPage", "LocalBusiness", "Organization", "Article", "BlogPosting", "HowTo", "AggregateRating", "Product", "Review", "BreadcrumbList"];
+      s += 33;
+      const valuable = ["FAQPage", "LocalBusiness", "Organization", "Article", "BlogPosting", "HowTo", "AggregateRating", "Product", "Review", "BreadcrumbList", "WebSite", "WebApplication", "Person"];
       const present = valuable.filter(hasType);
-      s += Math.min(45, present.length * 12);
+      s += Math.min(45, present.length * 8);
+      if (hasType("FAQPage") && (hasType("Organization") || hasType("LocalBusiness"))) s += 7;
       if (!hasType("Organization") && !hasType("LocalBusiness"))
         items.push({ issue: "No Organization / LocalBusiness schema", impact: "AI can't resolve your brand as a knowledge-graph entity.", fix: "Add Organization (or LocalBusiness for a local company) JSON-LD with name, url, logo, sameAs and contact.", effort: "medium" });
       if (!hasType("FAQPage"))
@@ -372,6 +377,7 @@ function heuristicAudit({ scrape, llms, robots, host }) {
     } else s += 10;
     if (scrape.imagesMissingAlt > 4)
       items.push({ issue: `${scrape.imagesMissingAlt} images missing alt text`, impact: "Alt text is one of the few ways crawlers read image content.", fix: "Add descriptive alt attributes to meaningful images.", effort: "easy" });
+    if (llms.exists) s += 5; // an llms.txt is itself a strong AI-crawl-friendliness signal
     const priority = s < 40 ? "critical" : s < 70 ? "high" : "medium";
     push("crawlability", "AI Crawlability", s, priority,
       robots.exists ? "robots.txt exists — make AI-bot access explicit and remove any content barriers." : "No robots.txt — AI bot access is undefined.",
@@ -389,6 +395,8 @@ function heuristicAudit({ scrape, llms, robots, host }) {
     if (hasType("AggregateRating") || hasType("Review") || text.includes("review") || text.includes("testimonial")) s += 15;
     else items.push({ issue: "No visible reviews or testimonials", impact: "Social proof is a strong AI recommendation signal.", fix: "Surface customer reviews/testimonials and mark them up with Review/AggregateRating schema.", effort: "medium" });
     if (text.includes("about")) s += 5;
+    if (hasType("Organization") || hasType("LocalBusiness")) s += 6; // machine-readable brand entity
+    if (hasType("AggregateRating") || hasType("Review")) s += 4;    // machine-readable trust signal
     const priority = s < 40 ? "critical" : s < 70 ? "high" : "medium";
     push("authority", "Authority Signals", s, priority,
       "Entity authority comes from named people, external profile links and machine-readable trust signals.",

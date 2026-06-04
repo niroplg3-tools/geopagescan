@@ -624,6 +624,11 @@ function Footer() {
 /* ═══════════════════════════════════════════════════════════════════════ */
 export default function App() {
   useReveal();
+  // remove the static SEO first-paint fallback once the interactive app mounts
+  useEffect(() => {
+    document.getElementById("ssr-fallback")?.remove();
+    document.getElementById("ssr-style")?.remove();
+  }, []);
   return (
     <>
       <Nav />
