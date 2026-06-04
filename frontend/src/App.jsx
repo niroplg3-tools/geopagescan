@@ -402,7 +402,11 @@ function Nav() {
         </div>
         <div className="nav-cta">
           <a className="btn btn-ghost" href="/blog.html">Read the blog</a>
-          <a className="btn btn-primary" href="#top">Scan a site <Ic.arrow /></a>
+          <a className="btn btn-primary nav-scan" href="#top" aria-label="Scan a site">
+            <Ic.search className="nav-scan-ico" />
+            <span className="nav-scan-txt">Scan a site</span>
+            <Ic.arrow className="nav-scan-arrow" />
+          </a>
           <button className="hamburger" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
             <span /><span /><span />
           </button>
@@ -591,7 +595,6 @@ function Footer() {
   const cols = [
     ["Product", [["Audit tool", "#top"], ["Features", "#features"], ["How it works", "#how"], ["FAQ", "#faq"]]],
     ["Learn", [["Blog", "/blog.html"], ["GEO guide", "/blog/geo-guide.html"], ["llms.txt guide", "/blog/llms-txt-guide.html"], ["What is AEO?", "/blog/aeo-guide.html"]]],
-    ["Resources", [["llms.txt", "/llms.txt"], ["robots.txt", "/robots.txt"], ["sitemap.xml", "/sitemap.xml"], ["Schema.org", "https://schema.org"]]],
   ];
   return (
     <footer className="footer">
@@ -611,9 +614,8 @@ function Footer() {
         <div className="footer-bottom">
           <span>© 2026 GeoPageScan · geopagescan.com</span>
           <div className="links">
-            <a href="/llms.txt">llms.txt</a>
-            <a href="/sitemap.xml">sitemap</a>
-            <a href="/robots.txt">robots</a>
+            <a href="/blog.html">Blog</a>
+            <a href="mailto:hello@geopagescan.com">Contact</a>
           </div>
         </div>
       </div>

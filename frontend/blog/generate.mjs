@@ -32,7 +32,10 @@ function header() {
     <div class="nav-links">${links.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</div>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="/blog.html">Blog</a>
-      <a class="btn btn-primary" href="/">Scan a site →</a>
+      <a class="btn btn-primary nav-scan" href="/" aria-label="Scan a site">
+        <svg class="nav-scan-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <span class="nav-scan-txt">Scan a site →</span>
+      </a>
     </div>
   </div></nav>`;
 }
@@ -41,7 +44,6 @@ function footer() {
   const cols = [
     ["Product", [["Audit tool", "/#top"], ["Features", "/#features"], ["How it works", "/#how"], ["FAQ", "/#faq"]]],
     ["Learn", [["Blog", "/blog.html"], ["GEO guide", "/blog/geo-guide.html"], ["llms.txt guide", "/blog/llms-txt-guide.html"], ["What is AEO?", "/blog/aeo-guide.html"]]],
-    ["Resources", [["llms.txt", "/llms.txt"], ["robots.txt", "/robots.txt"], ["sitemap.xml", "/sitemap.xml"], ["Schema.org", "https://schema.org"]]],
   ];
   return `<footer class="footer"><div class="container">
     <div class="footer-grid">
@@ -53,7 +55,7 @@ function footer() {
     </div>
     <div class="footer-bottom">
       <span>© 2026 GeoPageScan · geopagescan.com</span>
-      <div class="links"><a href="/llms.txt">llms.txt</a><a href="/sitemap.xml">sitemap</a><a href="/robots.txt">robots</a></div>
+      <div class="links"><a href="/blog.html">Blog</a><a href="mailto:hello@geopagescan.com">Contact</a></div>
     </div>
   </div></footer>`;
 }
@@ -397,13 +399,14 @@ img{max-width:100%;display:block}
 .rel-card .tag{margin:16px 18px 0}.rel-card h3{font-size:16px;font-weight:600;margin:10px 18px 18px;line-height:1.35}
 /* footer */
 .footer{border-top:1px solid var(--border-dark);padding:64px 0 30px;background:var(--bg-2);margin-top:80px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.nav-scan-ico{display:none}
 .footer-brand p{color:var(--text-2);font-size:14px;margin-top:16px;max-width:280px}
 .footer-col h5{font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:16px}
 .footer-col a{display:block;color:var(--text-2);font-size:14.5px;padding:6px 0;transition:color .2s}.footer-col a:hover{color:var(--cyan)}
 .footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--text-muted)}
 .footer-bottom .links{display:flex;gap:20px}.footer-bottom .links a:hover{color:var(--cyan)}
-@media(max-width:768px){.nav-links,.nav-cta .btn-ghost{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.post-body p,.post-body ul{font-size:16px}}
+@media(max-width:768px){.nav-links,.nav-cta .btn-ghost{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.post-body p,.post-body ul{font-size:16px}.nav-scan .nav-scan-txt{display:none}.nav-scan .nav-scan-ico{display:block}.nav-scan{width:46px;padding:0;gap:0}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}.post-grid{grid-template-columns:1fr}}`;
 
 /* ── build everything for a given article set (newest first) ─────────────── */

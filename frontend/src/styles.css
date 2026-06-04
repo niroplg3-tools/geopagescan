@@ -152,6 +152,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .mobile-menu a { padding: 14px 4px; color: var(--text-2); font-size: 17px; font-weight: 500; border-bottom: 1px solid var(--border-dark); }
 .mobile-menu .btn { margin-top: 14px; }
+/* the menu CTA is an <a>, so .mobile-menu a (light text) was overriding the
+   button's dark text by specificity — force the readable dark-on-gradient color */
+.mobile-menu a.btn-primary { color: #05080f; border-bottom: none; }
+.mobile-menu a.btn-ghost { color: var(--text); border-bottom: none; }
+
+/* header CTA: full label on desktop, compact icon-only on mobile */
+.nav-scan-ico { display: none; }
+@media (max-width: 768px) {
+  .nav-scan .nav-scan-txt, .nav-scan .nav-scan-arrow { display: none; }
+  .nav-scan .nav-scan-ico { display: block; }
+  .nav-scan { width: 46px; padding: 0; gap: 0; }
+}
 
 /* ── HERO ──────────────────────────────────────────────────────────── */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: stretch; overflow: hidden; padding: 132px 0 80px; }
@@ -377,7 +389,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ── footer ────────────────────────────────────────────────────────── */
 .footer { border-top: 1px solid var(--border-dark); padding: 64px 0 30px; background: var(--bg-2); }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
 .footer-brand p { color: var(--text-2); font-size: 14px; margin-top: 16px; max-width: 280px; }
 .footer-col h5 { font-size: 13px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 16px; }
 .footer-col a { display: block; color: var(--text-2); font-size: 14.5px; padding: 6px 0; transition: color .2s; }
