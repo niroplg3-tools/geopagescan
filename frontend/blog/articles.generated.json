@@ -1,0 +1,104 @@
+[
+  {
+    "id": "perplexity-citations",
+    "cat": "GEO",
+    "emoji": "🔎",
+    "title": "How to Get Cited by Perplexity AI: A Practical GEO Guide",
+    "dek": "Perplexity shows its sources on every answer. Here's how to become one of them — crawler access, citable structure and the signals Perplexity rewards.",
+    "keywords": "Perplexity AI, PerplexityBot, get cited by Perplexity, GEO, AI citations",
+    "sections": [
+      {
+        "h": "How does Perplexity choose sources?",
+        "p": [
+          "Perplexity retrieves live web pages for each query and lists the sources it used right in the answer. Unlike a chatbot that hides its references, Perplexity makes citations visible — which means being citable is directly, measurably valuable.",
+          "It favors pages that are crawlable, recent, factually specific and clearly structured around the question being asked."
+        ]
+      },
+      {
+        "h": "Make sure PerplexityBot can reach you",
+        "p": [
+          "Allow <code>PerplexityBot</code> and <code>Perplexity-User</code> in robots.txt, ship a sitemap, and keep important content in server-rendered HTML rather than JavaScript-only rendering.",
+          "A blocked or unreadable page simply never enters Perplexity's candidate set."
+        ]
+      },
+      {
+        "h": "Structure content for citation",
+        "p": [
+          "Lead each section with a direct, self-contained answer, add specific facts and dates, and wrap Q&A in FAQPage schema. Perplexity tends to quote the single sentence that most cleanly answers the query."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is PerplexityBot?",
+        "a": "PerplexityBot is Perplexity's crawler for indexing pages, and Perplexity-User fetches pages live during a search. Allow both in robots.txt to be eligible for citation."
+      },
+      {
+        "q": "How do I get cited by Perplexity?",
+        "a": "Be crawlable, answer questions directly in the first sentence, add FAQ and Organization schema, and publish specific, up-to-date facts Perplexity can quote."
+      },
+      {
+        "q": "Does Perplexity show sources?",
+        "a": "Yes — Perplexity lists the sources it used on every answer, which makes being a cited source a concrete, trackable GEO goal."
+      }
+    ],
+    "related": [
+      "chatgpt-cite",
+      "geo-guide",
+      "schema-7-types"
+    ],
+    "date": "2026-06-04",
+    "read": "4 min"
+  },
+  {
+    "id": "ai-overviews",
+    "cat": "SEO",
+    "emoji": "🟣",
+    "title": "Winning Google AI Overviews in 2026: What Actually Works",
+    "dek": "Google's AI Overviews answer the query before the blue links. Here's how to be one of the sources they synthesize — and keep your organic visibility.",
+    "keywords": "Google AI Overviews, SGE, Google-Extended, AI Overviews SEO, GEO",
+    "sections": [
+      {
+        "h": "What are Google AI Overviews?",
+        "p": [
+          "AI Overviews are the AI-generated summaries Google places above traditional results for many queries. They synthesize several sources into a direct answer — and link to the pages they drew from.",
+          "Appearing as a cited source is the new top-of-page real estate."
+        ]
+      },
+      {
+        "h": "How to become an AI Overview source",
+        "p": [
+          "Keep strong classic SEO (crawlability, topical authority, Core Web Vitals), allow <code>Google-Extended</code>, and structure content as clear question-and-answer blocks with supporting facts.",
+          "Pages that already rank well and answer the query concisely are the most likely to be pulled in."
+        ]
+      },
+      {
+        "h": "Protect your click-through",
+        "p": [
+          "Because AI Overviews can reduce clicks, lead with value the summary can't fully replace — depth, tools, original data — so users still have a reason to visit."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is Google-Extended?",
+        "a": "Google-Extended is the robots.txt control for whether your content can be used by Google's generative AI (Gemini and AI Overviews). Allow it to be eligible as a source."
+      },
+      {
+        "q": "How do I appear in AI Overviews?",
+        "a": "Maintain strong technical SEO and topical authority, allow Google-Extended, and structure content as concise question-and-answer blocks with specific supporting facts."
+      },
+      {
+        "q": "Do AI Overviews hurt traffic?",
+        "a": "They can reduce clicks for purely informational queries. Offset this with depth, original data and tools that give users a reason to click through."
+      }
+    ],
+    "related": [
+      "seo-ai-era",
+      "geo-guide",
+      "technical-seo-checklist"
+    ],
+    "date": "2026-06-04",
+    "read": "4 min"
+  }
+]
