@@ -300,6 +300,8 @@ function Hero() {
       if (!res.ok) throw new Error(json.error || `Request failed (${res.status})`);
       setResult(json);
       setStatus("done");
+      // GA4: record each completed scan (the tool's core conversion)
+      window.gtag?.("event", "scan_complete", { target_url: target, overall_score: json.overallScore, engine: json.engine });
       setTimeout(() => reportRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
     } catch (err) {
       setError(err.message || "Something went wrong. Please try another URL.");
