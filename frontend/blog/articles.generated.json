@@ -100,5 +100,158 @@
     ],
     "date": "2026-06-04",
     "read": "4 min"
+  },
+  {
+    "id": "gemini-optimization",
+    "cat": "GEO",
+    "emoji": "✨",
+    "title": "Optimizing for Google Gemini: A GEO Checklist",
+    "dek": "Gemini powers answers across Google's surfaces. Here's a concrete checklist to make your entity and content easy for Gemini to understand and cite.",
+    "keywords": "Google Gemini, Gemini optimization, GEO, Google-Extended, entity",
+    "sections": [
+      {
+        "h": "How does Gemini source information?",
+        "p": [
+          "Gemini draws on Google's index plus structured data and entity signals from the knowledge graph. Clear entities and schema make you easier to surface and attribute."
+        ]
+      },
+      {
+        "h": "The Gemini GEO checklist",
+        "list": [
+          "Allow <code>Google-Extended</code> and <code>Googlebot</code> in robots.txt.",
+          "Add Organization + FAQPage schema and link your entity with <code>sameAs</code>.",
+          "Write answer-first content with specific, verifiable facts.",
+          "Keep an up-to-date llms.txt summarizing your entity and key pages."
+        ]
+      },
+      {
+        "h": "Reinforce entity authority",
+        "p": [
+          "Gemini leans on Google's knowledge graph, so the stronger and more consistent your entity (named people, sameAs links, consistent NAP), the more confidently it can cite you."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I optimize for Google Gemini?",
+        "a": "Allow Google-Extended, add Organization and FAQPage schema, link your entity with sameAs, write answer-first factual content, and keep an llms.txt current."
+      },
+      {
+        "q": "Does Gemini use the same crawler as Search?",
+        "a": "Gemini's AI use is governed by Google-Extended, while Googlebot handles core indexing. Allow both to be eligible across Google's surfaces."
+      },
+      {
+        "q": "What matters most for Gemini citations?",
+        "a": "Entity clarity. A consistent, well-linked brand entity in Google's knowledge graph is the strongest signal Gemini can attribute to."
+      }
+    ],
+    "related": [
+      "geo-guide",
+      "entity-authority",
+      "ai-overviews"
+    ],
+    "date": "2026-06-08",
+    "read": "4 min"
+  },
+  {
+    "id": "robots-ai-guide",
+    "cat": "SEO",
+    "emoji": "🤖",
+    "title": "The robots.txt Guide for AI Crawlers: Allow the Right Bots",
+    "dek": "A copy-paste robots.txt that welcomes the AI crawlers you want citing you — GPTBot, ClaudeBot, PerplexityBot, Google-Extended and more.",
+    "keywords": "robots.txt, AI crawlers, GPTBot, ClaudeBot, PerplexityBot, Google-Extended",
+    "sections": [
+      {
+        "h": "Why robots.txt matters for AI visibility",
+        "p": [
+          "robots.txt is the first gate every crawler checks. If an AI user-agent is disallowed — or just ambiguous — that engine may never read or cite your content.",
+          "Being explicit signals intent and maximizes coverage across AI surfaces."
+        ]
+      },
+      {
+        "h": "A copy-paste robots.txt for AI",
+        "p": [
+          "Allow the major AI user-agents and point to your sitemap:"
+        ],
+        "code": "User-agent: *\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: https://yourdomain.com/sitemap.xml"
+      },
+      {
+        "h": "Decide what you actually want",
+        "p": [
+          "If you want AI citations, allow these bots. If you want to keep content out of AI training, disallow specific agents — but know that blocking them removes you from those engines' answers entirely."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which AI bots should I allow in robots.txt?",
+        "a": "To be cited, allow GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended, and link your sitemap."
+      },
+      {
+        "q": "Does blocking GPTBot remove me from ChatGPT?",
+        "a": "Blocking GPTBot and OAI-SearchBot prevents OpenAI from indexing or citing your content in ChatGPT's answers. Only block if you intend to opt out."
+      },
+      {
+        "q": "Where does robots.txt go?",
+        "a": "At your domain root: https://yourdomain.com/robots.txt. Add explicit per-user-agent Allow rules for the AI crawlers you want."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "chatgpt-cite",
+      "perplexity-citations"
+    ],
+    "date": "2026-06-08",
+    "read": "4 min"
+  },
+  {
+    "id": "saas-geo",
+    "cat": "GEO",
+    "emoji": "🧩",
+    "title": "GEO for SaaS: How to Get Your Product Recommended by AI",
+    "dek": "When buyers ask AI \"what's the best tool for X\", SaaS products with clear entities and structured proof win. Here's the GEO playbook for SaaS.",
+    "keywords": "SaaS GEO, AI product recommendations, software AI citations, SaaS SEO",
+    "sections": [
+      {
+        "h": "AI is the new software shortlist",
+        "p": [
+          "Buyers increasingly ask AI to compare and recommend tools before they ever visit a vendor site. If AI can't clearly understand what your product does and who it's for, you're left off the shortlist."
+        ]
+      },
+      {
+        "h": "Define the product entity",
+        "p": [
+          "State plainly what category you're in, who it's for and what problem you solve — in your hero, your About page and your llms.txt. Add Organization and Product/SoftwareApplication schema.",
+          "Vague positioning (\"the platform for modern teams\") gives AI nothing to match a query against."
+        ]
+      },
+      {
+        "h": "Provide structured proof",
+        "p": [
+          "Surface comparisons, integrations, pricing and reviews as real HTML (and AggregateRating schema). These are exactly the facts AI needs to recommend you with confidence."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I get my SaaS recommended by AI?",
+        "a": "Define a clear product entity (category, audience, problem) in copy, schema and llms.txt, and provide structured proof — comparisons, pricing and reviews — as crawlable HTML."
+      },
+      {
+        "q": "What schema should a SaaS site use?",
+        "a": "Organization plus SoftwareApplication or Product, FAQPage for common questions, and AggregateRating for reviews."
+      },
+      {
+        "q": "Why isn't my SaaS mentioned by AI?",
+        "a": "Usually vague positioning and thin structured data. Make your category and audience explicit and back claims with crawlable, marked-up facts."
+      }
+    ],
+    "related": [
+      "geo-guide",
+      "ecommerce-aeo",
+      "entity-authority"
+    ],
+    "date": "2026-06-08",
+    "read": "4 min"
   }
 ]
