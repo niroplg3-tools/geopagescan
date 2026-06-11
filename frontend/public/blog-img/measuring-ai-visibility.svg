@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="How to Measure Your AI Visibility: The KPIs That Matter">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#030712"/><stop offset="1" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00E5FF"/><stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.7"><stop offset="0" stop-color="#00E5FF" stop-opacity="0.35"/><stop offset="1" stop-color="#00E5FF" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="#00E5FF" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="0" x2="0" y2="630"/><line x1="100" y1="0" x2="100" y2="630"/><line x1="200" y1="0" x2="200" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/><line x1="400" y1="0" x2="400" y2="630"/><line x1="500" y1="0" x2="500" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/><line x1="700" y1="0" x2="700" y2="630"/><line x1="800" y1="0" x2="800" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/><line x1="1000" y1="0" x2="1000" y2="630"/><line x1="1100" y1="0" x2="1100" y2="630"/><line x1="1200" y1="0" x2="1200" y2="630"/>
+    <line x1="0" y1="0" x2="1200" y2="0"/><line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/><line x1="0" y1="500" x2="1200" y2="500"/><line x1="0" y1="600" x2="1200" y2="600"/>
+  </g>
+  <circle cx="1000" cy="150" r="120" fill="none" stroke="url(#ac)" stroke-width="2" stroke-opacity="0.5"/>
+  <circle cx="1000" cy="150" r="70" fill="none" stroke="url(#ac)" stroke-width="2" stroke-opacity="0.8"/>
+  <text x="1000" y="170" font-size="90" text-anchor="middle">📊</text>
+  <rect x="80" y="120" width="118" height="40" rx="8" fill="none" stroke="url(#ac)" stroke-width="1.5"/>
+  <text x="100" y="147" font-family="JetBrains Mono, monospace" font-size="20" font-weight="700" fill="#00E5FF" letter-spacing="3">TOOL</text>
+  <text x="80" y="300" font-family="Outfit, sans-serif" font-size="52" font-weight="800" fill="#f1f5f9"><tspan x="80" dy="0">How to Measure Your AI</tspan><tspan x="80" dy="64">Visibility: The KPIs That</tspan><tspan x="80" dy="64">Matter</tspan></text>
+  <text x="80" y="560" font-family="JetBrains Mono, monospace" font-size="22" fill="#8c99b0">geopagescan.com</text>
+  <text x="80" y="592" font-family="JetBrains Mono, monospace" font-size="18" fill="#475569">4 min read · JUN 11, 2026</text>
+</svg>

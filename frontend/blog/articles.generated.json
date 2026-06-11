@@ -253,5 +253,129 @@
     ],
     "date": "2026-06-08",
     "read": "4 min"
+  },
+  {
+    "id": "measuring-ai-visibility",
+    "cat": "Tool",
+    "emoji": "📊",
+    "title": "How to Measure Your AI Visibility: The KPIs That Matter",
+    "dek": "You can't improve what you don't measure. Here are the practical KPIs for AI visibility — from your GeoPageScan score to real AI-citation tracking.",
+    "keywords": "measure AI visibility, AI visibility KPI, GEO metrics, AI citation tracking",
+    "sections": [
+      {
+        "h": "Start with an AI-visibility score",
+        "p": [
+          "A single 0–100 score across GEO/AEO/SEO categories — like the one GeoPageScan produces — gives you a baseline and a trend to manage. Re-scan after each change to measure the lift."
+        ]
+      },
+      {
+        "h": "Track real AI citations",
+        "p": [
+          "Periodically ask the major engines (ChatGPT, Claude, Gemini, Perplexity) the questions your customers ask, and record whether — and how — you're cited. Watch your referral analytics for AI sources too."
+        ]
+      },
+      {
+        "h": "Monitor the inputs",
+        "p": [
+          "Track the signals that drive visibility: llms.txt present, schema coverage, AI bots allowed, and the share of pages with answer-first content. These move before citations do."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I measure AI visibility?",
+        "a": "Use an AI-visibility score (0–100) as your baseline, track real citations by querying the major AI engines for your key questions, and monitor inputs like schema coverage and crawler access."
+      },
+      {
+        "q": "What's a good AI-visibility KPI?",
+        "a": "The overall score tracked over time, the number of resolved critical/high findings, and the count of AI citations for your priority queries."
+      },
+      {
+        "q": "How often should I check?",
+        "a": "Re-scan after each fix to confirm the lift, and review citations and score monthly as the AI landscape shifts."
+      }
+    ],
+    "related": [
+      "introducing-geopagescan",
+      "agency-workflow",
+      "geo-guide"
+    ],
+    "date": "2026-06-11",
+    "read": "4 min"
+  },
+  {
+    "id": "faq-schema-howto",
+    "cat": "AEO",
+    "emoji": "❓",
+    "title": "How to Add FAQ Schema: A Step-by-Step Guide (with Examples)",
+    "dek": "FAQPage schema is the most-quoted markup in AI answers. Here's exactly how to add it — with copy-paste JSON-LD and the mistakes to avoid.",
+    "keywords": "FAQ schema, FAQPage, JSON-LD, how to add FAQ schema, AEO",
+    "sections": [
+      {
+        "h": "Why FAQPage schema is worth it",
+        "p": [
+          "FAQPage markup explicitly maps questions to answers — exactly the structure AI engines lift into responses and the format Google uses for rich results. It's high-impact and quick to add."
+        ]
+      },
+      {
+        "h": "Add the JSON-LD",
+        "p": [
+          "Place this in your page <code>&lt;head&gt;</code>, with the questions and answers matching your visible content:"
+        ],
+        "code": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"What is llms.txt?\",\n    \"acceptedAnswer\": { \"@type\": \"Answer\",\n      \"text\": \"A markdown file at your domain root that summarizes your site for AI.\" }\n  }]\n}\n</script>"
+      },
+      {
+        "h": "Avoid the common mistakes",
+        "p": [
+          "The schema answers must match what's visible on the page, every Question needs exactly one acceptedAnswer, and you should validate with Google's Rich Results Test before shipping."
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "FAQ schema: do vs don't",
+      "cols": [
+        "Do",
+        "Don't"
+      ],
+      "rows": [
+        [
+          "Match schema to visible Q&A",
+          "Mark up hidden or fake questions"
+        ],
+        [
+          "One acceptedAnswer per Question",
+          "Multiple or missing answers"
+        ],
+        [
+          "Validate before publishing",
+          "Ship unvalidated JSON-LD"
+        ],
+        [
+          "Keep answers concise & factual",
+          "Stuff keywords into answers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "q": "How do I add FAQ schema?",
+        "a": "Add a FAQPage JSON-LD script to your page head with Question/acceptedAnswer pairs that match your visible FAQ, then validate with Google's Rich Results Test."
+      },
+      {
+        "q": "Does FAQ schema help with AI?",
+        "a": "Yes — FAQPage is one of the most-quoted schema types in AI answers because it maps questions directly to answers."
+      },
+      {
+        "q": "Can I fake questions in FAQ schema?",
+        "a": "No. The schema must match visible content; mismatched or hidden Q&A can be ignored or penalized. Mark up only real, visible FAQs."
+      }
+    ],
+    "related": [
+      "schema-7-types",
+      "aeo-guide",
+      "voice-aeo"
+    ],
+    "date": "2026-06-11",
+    "read": "4 min"
   }
 ]

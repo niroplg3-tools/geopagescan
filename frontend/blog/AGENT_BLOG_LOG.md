@@ -14,3 +14,9 @@ Blog now has 17 posts. Queue remaining: 36.
 - [GEO] GEO for SaaS: How to Get Your Product Recommended by AI  →  /blog/saas-geo.html
 
 Blog now has 20 posts. Queue remaining: 33.
+
+## 2026-06-11 — published 2 article(s)
+- [Tool] How to Measure Your AI Visibility: The KPIs That Matter  →  /blog/measuring-ai-visibility.html
+- [AEO] How to Add FAQ Schema: A Step-by-Step Guide (with Examples)  →  /blog/faq-schema-howto.html
+
+Blog now has 22 posts. Queue remaining: 31.
