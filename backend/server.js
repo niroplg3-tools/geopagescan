@@ -14,6 +14,7 @@ import fetch from "node-fetch";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { timingSafeEqual } from "node:crypto";
 import "dotenv/config";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -21,6 +22,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3001;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-5";
+// Shared secret for the internal server-to-server audit API (e.g. Pulsec).
+const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || "";
 const USER_AGENT =
   "GeoPageScan/1.0 (AI visibility audit; hello@geopagescan.com)";
 
@@ -51,9 +54,10 @@ const clamp = (n) => Math.max(0, Math.min(100, Math.round(n)));
 
 function normalizeUrl(input) {
   let url = (input || "").trim();
-  if (!url) throw new Error("URL is required");
+  if (!url) { const e = new Error("URL is required"); e.status = 400; throw e; }
   if (!/^https?:\/\//i.test(url)) url = "https://" + url;
-  const u = new URL(url); // throws on malformed
+  let u;
+  try { u = new URL(url); } catch { const e = new Error("Invalid URL"); e.status = 400; throw e; }
   return { href: u.href, origin: u.origin, host: u.hostname };
 }
 
@@ -493,65 +497,92 @@ function ensureSchema(audit) {
 
 // ── Routes ──────────────────────────────────────────────────────────────────
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok", engine: ANTHROPIC_API_KEY ? "claude" : "heuristic", model: ANTHROPIC_API_KEY ? ANTHROPIC_MODEL : null });
+  res.json({ status: "ok", engine: ANTHROPIC_API_KEY ? "claude" : "heuristic", model: ANTHROPIC_API_KEY ? ANTHROPIC_MODEL : null, internalApi: INTERNAL_API_KEY ? "configured" : "disabled" });
 });
 
 app.get("/config", (_req, res) => {
   res.json({ version: CONFIG.version, aiCrawlers: AI_CRAWLERS, categoryWeights: CATEGORY_WEIGHTS, schemaTypes: CONFIG.schemaTypes });
 });
 
-app.post("/audit", async (req, res) => {
+// ── Shared audit pipeline ───────────────────────────────────────────────────
+// Scrape + /llms.txt + /robots.txt in parallel, then audit with Claude (or the
+// heuristic fallback). Both the public /audit route and the internal API call
+// this. Throws on bad input (err.status = 400) or runtime failure.
+async function runVisibilityAudit(rawUrl) {
+  const target = normalizeUrl(rawUrl); // throws (status 400) on missing/invalid URL
   const started = Date.now();
-  let target;
-  try {
-    target = normalizeUrl(req.body?.url);
-  } catch (e) {
-    return res.status(400).json({ error: e.message || "URL is required" });
-  }
 
-  try {
-    const [scrape, llms, robots] = await Promise.all([
-      scrapeUrl(target.href),
-      checkLlmsTxt(target.origin),
-      checkRobots(target.origin),
-    ]);
+  const [scrape, llms, robots] = await Promise.all([
+    scrapeUrl(target.href),
+    checkLlmsTxt(target.origin),
+    checkRobots(target.origin),
+  ]);
 
-    const auditInput = { url: target.href, host: target.host, scrape, llms, robots };
+  const auditInput = { url: target.href, host: target.host, scrape, llms, robots };
 
-    let audit;
-    let engine = "heuristic";
-    if (ANTHROPIC_API_KEY) {
-      try {
-        audit = ensureSchema(await callClaude(auditInput));
-        engine = "claude";
-      } catch (e) {
-        console.warn("[audit] Claude failed, falling back to heuristic:", e.message);
-        audit = heuristicAudit({ scrape, llms, robots, host: target.host });
-      }
-    } else {
+  let audit;
+  let engine = "heuristic";
+  if (ANTHROPIC_API_KEY) {
+    try {
+      audit = ensureSchema(await callClaude(auditInput));
+      engine = "claude";
+    } catch (e) {
+      console.warn("[audit] Claude failed, falling back to heuristic:", e.message);
       audit = heuristicAudit({ scrape, llms, robots, host: target.host });
     }
+  } else {
+    audit = heuristicAudit({ scrape, llms, robots, host: target.host });
+  }
 
-    audit.engine = engine;
-    audit.meta = {
-      url: target.href,
-      host: target.host,
-      scannedAt: new Date().toISOString(),
-      durationMs: Date.now() - started,
-      signals: {
-        llmsTxt: llms.exists,
-        robotsTxt: robots.exists,
-        aiBotsAllowed: robots.aiBotsAllowed || [],
-        jsonLdCount: scrape.jsonLdCount,
-        schemaTypes: scrape.schemaTypes,
-        wordCount: scrape.wordCount,
-        hreflangCount: scrape.hreflangCount,
-      },
-    };
-    res.json(audit);
+  audit.engine = engine;
+  audit.meta = {
+    url: target.href,
+    host: target.host,
+    scannedAt: new Date().toISOString(),
+    durationMs: Date.now() - started,
+    signals: {
+      llmsTxt: llms.exists,
+      robotsTxt: robots.exists,
+      aiBotsAllowed: robots.aiBotsAllowed || [],
+      jsonLdCount: scrape.jsonLdCount,
+      schemaTypes: scrape.schemaTypes,
+      wordCount: scrape.wordCount,
+      hreflangCount: scrape.hreflangCount,
+    },
+  };
+  return audit;
+}
+
+// Constant-time comparison of the internal shared secret (avoids timing attacks).
+function internalKeyMatches(provided) {
+  if (!INTERNAL_API_KEY || !provided) return false;
+  const a = Buffer.from(String(provided));
+  const b = Buffer.from(INTERNAL_API_KEY);
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
+}
+
+// Public audit route — used by the GeoPageScan frontend.
+app.post("/audit", async (req, res) => {
+  try {
+    res.json(await runVisibilityAudit(req.body?.url));
   } catch (e) {
     console.error("[audit] error:", e.message);
-    res.status(500).json({ error: e.message || "Audit failed" });
+    res.status(e.status || 500).json({ error: e.message || "Audit failed" });
+  }
+});
+
+// Internal server-to-server API (e.g. Pulsec). Same audit logic, protected by a
+// shared secret in the X-Internal-Key header. Returns 401 if missing/wrong.
+app.post("/api/internal/visibility-scan", async (req, res) => {
+  if (!internalKeyMatches(req.get("X-Internal-Key"))) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+  try {
+    res.json(await runVisibilityAudit(req.body?.url));
+  } catch (e) {
+    console.error("[internal-scan] error:", e.message);
+    res.status(e.status || 500).json({ error: e.message || "Audit failed" });
   }
 });
 
