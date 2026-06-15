@@ -377,5 +377,233 @@
     ],
     "date": "2026-06-11",
     "read": "4 min"
+  },
+  {
+    "id": "ai-crawler-list-2026",
+    "cat": "SEO",
+    "emoji": "🗂️",
+    "title": "The Complete List of AI Crawlers in 2026 (and How to Handle Each)",
+    "dek": "Every major AI crawler in 2026 — who runs it, what it does, and whether to allow it. A reference table for your robots.txt strategy.",
+    "keywords": "AI crawlers list, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended",
+    "sections": [
+      {
+        "h": "Why keep a crawler list?",
+        "p": [
+          "New AI user-agents appear regularly, and each one is a potential source of citations — or, if mishandled, a gap. Knowing who's crawling lets you make deliberate robots.txt decisions."
+        ]
+      },
+      {
+        "h": "The major AI crawlers",
+        "p": [
+          "The table below lists the crawlers worth knowing in 2026. To be cited across AI surfaces, allow the ones whose engines you want answering with your content."
+        ]
+      },
+      {
+        "h": "Keep it current",
+        "p": [
+          "Re-check your robots.txt quarterly against the latest crawler list — GeoPageScan tracks new AI bots in its audit config and flags any you're blocking."
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "AI crawlers worth knowing in 2026",
+      "cols": [
+        "Crawler",
+        "Company",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "GPTBot",
+          "OpenAI",
+          "ChatGPT training & retrieval"
+        ],
+        [
+          "OAI-SearchBot",
+          "OpenAI",
+          "ChatGPT Search index"
+        ],
+        [
+          "ClaudeBot",
+          "Anthropic",
+          "Claude training & retrieval"
+        ],
+        [
+          "PerplexityBot",
+          "Perplexity",
+          "Perplexity answer index"
+        ],
+        [
+          "Google-Extended",
+          "Google",
+          "Gemini & AI Overviews"
+        ],
+        [
+          "Applebot-Extended",
+          "Apple",
+          "Apple Intelligence"
+        ],
+        [
+          "Amazonbot",
+          "Amazon",
+          "Alexa / Rufus answers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "q": "How many AI crawlers are there in 2026?",
+        "a": "More than a dozen matter, including GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended and Amazonbot. Allow the ones whose engines you want citing you."
+      },
+      {
+        "q": "Which AI crawlers should I block?",
+        "a": "Only block crawlers whose engines you deliberately want to opt out of — blocking removes you from those AI answers. Most sites seeking visibility allow them all."
+      },
+      {
+        "q": "How do I keep my crawler list current?",
+        "a": "Re-audit quarterly. GeoPageScan tracks new AI bots in its config and flags any your robots.txt is blocking."
+      }
+    ],
+    "related": [
+      "robots-ai-guide",
+      "technical-seo-checklist",
+      "perplexity-citations"
+    ],
+    "date": "2026-06-15",
+    "read": "4 min"
+  },
+  {
+    "id": "geo-mistakes",
+    "cat": "GEO",
+    "emoji": "🚧",
+    "title": "7 GEO Mistakes That Keep You Out of AI Answers",
+    "dek": "The most common reasons AI engines ignore a site — and the quick fixes for each. Avoid these and you're ahead of most competitors.",
+    "keywords": "GEO mistakes, AI visibility errors, llms.txt, schema, crawlability",
+    "sections": [
+      {
+        "h": "The mistakes that cost you citations",
+        "list": [
+          "No llms.txt — AI has no clean entry point to your entity.",
+          "Zero structured data — engines must guess what you are.",
+          "Blocking or ignoring AI crawlers in robots.txt.",
+          "Key content trapped in video, images or JavaScript.",
+          "Vague, promotional copy with no concrete facts.",
+          "No named authors or external profile links.",
+          "Unmarked reviews and ratings."
+        ]
+      },
+      {
+        "h": "Why these matter so much",
+        "p": [
+          "Each mistake removes a signal AI relies on to understand, trust or reach you. Fix even three of them and your AI-visibility score typically jumps."
+        ]
+      },
+      {
+        "h": "Fix them in order of impact",
+        "p": [
+          "Start with llms.txt and crawler access (minutes), then schema and content structure (hours). Re-scan after each change to confirm the lift."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What's the most damaging GEO mistake?",
+        "a": "Blocking or not explicitly allowing AI crawlers — a blocked bot can never cite you, no matter how good your content is."
+      },
+      {
+        "q": "How do I find my GEO mistakes?",
+        "a": "Run a free GeoPageScan audit; it flags missing llms.txt, schema gaps, crawler issues and weak content structure with prioritized fixes."
+      },
+      {
+        "q": "How long do the fixes take?",
+        "a": "The highest-impact ones — llms.txt and robots.txt — take minutes. Schema and content restructuring take a few hours."
+      }
+    ],
+    "related": [
+      "geo-guide",
+      "invisible-to-ai",
+      "schema-7-types"
+    ],
+    "date": "2026-06-15",
+    "read": "4 min"
+  },
+  {
+    "id": "geo-vs-seo",
+    "cat": "GEO",
+    "emoji": "⚖️",
+    "title": "GEO vs SEO: How They Differ and Why You Need Both",
+    "dek": "GEO and SEO aren't rivals — they're layers. Here's exactly how they differ and how to invest in both without duplicating work.",
+    "keywords": "GEO vs SEO, generative engine optimization, search optimization, AI visibility",
+    "sections": [
+      {
+        "h": "Same foundation, different goal",
+        "p": [
+          "SEO and GEO both start with crawlable, well-structured content. The difference is the target: SEO competes for a ranked link, GEO competes to be the cited answer inside an AI response."
+        ]
+      },
+      {
+        "h": "Where they diverge",
+        "p": [
+          "SEO leans on keywords, links and rankings. GEO adds entity clarity, llms.txt, answer-first content and machine-readable trust signals so an LLM can confidently quote you."
+        ]
+      },
+      {
+        "h": "How to invest in both",
+        "p": [
+          "Keep your technical SEO strong as the base, then layer GEO on top: it mostly reuses the same content, just structured and marked up for extraction."
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "GEO vs SEO",
+      "cols": [
+        "Dimension",
+        "SEO",
+        "GEO"
+      ],
+      "rows": [
+        [
+          "Goal",
+          "Rank a link",
+          "Be the cited answer"
+        ],
+        [
+          "Core signal",
+          "Keywords + links",
+          "Entity clarity + structure"
+        ],
+        [
+          "Key assets",
+          "Titles, backlinks",
+          "llms.txt, schema, FAQs"
+        ],
+        [
+          "Surface",
+          "Search results page",
+          "AI-generated answers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "q": "Is GEO replacing SEO?",
+        "a": "No. GEO layers on top of SEO. Strong technical SEO is the foundation that lets your GEO work reach AI engines."
+      },
+      {
+        "q": "Do I need to do both?",
+        "a": "Yes, if you want both blue-link traffic and AI citations. They reuse most of the same content, so the extra effort is mostly structure and markup."
+      },
+      {
+        "q": "Which should I start with?",
+        "a": "Fix technical SEO basics first (crawlability, metadata), then add GEO signals like llms.txt and schema."
+      }
+    ],
+    "related": [
+      "seo-ai-era",
+      "geo-guide",
+      "technical-seo-checklist"
+    ],
+    "date": "2026-06-15",
+    "read": "4 min"
   }
 ]

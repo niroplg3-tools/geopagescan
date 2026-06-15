@@ -20,3 +20,10 @@ Blog now has 20 posts. Queue remaining: 33.
 - [AEO] How to Add FAQ Schema: A Step-by-Step Guide (with Examples)  →  /blog/faq-schema-howto.html
 
 Blog now has 22 posts. Queue remaining: 31.
+
+## 2026-06-15 — published 3 article(s)
+- [SEO] The Complete List of AI Crawlers in 2026 (and How to Handle Each)  →  /blog/ai-crawler-list-2026.html
+- [GEO] 7 GEO Mistakes That Keep You Out of AI Answers  →  /blog/geo-mistakes.html
+- [GEO] GEO vs SEO: How They Differ and Why You Need Both  →  /blog/geo-vs-seo.html
+
+Blog now has 25 posts. Queue remaining: 28.
