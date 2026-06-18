@@ -27,3 +27,9 @@ Blog now has 22 posts. Queue remaining: 31.
 - [GEO] GEO vs SEO: How They Differ and Why You Need Both  →  /blog/geo-vs-seo.html
 
 Blog now has 25 posts. Queue remaining: 28.
+
+## 2026-06-18 — published 2 article(s)
+- [GEO] Why Brand Mentions (Not Just Links) Drive AI Citations  →  /blog/brand-mentions-ai.html
+- [GEO] GEO for Bloggers: How to Get Your Posts Quoted by AI  →  /blog/geo-for-blogs.html
+
+Blog now has 27 posts. Queue remaining: 26.

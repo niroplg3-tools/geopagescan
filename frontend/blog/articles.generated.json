@@ -605,5 +605,103 @@
     ],
     "date": "2026-06-15",
     "read": "4 min"
+  },
+  {
+    "id": "brand-mentions-ai",
+    "cat": "GEO",
+    "emoji": "📣",
+    "title": "Why Brand Mentions (Not Just Links) Drive AI Citations",
+    "dek": "AI engines weigh unlinked brand mentions as entity signals. Here's how to earn and structure mentions so AI associates them with you.",
+    "keywords": "brand mentions, unlinked mentions, entity SEO, AI citations, GEO",
+    "sections": [
+      {
+        "h": "Mentions are entity signals",
+        "p": [
+          "Where classic SEO counts backlinks, AI engines also read plain brand mentions across the web as evidence that an entity exists and matters. A consistent name showing up in context builds recognition."
+        ]
+      },
+      {
+        "h": "Make your brand unambiguous",
+        "p": [
+          "Use a consistent brand name everywhere, define your entity in Organization schema with a sameAs array, and keep your About page and llms.txt aligned so mentions map cleanly to you."
+        ]
+      },
+      {
+        "h": "Earn mentions in context",
+        "p": [
+          "Guest posts, podcasts, directories, reviews and PR all create mentions. What matters is that they appear near the topics you want to be known for."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do unlinked brand mentions help AI visibility?",
+        "a": "Yes. AI engines treat consistent, contextual brand mentions as entity signals, even without a hyperlink."
+      },
+      {
+        "q": "How do I connect mentions to my entity?",
+        "a": "Use a consistent brand name, Organization schema with sameAs links, and an aligned About page and llms.txt so mentions resolve to you."
+      },
+      {
+        "q": "Where do I earn mentions?",
+        "a": "Guest articles, podcasts, industry directories, reviews and PR — ideally in content about the topics you want to be cited for."
+      }
+    ],
+    "related": [
+      "entity-authority",
+      "geo-guide",
+      "chatgpt-cite"
+    ],
+    "date": "2026-06-18",
+    "read": "4 min"
+  },
+  {
+    "id": "geo-for-blogs",
+    "cat": "GEO",
+    "emoji": "📝",
+    "title": "GEO for Bloggers: How to Get Your Posts Quoted by AI",
+    "dek": "Bloggers can win big in AI search with the right structure. Here's how to make every post quotable by ChatGPT, Claude and Perplexity.",
+    "keywords": "GEO for blogs, blog AI citations, BlogPosting schema, answer-first blogging",
+    "sections": [
+      {
+        "h": "Write posts AI wants to quote",
+        "p": [
+          "Lead each section with a direct, self-contained answer, use question-style headings, and include specific facts, dates and named examples. That's the content AI lifts into answers."
+        ]
+      },
+      {
+        "h": "Mark up every post",
+        "p": [
+          "Add BlogPosting schema with a named author and publish date, plus FAQPage schema for your Q&A sections. These editorial signals raise trust and quotability."
+        ]
+      },
+      {
+        "h": "Build topical depth",
+        "p": [
+          "Cover a topic thoroughly across linked posts. AI favors sources with clear, connected expertise over one-off articles."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do bloggers get cited by AI?",
+        "a": "Write answer-first posts with question headings and specific facts, add BlogPosting and FAQPage schema with a named author, and build topical depth."
+      },
+      {
+        "q": "What schema should a blog post use?",
+        "a": "BlogPosting with author and datePublished, plus FAQPage for Q&A sections."
+      },
+      {
+        "q": "Does author attribution matter?",
+        "a": "Yes. A named, linkable author with a publish date increases editorial trust for both Google E-E-A-T and AI engines."
+      }
+    ],
+    "related": [
+      "geo-content",
+      "schema-7-types",
+      "entity-authority"
+    ],
+    "date": "2026-06-18",
+    "read": "4 min"
   }
 ]
