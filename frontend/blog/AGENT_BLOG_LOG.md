@@ -33,3 +33,10 @@ Blog now has 25 posts. Queue remaining: 28.
 - [GEO] GEO for Bloggers: How to Get Your Posts Quoted by AI  →  /blog/geo-for-blogs.html
 
 Blog now has 27 posts. Queue remaining: 26.
+
+## 2026-06-22 — published 3 article(s)
+- [GEO] GEO for Startups: Build AI Visibility From Day One  →  /blog/geo-startups.html
+- [GEO] How to Get Your Brand Into the AI Knowledge Graph  →  /blog/ai-knowledge-graph.html
+- [GEO] The ROI of GEO: Is AI Visibility Worth the Effort?  →  /blog/geo-roi.html
+
+Blog now has 30 posts. Queue remaining: 23.

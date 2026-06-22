@@ -703,5 +703,155 @@
     ],
     "date": "2026-06-18",
     "read": "4 min"
+  },
+  {
+    "id": "geo-startups",
+    "cat": "GEO",
+    "emoji": "🌱",
+    "title": "GEO for Startups: Build AI Visibility From Day One",
+    "dek": "Startups can out-rank incumbents in AI answers by getting the fundamentals right early. Here's the day-one GEO setup.",
+    "keywords": "GEO for startups, startup AI visibility, llms.txt, entity, early-stage SEO",
+    "sections": [
+      {
+        "h": "Why startups have an edge",
+        "p": [
+          "Incumbents are slow to adopt GEO. A startup that ships llms.txt, schema and answer-first content early can become the cited source in its category before bigger players react."
+        ]
+      },
+      {
+        "h": "The day-one setup",
+        "list": [
+          "Publish llms.txt defining your category, audience and offering.",
+          "Add Organization + FAQPage schema and a clear About page.",
+          "Allow AI crawlers in robots.txt and ship a sitemap.",
+          "Write a few deep, answer-first pages on your core topic."
+        ]
+      },
+      {
+        "h": "Reinforce the entity",
+        "p": [
+          "List your founders with Person schema and sameAs links, and keep your name and positioning consistent everywhere so AI can resolve you confidently."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Should an early-stage startup invest in GEO?",
+        "a": "Yes — it's cheap, fast and incumbents are slow. Early GEO can make you the cited source in your category before competitors catch up."
+      },
+      {
+        "q": "What's the minimum GEO setup?",
+        "a": "llms.txt, Organization + FAQPage schema, AI crawlers allowed in robots.txt, and a few deep answer-first pages on your core topic."
+      },
+      {
+        "q": "How do I define a new category to AI?",
+        "a": "State it plainly in your hero, About page and llms.txt, and reinforce it with consistent messaging and Organization schema."
+      }
+    ],
+    "related": [
+      "saas-geo",
+      "geo-guide",
+      "entity-authority"
+    ],
+    "date": "2026-06-22",
+    "read": "4 min"
+  },
+  {
+    "id": "ai-knowledge-graph",
+    "cat": "GEO",
+    "emoji": "🕸️",
+    "title": "How to Get Your Brand Into the AI Knowledge Graph",
+    "dek": "AI engines trust entities they can resolve in a knowledge graph. Here's how to become a recognized, well-connected entity.",
+    "keywords": "knowledge graph, entity, Wikidata, sameAs, AI entity recognition, GEO",
+    "sections": [
+      {
+        "h": "What the knowledge graph does",
+        "p": [
+          "A knowledge graph maps entities — people, organizations, products — and their relationships. When AI can place you in that graph, it cites you with confidence and attributes you correctly."
+        ]
+      },
+      {
+        "h": "Become a resolvable entity",
+        "p": [
+          "Add Organization and Person schema with sameAs links to authoritative profiles (LinkedIn, Crunchbase, Wikidata), and keep your name, description and details consistent across the web."
+        ]
+      },
+      {
+        "h": "Earn third-party validation",
+        "p": [
+          "Mentions, reviews, directory listings and — where warranted — a Wikidata entry all strengthen your node in the graph."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I get into the AI knowledge graph?",
+        "a": "Define your entity with Organization/Person schema and sameAs links, keep details consistent across the web, and earn third-party validation like reviews and directory listings."
+      },
+      {
+        "q": "Does Wikidata help AI visibility?",
+        "a": "Yes, when warranted. A Wikidata entry is a strong, machine-readable entity signal that AI engines trust."
+      },
+      {
+        "q": "What is sameAs?",
+        "a": "A schema property that links your entity to its official profiles, letting machines confirm you're the same entity across sites."
+      }
+    ],
+    "related": [
+      "entity-authority",
+      "wikipedia-wikidata",
+      "geo-guide"
+    ],
+    "date": "2026-06-22",
+    "read": "4 min"
+  },
+  {
+    "id": "geo-roi",
+    "cat": "GEO",
+    "emoji": "💹",
+    "title": "The ROI of GEO: Is AI Visibility Worth the Effort?",
+    "dek": "Most GEO wins are cheap and durable. Here's how to think about the return on AI-visibility work — and how to prove it.",
+    "keywords": "GEO ROI, AI visibility value, GEO business case, AI search traffic",
+    "sections": [
+      {
+        "h": "Low cost, compounding return",
+        "p": [
+          "The highest-impact GEO moves — llms.txt, schema, crawler access — cost hours, not budget, and keep paying off as AI search grows. The downside risk is essentially zero."
+        ]
+      },
+      {
+        "h": "What you're actually buying",
+        "p": [
+          "Citations in AI answers put your brand in front of users at the exact moment of intent, often before competitors appear. As zero-click search grows, being the answer is the new page-one."
+        ]
+      },
+      {
+        "h": "How to prove it",
+        "p": [
+          "Track your AI-visibility score over time, monitor referral traffic from AI sources, and periodically check whether the engines cite you for your priority questions."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is GEO worth the effort?",
+        "a": "For most sites, yes — the core moves are cheap, durable and low-risk, and AI citations reach users at the moment of intent as zero-click search grows."
+      },
+      {
+        "q": "How do I measure GEO ROI?",
+        "a": "Track your AI-visibility score, referral traffic from AI sources, and citation rate for your priority queries over time."
+      },
+      {
+        "q": "When does GEO pay off?",
+        "a": "Quick wins like llms.txt can affect AI answers within weeks; entity and content work compounds over months."
+      }
+    ],
+    "related": [
+      "measuring-ai-visibility",
+      "geo-guide",
+      "agency-workflow"
+    ],
+    "date": "2026-06-22",
+    "read": "4 min"
   }
 ]
