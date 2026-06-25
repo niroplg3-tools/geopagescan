@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://geopagescan.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://geopagescan.com/blog.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://geopagescan.com/blog/multilingual-geo.html</loc><lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://geopagescan.com/blog/featured-snippets-2026.html</loc><lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/geo-startups.html</loc><lastmod>2026-06-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/ai-knowledge-graph.html</loc><lastmod>2026-06-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/geo-roi.html</loc><lastmod>2026-06-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

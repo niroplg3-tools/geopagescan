@@ -40,3 +40,9 @@ Blog now has 27 posts. Queue remaining: 26.
 - [GEO] The ROI of GEO: Is AI Visibility Worth the Effort?  →  /blog/geo-roi.html
 
 Blog now has 30 posts. Queue remaining: 23.
+
+## 2026-06-25 — published 2 article(s)
+- [GEO] Multilingual GEO: Getting Cited by AI Across Languages  →  /blog/multilingual-geo.html
+- [AEO] Featured Snippets in 2026: Still Worth Optimizing For?  →  /blog/featured-snippets-2026.html
+
+Blog now has 32 posts. Queue remaining: 21.

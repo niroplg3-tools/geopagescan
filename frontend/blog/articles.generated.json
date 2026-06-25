@@ -853,5 +853,103 @@
     ],
     "date": "2026-06-22",
     "read": "4 min"
+  },
+  {
+    "id": "multilingual-geo",
+    "cat": "GEO",
+    "emoji": "🌍",
+    "title": "Multilingual GEO: Getting Cited by AI Across Languages",
+    "dek": "AI answers questions in many languages. Here's how to make your content citable across all of them with hreflang and localized entities.",
+    "keywords": "multilingual GEO, hreflang, international AI visibility, localization, GEO",
+    "sections": [
+      {
+        "h": "AI answers in the user's language",
+        "p": [
+          "When someone asks in Hebrew, German or Spanish, AI prefers sources it can read in that language. Single-language sites miss citations in every other market."
+        ]
+      },
+      {
+        "h": "Connect your language versions",
+        "p": [
+          "Use hreflang to link each language and region variant so AI and search understand they're the same entity in different languages. This is the most common miss for international sites."
+        ]
+      },
+      {
+        "h": "Localize the entity, not just the words",
+        "p": [
+          "Provide localized llms.txt and meta descriptions, and keep entity details consistent across languages so AI resolves you correctly everywhere."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I get cited by AI in other languages?",
+        "a": "Offer content in those languages, connect versions with hreflang, and provide localized llms.txt and metadata while keeping your entity consistent."
+      },
+      {
+        "q": "What is hreflang and why does it matter?",
+        "a": "hreflang links language/region variants of a page so AI and search treat them as one entity in different languages — critical for international visibility."
+      },
+      {
+        "q": "Is English-only enough?",
+        "a": "Only for English queries. To be cited in other markets, you need readable content and metadata in those languages."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "geo-guide",
+      "local-geo"
+    ],
+    "date": "2026-06-25",
+    "read": "4 min"
+  },
+  {
+    "id": "featured-snippets-2026",
+    "cat": "AEO",
+    "emoji": "📌",
+    "title": "Featured Snippets in 2026: Still Worth Optimizing For?",
+    "dek": "Featured snippets and AI answers reward the same thing — a clean, direct answer. Here's how to win both at once.",
+    "keywords": "featured snippets, position zero, AEO, direct answers, AI Overviews",
+    "sections": [
+      {
+        "h": "Snippets and AI want the same content",
+        "p": [
+          "A concise, well-structured answer under a clear question heading wins both featured snippets and AI citations. Optimizing for one optimizes for the other."
+        ]
+      },
+      {
+        "h": "How to win the snippet",
+        "p": [
+          "Put a 40–60 word direct answer immediately under the question, support it with a list or table, and mark it up with FAQPage or HowTo schema where it fits."
+        ]
+      },
+      {
+        "h": "Don't over-optimize",
+        "p": [
+          "Answer genuinely and completely. Engines increasingly favor trustworthy depth over content engineered purely to grab a snippet."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Are featured snippets still worth it in 2026?",
+        "a": "Yes — the same concise, structured answers that win snippets also win AI citations, so the work pays off twice."
+      },
+      {
+        "q": "How do I win a featured snippet?",
+        "a": "Place a 40–60 word direct answer under a question heading, support it with a list or table, and add FAQPage or HowTo schema."
+      },
+      {
+        "q": "Do snippets and AI Overviews overlap?",
+        "a": "Heavily. Both reward a clear, direct answer to a specific question, so optimize once for both."
+      }
+    ],
+    "related": [
+      "aeo-guide",
+      "ai-overviews",
+      "faq-schema-howto"
+    ],
+    "date": "2026-06-25",
+    "read": "4 min"
   }
 ]
