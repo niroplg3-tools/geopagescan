@@ -30,8 +30,12 @@ const USER_AGENT =
   "GeoPageScan/1.0 (AI visibility audit; hello@geopagescan.com)";
 
 const app = express();
+app.set("trust proxy", true); // behind Railway's proxy — derive real client IP from X-Forwarded-For
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
+
+// Public free tool: max scans per IP per day (heuristic engine, no cost).
+const PUBLIC_SCAN_LIMIT = Number(process.env.PUBLIC_SCAN_LIMIT) || 5;
 
 // Load the living config (weights, crawler list, schema impacts).
 let CONFIG = {};
@@ -499,7 +503,13 @@ function ensureSchema(audit) {
 
 // ── Routes ──────────────────────────────────────────────────────────────────
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok", engine: ANTHROPIC_API_KEY ? "claude" : "heuristic", model: ANTHROPIC_API_KEY ? ANTHROPIC_MODEL : null, internalApi: INTERNAL_API_KEY ? "configured" : "disabled" });
+  res.json({
+    status: "ok",
+    publicEngine: "heuristic",
+    publicScanLimitPerDay: PUBLIC_SCAN_LIMIT,
+    internalEngine: ANTHROPIC_API_KEY ? `claude (${ANTHROPIC_MODEL})` : "heuristic",
+    internalApi: INTERNAL_API_KEY ? "configured" : "disabled",
+  });
 });
 
 app.get("/config", (_req, res) => {
@@ -507,10 +517,10 @@ app.get("/config", (_req, res) => {
 });
 
 // ── Shared audit pipeline ───────────────────────────────────────────────────
-// Scrape + /llms.txt + /robots.txt in parallel, then audit with Claude (or the
-// heuristic fallback). Both the public /audit route and the internal API call
-// this. Throws on bad input (err.status = 400) or runtime failure.
-async function runVisibilityAudit(rawUrl) {
+// Scrape + /llms.txt + /robots.txt in parallel, then audit. The PUBLIC tool runs
+// the fast, free heuristic engine; the internal API (Pulsec) opts into Claude via
+// { useClaude: true }. Throws on bad input (err.status = 400) or runtime failure.
+async function runVisibilityAudit(rawUrl, { useClaude = false } = {}) {
   const target = normalizeUrl(rawUrl); // throws (status 400) on missing/invalid URL
   const started = Date.now();
 
@@ -524,7 +534,7 @@ async function runVisibilityAudit(rawUrl) {
 
   let audit;
   let engine = "heuristic";
-  if (ANTHROPIC_API_KEY) {
+  if (useClaude && ANTHROPIC_API_KEY) {
     try {
       audit = ensureSchema(await callClaude(auditInput));
       engine = "claude";
@@ -564,24 +574,60 @@ function internalKeyMatches(provided) {
   return timingSafeEqual(a, b);
 }
 
-// Public audit route — used by the GeoPageScan frontend.
+// ── Per-IP daily rate limit for the public tool (in-memory, resets at UTC day).
+const scanHits = new Map(); // ip -> { day: "YYYY-MM-DD", count }
+function consumePublicScan(ip) {
+  const day = new Date().toISOString().slice(0, 10);
+  const rec = scanHits.get(ip);
+  if (!rec || rec.day !== day) {
+    scanHits.set(ip, { day, count: 1 });
+    return { ok: true, remaining: PUBLIC_SCAN_LIMIT - 1 };
+  }
+  if (rec.count >= PUBLIC_SCAN_LIMIT) return { ok: false, remaining: 0 };
+  rec.count += 1;
+  return { ok: true, remaining: PUBLIC_SCAN_LIMIT - rec.count };
+}
+
+// Public audit route — GeoPageScan frontend. Heuristic engine (free, fast),
+// limited to PUBLIC_SCAN_LIMIT scans per IP per day.
 app.post("/audit", async (req, res) => {
+  // validate URL first so a bad request never burns a daily scan
+  let target;
   try {
-    res.json(await runVisibilityAudit(req.body?.url));
+    target = normalizeUrl(req.body?.url);
+  } catch (e) {
+    return res.status(e.status || 400).json({ error: e.message || "URL is required" });
+  }
+
+  const ip = req.ip || (req.headers["x-forwarded-for"] || "").split(",")[0].trim() || "unknown";
+  const rl = consumePublicScan(ip);
+  if (!rl.ok) {
+    return res.status(429).json({
+      error: "Daily limit reached",
+      message: `You've used all ${PUBLIC_SCAN_LIMIT} free scans for today. Please come back tomorrow — or contact us about higher-volume access.`,
+      limit: PUBLIC_SCAN_LIMIT,
+    });
+  }
+
+  try {
+    const audit = await runVisibilityAudit(target.href); // heuristic (free, fast)
+    audit.meta.scansRemaining = rl.remaining;
+    audit.meta.scanLimit = PUBLIC_SCAN_LIMIT;
+    res.json(audit);
   } catch (e) {
     console.error("[audit] error:", e.message);
     res.status(e.status || 500).json({ error: e.message || "Audit failed" });
   }
 });
 
-// Internal server-to-server API (e.g. Pulsec). Same audit logic, protected by a
-// shared secret in the X-Internal-Key header. Returns 401 if missing/wrong.
+// Internal server-to-server API (e.g. Pulsec). Claude-powered, no rate limit,
+// protected by a shared secret in the X-Internal-Key header (401 if missing/wrong).
 app.post("/api/internal/visibility-scan", async (req, res) => {
   if (!internalKeyMatches(req.get("X-Internal-Key"))) {
     return res.status(401).json({ error: "Unauthorized" });
   }
   try {
-    res.json(await runVisibilityAudit(req.body?.url));
+    res.json(await runVisibilityAudit(req.body?.url, { useClaude: true }));
   } catch (e) {
     console.error("[internal-scan] error:", e.message);
     res.status(e.status || 500).json({ error: e.message || "Audit failed" });

@@ -273,21 +273,69 @@ function Report({ data }) {
 /* ═══════════════════════════════════════════════════════════════════════
    HERO + AUDIT ENGINE
    ═══════════════════════════════════════════════════════════════════════ */
-const LOADING_STEPS = ["Scraping website…", "Checking llms.txt & robots.txt…", "Analyzing with AI…", "Scoring GEO / AEO / SEO signals…", "Compiling your report…"];
+const LOADING_STEPS = ["Fetching the page…", "Checking llms.txt & robots.txt…", "Reading structured data & headings…", "Scoring GEO / AEO / SEO signals…", "Compiling your report…"];
+
+// Fun + funny facts about AI search / GEO / AEO, shown while a scan runs.
+const FACTS = [
+  { e: "🤖", t: "AI crawlers like GPTBot don't run JavaScript — your slick React site can look like a blank page to them." },
+  { e: "📄", t: "An llms.txt file takes about 10 minutes to write, and most of your competitors still don't have one." },
+  { e: "📊", t: "An estimated 94% of websites score below 40/100 for AI visibility — most don't even know AI is reading them." },
+  { e: "💬", t: "ChatGPT handles over a billion messages a day, quietly deciding which sites to mention." },
+  { e: "🔎", t: "Perplexity shows its sources on every answer. Being one of them is the new 'page one'." },
+  { e: "❓", t: "FAQPage schema is the most-quoted markup in AI answers. Questions are basically catnip for LLMs." },
+  { e: "🚦", t: "robots.txt was invented in 1994. It's now the bouncer deciding which AI bots get past the door." },
+  { e: "😅", t: "LLMs will confidently cite sources that don't exist. Give them real ones — ideally yours." },
+  { e: "🧭", t: "'GEO' used to mean maps. Now it also means getting your brand into AI answers." },
+  { e: "⚡", t: "40–70% of searches now return an AI answer — often with zero clicks to any website." },
+  { e: "🎥", t: "A gorgeous video hero with three words of text tells an AI almost nothing. Add real words." },
+  { e: "🧠", t: "AI loves a plain 'X is a …' sentence. Lead with what you are, then get fancy." },
+  { e: "🏷️", t: "Organization + FAQPage + AggregateRating schema covers most of what triggers an AI citation." },
+  { e: "🚀", t: "Early movers get cited again and again. The AI-visibility window is wide open — for now." },
+];
+
+function LoadingScan({ stepLabel }) {
+  const [i, setI] = useState(() => Math.floor(Math.random() * FACTS.length));
+  const [paused, setPaused] = useState(false);
+  const f = FACTS[i];
+  return (
+    <div className="scan-loading">
+      <div className="hexspin"><Ic.hex /></div>
+      <div className="loading-step">{stepLabel}</div>
+      <div
+        className="fact-card"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
+      >
+        <div className="fact-top"><span className="fact-emoji">{f.e}</span><span className="fact-kicker">Did you know?</span></div>
+        <p className="fact-text" key={i}>{f.t}</p>
+        <div className="fact-bar">
+          <div
+            className={"fact-bar-fill" + (paused ? " paused" : "")}
+            onAnimationIteration={() => setI((p) => (p + 1) % FACTS.length)}
+          />
+        </div>
+      </div>
+      <div className="fact-hint mono">{paused ? "paused — release to resume" : "hover to pause the facts"}</div>
+    </div>
+  );
+}
 
 function Hero() {
   const [url, setUrl] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | error | done
   const [step, setStep] = useState(0);
   const [error, setError] = useState("");
+  const [limitHit, setLimitHit] = useState(false);
   const [result, setResult] = useState(null);
   const reportRef = useRef(null);
 
   const runAudit = useCallback(async (e) => {
     e?.preventDefault();
     const target = url.trim();
-    if (!target) { setError("Please enter a website URL."); setStatus("error"); return; }
-    setStatus("loading"); setError(""); setResult(null); setStep(0);
+    if (!target) { setError("Please enter a website URL."); setLimitHit(false); setStatus("error"); return; }
+    setStatus("loading"); setError(""); setLimitHit(false); setResult(null); setStep(0);
 
     const ticker = setInterval(() => setStep((s) => Math.min(s + 1, LOADING_STEPS.length - 1)), 1400);
     try {
@@ -297,6 +345,12 @@ function Hero() {
         body: JSON.stringify({ url: target }),
       });
       const json = await res.json();
+      if (res.status === 429) {
+        setLimitHit(true);
+        setError(json.message || "You've used all your free scans for today. Please come back tomorrow.");
+        setStatus("error");
+        return;
+      }
       if (!res.ok) throw new Error(json.error || `Request failed (${res.status})`);
       setResult(json);
       setStatus("done");
@@ -362,15 +416,11 @@ function Hero() {
     {status !== "idle" && (
       <section className="results" ref={reportRef}>
         <div className="container">
-          {status === "loading" && (
-            <div className="loading-box">
-              <div className="hexspin"><Ic.hex /></div>
-              <div className="loading-step">{LOADING_STEPS[step]}</div>
-              <div className="loading-bar"><i /></div>
-            </div>
-          )}
+          {status === "loading" && <LoadingScan stepLabel={LOADING_STEPS[step]} />}
           {status === "error" && (
-            <div className="error-box"><Ic.alert /><div><b>Audit failed.</b>{"\n"}{error}</div></div>
+            limitHit
+              ? <div className="limit-box"><Ic.bolt /><div><b>Daily free limit reached</b>{"\n"}{error}</div></div>
+              : <div className="error-box"><Ic.alert /><div><b>Audit failed.</b>{"\n"}{error}</div></div>
           )}
           {status === "done" && result && <Report data={result} />}
         </div>
