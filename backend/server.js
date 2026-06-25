@@ -21,7 +21,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const PORT = process.env.PORT || 3001;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
-const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-5";
+// Default to Sonnet: ~5x cheaper and ~2x faster than Opus for the public tool.
+// Override per-environment with ANTHROPIC_MODEL (e.g. claude-opus-4-5 for max quality).
+const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-6";
 // Shared secret for the internal server-to-server audit API (e.g. Pulsec).
 const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || "";
 const USER_AGENT =
