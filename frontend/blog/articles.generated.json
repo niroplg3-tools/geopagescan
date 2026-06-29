@@ -951,5 +951,152 @@
     ],
     "date": "2026-06-25",
     "read": "4 min"
+  },
+  {
+    "id": "howto-schema",
+    "cat": "AEO",
+    "emoji": "🪜",
+    "title": "HowTo Schema: The AEO Magnet for Step-by-Step Content",
+    "dek": "Step-by-step content is exactly what AI assistants love to surface. Here's how to add HowTo schema and structure it right.",
+    "keywords": "HowTo schema, step-by-step, AEO, JSON-LD, instructions",
+    "sections": [
+      {
+        "h": "Why HowTo content wins",
+        "p": [
+          "\"How do I…\" is one of the most common query types, and step-by-step instructions map perfectly to how AI assistants and voice answers present information."
+        ]
+      },
+      {
+        "h": "Structure and mark it up",
+        "p": [
+          "Break the task into clear, numbered steps with one action each, then add HowTo JSON-LD listing the steps. Keep each step short and self-contained so it can be read aloud."
+        ]
+      },
+      {
+        "h": "Pair it with visuals",
+        "p": [
+          "Add a relevant image or short description per step. It helps both human readers and the engines that surface your instructions."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is HowTo schema?",
+        "a": "JSON-LD that marks up step-by-step instructions so search and AI can present them as a guided sequence."
+      },
+      {
+        "q": "When should I use HowTo schema?",
+        "a": "For any task-based content — setup guides, recipes, tutorials — where the answer is a sequence of steps."
+      },
+      {
+        "q": "Does HowTo help with voice and AI?",
+        "a": "Yes. Clear, numbered steps are ideal for voice assistants and AI answers, and HowTo markup makes them machine-readable."
+      }
+    ],
+    "related": [
+      "schema-7-types",
+      "aeo-guide",
+      "voice-aeo"
+    ],
+    "date": "2026-06-29",
+    "read": "4 min"
+  },
+  {
+    "id": "answer-first-writing",
+    "cat": "AEO",
+    "emoji": "🎯",
+    "title": "Answer-First Writing: The AEO Copywriting Method",
+    "dek": "Lead with the answer, then explain. This one habit makes your content dramatically more quotable by AI and snippets.",
+    "keywords": "answer-first writing, AEO copywriting, inverted pyramid, direct answers",
+    "sections": [
+      {
+        "h": "Lead with the answer",
+        "p": [
+          "State the answer in the first sentence under each heading, then add context and detail. AI engines lift that opening sentence; readers get value immediately."
+        ]
+      },
+      {
+        "h": "Use the question as the heading",
+        "p": [
+          "Phrase headings as the literal questions people ask. The heading-plus-direct-answer pattern is what snippets and AI both extract."
+        ]
+      },
+      {
+        "h": "Cut the warm-up",
+        "p": [
+          "Delete throat-clearing intros and filler. Front-load facts, numbers and specifics — they're what make an answer worth citing."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is answer-first writing?",
+        "a": "A method where you state the direct answer in the first sentence under a question heading, then elaborate — ideal for AI extraction and snippets."
+      },
+      {
+        "q": "How long should the answer be?",
+        "a": "About 40–60 words: a self-contained answer that stands on its own before you add detail."
+      },
+      {
+        "q": "Why does answer-first work for AI?",
+        "a": "AI engines tend to quote the single sentence that most cleanly answers the query, so leading with it makes you the easy choice."
+      }
+    ],
+    "related": [
+      "geo-content",
+      "aeo-guide",
+      "featured-snippets-2026"
+    ],
+    "date": "2026-06-29",
+    "read": "4 min"
+  },
+  {
+    "id": "people-also-ask",
+    "cat": "AEO",
+    "emoji": "🔁",
+    "title": "Winning \"People Also Ask\" and AI Follow-Up Questions",
+    "dek": "Related questions are a goldmine for AEO. Here's how to map them and answer each one so you appear across the whole question cluster.",
+    "keywords": "people also ask, related questions, AEO, question clusters, FAQ",
+    "sections": [
+      {
+        "h": "Answer the whole cluster",
+        "p": [
+          "Users and AI rarely stop at one question. Mapping and answering the follow-ups around a topic makes you the source for the entire conversation, not just the opening query."
+        ]
+      },
+      {
+        "h": "Find the questions",
+        "p": [
+          "Mine \"People Also Ask\", autocomplete, your own support tickets and AI follow-ups to build a list of real questions, then answer each concisely on the page."
+        ]
+      },
+      {
+        "h": "Structure for extraction",
+        "p": [
+          "Use each question as a heading with a direct answer, and wrap the set in FAQPage schema so engines can pull any of them."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I rank for People Also Ask?",
+        "a": "Answer the related questions around your topic, each as a question heading with a concise direct answer, and mark them up with FAQPage schema."
+      },
+      {
+        "q": "Where do I find related questions?",
+        "a": "People Also Ask boxes, search autocomplete, your support tickets, and the follow-up questions AI suggests."
+      },
+      {
+        "q": "Why answer follow-up questions?",
+        "a": "Because users and AI continue the conversation; covering the cluster makes you the source for the whole topic."
+      }
+    ],
+    "related": [
+      "faq-schema-howto",
+      "aeo-guide",
+      "answer-first-writing"
+    ],
+    "date": "2026-06-29",
+    "read": "4 min"
   }
 ]

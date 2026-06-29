@@ -46,3 +46,10 @@ Blog now has 30 posts. Queue remaining: 23.
 - [AEO] Featured Snippets in 2026: Still Worth Optimizing For?  →  /blog/featured-snippets-2026.html
 
 Blog now has 32 posts. Queue remaining: 21.
+
+## 2026-06-29 — published 3 article(s)
+- [AEO] HowTo Schema: The AEO Magnet for Step-by-Step Content  →  /blog/howto-schema.html
+- [AEO] Answer-First Writing: The AEO Copywriting Method  →  /blog/answer-first-writing.html
+- [AEO] Winning "People Also Ask" and AI Follow-Up Questions  →  /blog/people-also-ask.html
+
+Blog now has 35 posts. Queue remaining: 18.
