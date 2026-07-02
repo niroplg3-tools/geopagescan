@@ -53,3 +53,9 @@ Blog now has 32 posts. Queue remaining: 21.
 - [AEO] Winning "People Also Ask" and AI Follow-Up Questions  →  /blog/people-also-ask.html
 
 Blog now has 35 posts. Queue remaining: 18.
+
+## 2026-07-02 — published 2 article(s)
+- [AEO] Writing Conversational Content for AI Assistants  →  /blog/conversational-content.html
+- [AEO] AEO for Healthcare: Answering Patient Questions the Right Way  →  /blog/aeo-healthcare.html
+
+Blog now has 37 posts. Queue remaining: 16.
