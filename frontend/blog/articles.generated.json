@@ -1196,5 +1196,155 @@
     ],
     "date": "2026-07-02",
     "read": "4 min"
+  },
+  {
+    "id": "zero-click-strategy",
+    "cat": "AEO",
+    "emoji": "🚫",
+    "title": "A Zero-Click Content Strategy That Still Wins",
+    "dek": "Zero-click search isn't the enemy — it's a branding and authority channel. Here's how to win even when users don't click.",
+    "keywords": "zero-click search, AEO strategy, brand visibility, AI answers",
+    "sections": [
+      {
+        "h": "Reframe zero-click",
+        "p": [
+          "When AI answers without a click, being the cited source still builds brand recognition and authority at the moment of intent. Visibility itself has value."
+        ]
+      },
+      {
+        "h": "Give a reason to click anyway",
+        "p": [
+          "Lead with the answer for the citation, but offer depth the summary can't replace — tools, original data, examples — so motivated users still visit."
+        ]
+      },
+      {
+        "h": "Measure beyond clicks",
+        "p": [
+          "Track citations, branded search lift and assisted conversions, not just direct sessions, to see the real impact of AI visibility."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is zero-click search bad for my site?",
+        "a": "Not necessarily. Being the cited source builds brand authority at the moment of intent, and you can still earn clicks with depth the summary can't replace."
+      },
+      {
+        "q": "How do I win in a zero-click world?",
+        "a": "Provide the concise answer for the citation plus unique depth, tools or data that give users a reason to click through."
+      },
+      {
+        "q": "How do I measure zero-click impact?",
+        "a": "Track AI citations, branded search lift and assisted conversions, not just direct sessions."
+      }
+    ],
+    "related": [
+      "aeo-guide",
+      "geo-roi",
+      "measuring-ai-visibility"
+    ],
+    "date": "2026-07-06",
+    "read": "4 min"
+  },
+  {
+    "id": "core-web-vitals-2026",
+    "cat": "SEO",
+    "emoji": "⚡",
+    "title": "Core Web Vitals in 2026: What to Optimize and Why",
+    "dek": "Fast, stable pages help crawlers, users and AI alike. Here's a practical Core Web Vitals checklist for 2026.",
+    "keywords": "Core Web Vitals, LCP, INP, CLS, page speed, technical SEO",
+    "sections": [
+      {
+        "h": "The three metrics that matter",
+        "p": [
+          "Largest Contentful Paint (loading), Interaction to Next Paint (responsiveness) and Cumulative Layout Shift (stability) summarize real user experience — and influence how efficiently your pages are crawled."
+        ]
+      },
+      {
+        "h": "Quick wins",
+        "list": [
+          "Serve images in modern formats with width/height set.",
+          "Defer non-critical JavaScript and third-party scripts.",
+          "Reserve space for async content to avoid layout shift.",
+          "Use a CDN and cache aggressively."
+        ]
+      },
+      {
+        "h": "Why it helps AI too",
+        "p": [
+          "Faster, more stable pages crawl better and signal quality. They won't make you citable on their own, but they remove friction from everything else."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are Core Web Vitals in 2026?",
+        "a": "LCP (loading), INP (responsiveness) and CLS (visual stability) — Google's user-experience metrics that affect rankings and crawl efficiency."
+      },
+      {
+        "q": "Do Core Web Vitals affect AI visibility?",
+        "a": "Indirectly. Fast, stable pages crawl better and signal quality, supporting the rest of your GEO and SEO work."
+      },
+      {
+        "q": "What's the fastest CWV win?",
+        "a": "Optimize images (modern formats, set dimensions) and defer non-critical JavaScript."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "js-rendering-seo",
+      "seo-ai-era"
+    ],
+    "date": "2026-07-06",
+    "read": "4 min"
+  },
+  {
+    "id": "internal-linking-ai",
+    "cat": "SEO",
+    "emoji": "🔗",
+    "title": "Internal Linking for AI Crawlers and Topic Authority",
+    "dek": "Smart internal links help AI understand your topic structure and find every page. Here's how to do it well.",
+    "keywords": "internal linking, topic clusters, crawlability, topical authority, SEO",
+    "sections": [
+      {
+        "h": "Links map your expertise",
+        "p": [
+          "Internal links show AI and search how your content connects, reinforcing topical authority and ensuring every page is discoverable."
+        ]
+      },
+      {
+        "h": "Build topic clusters",
+        "p": [
+          "Create a pillar page for each core topic and link it to supporting articles (and back). This cluster structure signals depth and helps engines understand your focus."
+        ]
+      },
+      {
+        "h": "Use descriptive anchors",
+        "p": [
+          "Anchor text should describe the destination in plain language. It helps users, crawlers and AI understand what each linked page is about."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How does internal linking help AI visibility?",
+        "a": "It helps AI discover every page and understand how your content connects, reinforcing topical authority around your core subjects."
+      },
+      {
+        "q": "What is a topic cluster?",
+        "a": "A pillar page on a core topic linked to and from supporting articles, signaling depth and structure to engines."
+      },
+      {
+        "q": "What anchor text should I use?",
+        "a": "Descriptive, plain-language anchors that say what the linked page is about — avoid generic 'click here'."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "content-pruning",
+      "entity-authority"
+    ],
+    "date": "2026-07-06",
+    "read": "4 min"
   }
 ]

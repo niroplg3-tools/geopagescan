@@ -59,3 +59,10 @@ Blog now has 35 posts. Queue remaining: 18.
 - [AEO] AEO for Healthcare: Answering Patient Questions the Right Way  →  /blog/aeo-healthcare.html
 
 Blog now has 37 posts. Queue remaining: 16.
+
+## 2026-07-06 — published 3 article(s)
+- [AEO] A Zero-Click Content Strategy That Still Wins  →  /blog/zero-click-strategy.html
+- [SEO] Core Web Vitals in 2026: What to Optimize and Why  →  /blog/core-web-vitals-2026.html
+- [SEO] Internal Linking for AI Crawlers and Topic Authority  →  /blog/internal-linking-ai.html
+
+Blog now has 40 posts. Queue remaining: 13.
