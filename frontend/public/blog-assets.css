@@ -66,6 +66,8 @@ img{max-width:100%;display:block}
 .post-body ul li{position:relative;padding-left:28px}
 .post-body ul li::before{content:"";position:absolute;left:4px;top:11px;width:8px;height:8px;border-radius:2px;background:var(--grad)}
 .post-body strong{color:var(--text)}
+.post-body a{color:var(--cyan);text-decoration:underline;text-decoration-color:rgba(0,229,255,.45);text-underline-offset:2px;font-weight:500;transition:color .2s}
+.post-body a:hover{color:#5ff0ff;text-decoration-color:var(--cyan)}
 .post-body code{font-family:var(--mono);font-size:14px;background:var(--bg-3);border:1px solid var(--border-dark);border-radius:6px;padding:2px 7px;color:var(--cyan)}
 .post-body pre{background:var(--bg-3);border:1px solid var(--border-dark);border-radius:12px;padding:20px;overflow-x:auto;margin:8px 0 18px}
 .post-body pre code{background:none;border:none;padding:0;color:var(--text-2);font-size:13.5px;line-height:1.7;white-space:pre}
