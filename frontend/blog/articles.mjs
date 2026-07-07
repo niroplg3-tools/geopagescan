@@ -434,4 +434,47 @@ export const ARTICLES = [
     ],
     related: ["introducing-geopagescan", "geo-guide", "schema-7-types"],
   },
+
+  {
+    id: "website-health-ai-visibility", cat: "SEO", emoji: "🩺",
+    title: "Website Health & AI Visibility: Why Security, HTTPS and Accessibility Decide If AI Trusts You",
+    dek: "Before AI can cite you, it has to reach and trust you. Here's how website health — security, HTTPS, clean robots/sitemap and accessibility — underpins your AI visibility, and how to check it in one scan.",
+    date: "2026-07-07", read: "8 min",
+    keywords: "website health, security headers, HTTPS, SSL, malware, AI visibility, crawlability, technical SEO, VitalSite",
+    sections: [
+      { h: "Site health is the floor under your AI visibility", p: [
+        "You can write perfect answer-first content and mark it up with flawless schema — but if AI crawlers can't safely reach your page, none of it counts. Generative engines and search only cite sources they can <strong>reach</strong> and <strong>trust</strong>. A site that's served over broken HTTPS, flagged for malware, or blocked by a misconfigured robots.txt simply never enters the answer.",
+        "That's why technical health sits underneath everything in GEO and AEO. A fast, secure, well-configured site is the foundation your content and entity signals stand on. The quickest way to see where you stand is a free scan with <a href=\"https://vitalsite.io/\" target=\"_blank\" rel=\"noopener\">VitalSite</a>, a website health scanner that grades your site across security, visibility and accessibility." ] },
+      { h: "The health signals AI and search actually care about", p: [
+        "VitalSite checks three pillars of a healthy site. Each one maps directly to whether an AI engine will crawl, trust and cite you." ],
+        img: { src: "/blog-img/vitalsite-pillars.svg", alt: "VitalSite checks three pillars of website health: Security, Visibility and Accessibility", caption: "The three pillars VitalSite scores — each one feeds directly into your AI visibility." } },
+      { h: "Security & trust: the signals that keep you in the index", p: [
+        "Start with the basics that browsers, Google and AI crawlers all reward. Confirm <a href=\"https://vitalsite.io/check/https-enforcement\" target=\"_blank\" rel=\"noopener\">HTTPS is enforced</a> site-wide and your <a href=\"https://vitalsite.io/check/ssl-tls-certificate\" target=\"_blank\" rel=\"noopener\">SSL/TLS certificate</a> is valid — an expired cert or mixed content triggers warnings that push both users and crawlers away.",
+        "Then check your <a href=\"https://vitalsite.io/check/security-headers\" target=\"_blank\" rel=\"noopener\">security headers</a> (HSTS, CSP and friends). They signal a well-maintained, trustworthy site and block the kinds of attacks that can get you blacklisted. And a single <a href=\"https://vitalsite.io/intel/google-safe-browsing\" target=\"_blank\" rel=\"noopener\">Google Safe Browsing</a> flag can remove you from search results and AI answers entirely — worth knowing before your customers do." ] },
+      { h: "Visibility plumbing: robots, sitemap and indexability", p: [
+        "This is where website health overlaps most with AI visibility. A misconfigured <a href=\"https://vitalsite.io/check/robots-sitemap\" target=\"_blank\" rel=\"noopener\">robots.txt or sitemap</a> can quietly block the exact AI crawlers you want citing you — GPTBot, ClaudeBot, PerplexityBot — or hide half your pages from discovery. VitalSite's visibility checks catch these before they cost you citations.",
+        "It's the same lesson we cover in our <a href=\"/blog/robots-ai-guide.html\">robots.txt guide for AI crawlers</a> and <a href=\"/blog/technical-seo-checklist.html\">technical SEO checklist</a>: the plumbing has to be right before the content can flow." ] },
+      { h: "Check your health, then your AI visibility", p: [
+        "Run a free scan at <a href=\"https://vitalsite.io/scan\" target=\"_blank\" rel=\"noopener\">vitalsite.io/scan</a> to grade your site's security, visibility and accessibility and get a prioritized list of fixes. For teams that want continuous monitoring and deeper checks, VitalSite's <a href=\"https://vitalsite.io/pricing\" target=\"_blank\" rel=\"noopener\">paid plans</a> add history and alerts.",
+        "Then pair it with a GeoPageScan audit for the complete picture: <strong>VitalSite tells you if your site is healthy and reachable; GeoPageScan tells you if AI actually understands and cites you.</strong> Fix the foundation, then win the answer." ] },
+    ],
+    comparison: {
+      title: "How each health signal gates your AI visibility",
+      cols: ["Health signal", "Why AI & search care"],
+      rows: [
+        ["Valid SSL / enforced HTTPS", "Insecure pages are distrusted, down-ranked, and browsers warn users away"],
+        ["Security headers (HSTS, CSP)", "Signal a maintained, trustworthy site; block attacks that get you blacklisted"],
+        ["No malware / blacklist flags", "A Safe Browsing flag can remove you from search and AI answers entirely"],
+        ["Clean robots.txt & sitemap", "Misconfiguration can block AI crawlers or hide pages from discovery"],
+        ["Accessible, semantic markup", "Clean HTML is easier for crawlers and AI to parse and quote"],
+      ],
+    },
+    faq: [
+      { q: "Does website security affect SEO and AI visibility?", a: "Yes. HTTPS is a ranking signal, insecure or malware-flagged sites get down-ranked or removed from results and AI answers, and clean security headers signal a trustworthy site. Run a free scan at VitalSite (vitalsite.io) to see where you stand." },
+      { q: "What is VitalSite?", a: "VitalSite is a free website health scanner that checks your site across three pillars — security (SSL, headers, malware), visibility (robots, sitemap, indexing) and accessibility — and returns a scored report with prioritized fixes." },
+      { q: "How is VitalSite different from GeoPageScan?", a: "GeoPageScan scores your AI visibility (GEO/AEO/SEO) — whether AI engines understand and cite your content. VitalSite scores your website's technical health and security. They're complementary: fix your health with VitalSite, then optimize AI visibility with GeoPageScan." },
+      { q: "Do AI crawlers care about HTTPS and security?", a: "Increasingly, yes. AI crawlers favor reachable, trustworthy pages; a broken certificate, mixed content, or a Safe Browsing flag can keep your content out of AI answers. Check HTTPS enforcement and SSL health with VitalSite." },
+    ],
+    related: ["technical-seo-checklist", "robots-ai-guide", "invisible-to-ai"],
+  },
 ];
