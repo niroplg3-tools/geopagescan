@@ -853,5 +853,498 @@
     ],
     "date": "2026-06-22",
     "read": "4 min"
+  },
+  {
+    "id": "multilingual-geo",
+    "cat": "GEO",
+    "emoji": "🌍",
+    "title": "Multilingual GEO: Getting Cited by AI Across Languages",
+    "dek": "AI answers questions in many languages. Here's how to make your content citable across all of them with hreflang and localized entities.",
+    "keywords": "multilingual GEO, hreflang, international AI visibility, localization, GEO",
+    "sections": [
+      {
+        "h": "AI answers in the user's language",
+        "p": [
+          "When someone asks in Hebrew, German or Spanish, AI prefers sources it can read in that language. Single-language sites miss citations in every other market."
+        ]
+      },
+      {
+        "h": "Connect your language versions",
+        "p": [
+          "Use hreflang to link each language and region variant so AI and search understand they're the same entity in different languages. This is the most common miss for international sites."
+        ]
+      },
+      {
+        "h": "Localize the entity, not just the words",
+        "p": [
+          "Provide localized llms.txt and meta descriptions, and keep entity details consistent across languages so AI resolves you correctly everywhere."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I get cited by AI in other languages?",
+        "a": "Offer content in those languages, connect versions with hreflang, and provide localized llms.txt and metadata while keeping your entity consistent."
+      },
+      {
+        "q": "What is hreflang and why does it matter?",
+        "a": "hreflang links language/region variants of a page so AI and search treat them as one entity in different languages — critical for international visibility."
+      },
+      {
+        "q": "Is English-only enough?",
+        "a": "Only for English queries. To be cited in other markets, you need readable content and metadata in those languages."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "geo-guide",
+      "local-geo"
+    ],
+    "date": "2026-06-25",
+    "read": "4 min"
+  },
+  {
+    "id": "featured-snippets-2026",
+    "cat": "AEO",
+    "emoji": "📌",
+    "title": "Featured Snippets in 2026: Still Worth Optimizing For?",
+    "dek": "Featured snippets and AI answers reward the same thing — a clean, direct answer. Here's how to win both at once.",
+    "keywords": "featured snippets, position zero, AEO, direct answers, AI Overviews",
+    "sections": [
+      {
+        "h": "Snippets and AI want the same content",
+        "p": [
+          "A concise, well-structured answer under a clear question heading wins both featured snippets and AI citations. Optimizing for one optimizes for the other."
+        ]
+      },
+      {
+        "h": "How to win the snippet",
+        "p": [
+          "Put a 40–60 word direct answer immediately under the question, support it with a list or table, and mark it up with FAQPage or HowTo schema where it fits."
+        ]
+      },
+      {
+        "h": "Don't over-optimize",
+        "p": [
+          "Answer genuinely and completely. Engines increasingly favor trustworthy depth over content engineered purely to grab a snippet."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Are featured snippets still worth it in 2026?",
+        "a": "Yes — the same concise, structured answers that win snippets also win AI citations, so the work pays off twice."
+      },
+      {
+        "q": "How do I win a featured snippet?",
+        "a": "Place a 40–60 word direct answer under a question heading, support it with a list or table, and add FAQPage or HowTo schema."
+      },
+      {
+        "q": "Do snippets and AI Overviews overlap?",
+        "a": "Heavily. Both reward a clear, direct answer to a specific question, so optimize once for both."
+      }
+    ],
+    "related": [
+      "aeo-guide",
+      "ai-overviews",
+      "faq-schema-howto"
+    ],
+    "date": "2026-06-25",
+    "read": "4 min"
+  },
+  {
+    "id": "howto-schema",
+    "cat": "AEO",
+    "emoji": "🪜",
+    "title": "HowTo Schema: The AEO Magnet for Step-by-Step Content",
+    "dek": "Step-by-step content is exactly what AI assistants love to surface. Here's how to add HowTo schema and structure it right.",
+    "keywords": "HowTo schema, step-by-step, AEO, JSON-LD, instructions",
+    "sections": [
+      {
+        "h": "Why HowTo content wins",
+        "p": [
+          "\"How do I…\" is one of the most common query types, and step-by-step instructions map perfectly to how AI assistants and voice answers present information."
+        ]
+      },
+      {
+        "h": "Structure and mark it up",
+        "p": [
+          "Break the task into clear, numbered steps with one action each, then add HowTo JSON-LD listing the steps. Keep each step short and self-contained so it can be read aloud."
+        ]
+      },
+      {
+        "h": "Pair it with visuals",
+        "p": [
+          "Add a relevant image or short description per step. It helps both human readers and the engines that surface your instructions."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is HowTo schema?",
+        "a": "JSON-LD that marks up step-by-step instructions so search and AI can present them as a guided sequence."
+      },
+      {
+        "q": "When should I use HowTo schema?",
+        "a": "For any task-based content — setup guides, recipes, tutorials — where the answer is a sequence of steps."
+      },
+      {
+        "q": "Does HowTo help with voice and AI?",
+        "a": "Yes. Clear, numbered steps are ideal for voice assistants and AI answers, and HowTo markup makes them machine-readable."
+      }
+    ],
+    "related": [
+      "schema-7-types",
+      "aeo-guide",
+      "voice-aeo"
+    ],
+    "date": "2026-06-29",
+    "read": "4 min"
+  },
+  {
+    "id": "answer-first-writing",
+    "cat": "AEO",
+    "emoji": "🎯",
+    "title": "Answer-First Writing: The AEO Copywriting Method",
+    "dek": "Lead with the answer, then explain. This one habit makes your content dramatically more quotable by AI and snippets.",
+    "keywords": "answer-first writing, AEO copywriting, inverted pyramid, direct answers",
+    "sections": [
+      {
+        "h": "Lead with the answer",
+        "p": [
+          "State the answer in the first sentence under each heading, then add context and detail. AI engines lift that opening sentence; readers get value immediately."
+        ]
+      },
+      {
+        "h": "Use the question as the heading",
+        "p": [
+          "Phrase headings as the literal questions people ask. The heading-plus-direct-answer pattern is what snippets and AI both extract."
+        ]
+      },
+      {
+        "h": "Cut the warm-up",
+        "p": [
+          "Delete throat-clearing intros and filler. Front-load facts, numbers and specifics — they're what make an answer worth citing."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is answer-first writing?",
+        "a": "A method where you state the direct answer in the first sentence under a question heading, then elaborate — ideal for AI extraction and snippets."
+      },
+      {
+        "q": "How long should the answer be?",
+        "a": "About 40–60 words: a self-contained answer that stands on its own before you add detail."
+      },
+      {
+        "q": "Why does answer-first work for AI?",
+        "a": "AI engines tend to quote the single sentence that most cleanly answers the query, so leading with it makes you the easy choice."
+      }
+    ],
+    "related": [
+      "geo-content",
+      "aeo-guide",
+      "featured-snippets-2026"
+    ],
+    "date": "2026-06-29",
+    "read": "4 min"
+  },
+  {
+    "id": "people-also-ask",
+    "cat": "AEO",
+    "emoji": "🔁",
+    "title": "Winning \"People Also Ask\" and AI Follow-Up Questions",
+    "dek": "Related questions are a goldmine for AEO. Here's how to map them and answer each one so you appear across the whole question cluster.",
+    "keywords": "people also ask, related questions, AEO, question clusters, FAQ",
+    "sections": [
+      {
+        "h": "Answer the whole cluster",
+        "p": [
+          "Users and AI rarely stop at one question. Mapping and answering the follow-ups around a topic makes you the source for the entire conversation, not just the opening query."
+        ]
+      },
+      {
+        "h": "Find the questions",
+        "p": [
+          "Mine \"People Also Ask\", autocomplete, your own support tickets and AI follow-ups to build a list of real questions, then answer each concisely on the page."
+        ]
+      },
+      {
+        "h": "Structure for extraction",
+        "p": [
+          "Use each question as a heading with a direct answer, and wrap the set in FAQPage schema so engines can pull any of them."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I rank for People Also Ask?",
+        "a": "Answer the related questions around your topic, each as a question heading with a concise direct answer, and mark them up with FAQPage schema."
+      },
+      {
+        "q": "Where do I find related questions?",
+        "a": "People Also Ask boxes, search autocomplete, your support tickets, and the follow-up questions AI suggests."
+      },
+      {
+        "q": "Why answer follow-up questions?",
+        "a": "Because users and AI continue the conversation; covering the cluster makes you the source for the whole topic."
+      }
+    ],
+    "related": [
+      "faq-schema-howto",
+      "aeo-guide",
+      "answer-first-writing"
+    ],
+    "date": "2026-06-29",
+    "read": "4 min"
+  },
+  {
+    "id": "conversational-content",
+    "cat": "AEO",
+    "emoji": "💭",
+    "title": "Writing Conversational Content for AI Assistants",
+    "dek": "AI assistants answer in natural language — and prefer sources that sound the way people ask. Here's how to write for them.",
+    "keywords": "conversational content, AI assistants, natural language, AEO, voice",
+    "sections": [
+      {
+        "h": "Match how people actually ask",
+        "p": [
+          "People query in full, natural questions. Mirror that phrasing in your headings and copy so AI can match the query to your answer."
+        ]
+      },
+      {
+        "h": "Plain language beats jargon",
+        "p": [
+          "Write clearly and define terms. AI summarizes plain, well-explained content far more reliably than dense, jargon-heavy prose."
+        ]
+      },
+      {
+        "h": "Keep answers self-contained",
+        "p": [
+          "Each answer should make sense on its own, without needing the paragraph before it — that's how it survives being lifted into a response."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is conversational content?",
+        "a": "Content written in natural, question-and-answer language that matches how people ask — making it easy for AI assistants to match and quote."
+      },
+      {
+        "q": "Does jargon hurt AI visibility?",
+        "a": "Often, yes. Plain, well-defined language is easier for AI to summarize accurately than dense jargon."
+      },
+      {
+        "q": "How do I write for voice assistants?",
+        "a": "Use natural question phrasing, keep answers short and self-contained, and add Speakable schema for key sentences."
+      }
+    ],
+    "related": [
+      "voice-aeo",
+      "answer-first-writing",
+      "geo-content"
+    ],
+    "date": "2026-07-02",
+    "read": "4 min"
+  },
+  {
+    "id": "aeo-healthcare",
+    "cat": "AEO",
+    "emoji": "🩺",
+    "title": "AEO for Healthcare: Answering Patient Questions the Right Way",
+    "dek": "Health content faces a higher trust bar with AI. Here's how to answer patient questions clearly, safely and citably.",
+    "keywords": "healthcare AEO, medical content, E-E-A-T, patient questions, trust signals",
+    "sections": [
+      {
+        "h": "Trust is the gatekeeper",
+        "p": [
+          "For health topics, AI heavily weighs expertise and trust. Named medical authors, citations to authoritative sources and clear review dates are essential to be cited."
+        ]
+      },
+      {
+        "h": "Answer patient questions directly",
+        "p": [
+          "Structure content around the real questions patients ask, with concise, accurate answers up front, and mark them up with FAQPage schema."
+        ]
+      },
+      {
+        "h": "Be careful and clear",
+        "p": [
+          "Avoid overclaiming, include appropriate disclaimers, and link to authoritative medical sources. Safety and accuracy are part of trust."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How does AEO work for healthcare?",
+        "a": "By answering real patient questions clearly and accurately, backed by named medical experts, authoritative citations and review dates that establish trust."
+      },
+      {
+        "q": "Why is E-E-A-T critical for health content?",
+        "a": "AI applies a higher trust bar to health topics, so demonstrable expertise and authority strongly affect whether you're cited."
+      },
+      {
+        "q": "Should health content have disclaimers?",
+        "a": "Yes. Clear, responsible framing and links to authoritative sources support both safety and trust."
+      }
+    ],
+    "related": [
+      "eeat-ai",
+      "aeo-guide",
+      "entity-authority"
+    ],
+    "date": "2026-07-02",
+    "read": "4 min"
+  },
+  {
+    "id": "zero-click-strategy",
+    "cat": "AEO",
+    "emoji": "🚫",
+    "title": "A Zero-Click Content Strategy That Still Wins",
+    "dek": "Zero-click search isn't the enemy — it's a branding and authority channel. Here's how to win even when users don't click.",
+    "keywords": "zero-click search, AEO strategy, brand visibility, AI answers",
+    "sections": [
+      {
+        "h": "Reframe zero-click",
+        "p": [
+          "When AI answers without a click, being the cited source still builds brand recognition and authority at the moment of intent. Visibility itself has value."
+        ]
+      },
+      {
+        "h": "Give a reason to click anyway",
+        "p": [
+          "Lead with the answer for the citation, but offer depth the summary can't replace — tools, original data, examples — so motivated users still visit."
+        ]
+      },
+      {
+        "h": "Measure beyond clicks",
+        "p": [
+          "Track citations, branded search lift and assisted conversions, not just direct sessions, to see the real impact of AI visibility."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is zero-click search bad for my site?",
+        "a": "Not necessarily. Being the cited source builds brand authority at the moment of intent, and you can still earn clicks with depth the summary can't replace."
+      },
+      {
+        "q": "How do I win in a zero-click world?",
+        "a": "Provide the concise answer for the citation plus unique depth, tools or data that give users a reason to click through."
+      },
+      {
+        "q": "How do I measure zero-click impact?",
+        "a": "Track AI citations, branded search lift and assisted conversions, not just direct sessions."
+      }
+    ],
+    "related": [
+      "aeo-guide",
+      "geo-roi",
+      "measuring-ai-visibility"
+    ],
+    "date": "2026-07-06",
+    "read": "4 min"
+  },
+  {
+    "id": "core-web-vitals-2026",
+    "cat": "SEO",
+    "emoji": "⚡",
+    "title": "Core Web Vitals in 2026: What to Optimize and Why",
+    "dek": "Fast, stable pages help crawlers, users and AI alike. Here's a practical Core Web Vitals checklist for 2026.",
+    "keywords": "Core Web Vitals, LCP, INP, CLS, page speed, technical SEO",
+    "sections": [
+      {
+        "h": "The three metrics that matter",
+        "p": [
+          "Largest Contentful Paint (loading), Interaction to Next Paint (responsiveness) and Cumulative Layout Shift (stability) summarize real user experience — and influence how efficiently your pages are crawled."
+        ]
+      },
+      {
+        "h": "Quick wins",
+        "list": [
+          "Serve images in modern formats with width/height set.",
+          "Defer non-critical JavaScript and third-party scripts.",
+          "Reserve space for async content to avoid layout shift.",
+          "Use a CDN and cache aggressively."
+        ]
+      },
+      {
+        "h": "Why it helps AI too",
+        "p": [
+          "Faster, more stable pages crawl better and signal quality. They won't make you citable on their own, but they remove friction from everything else."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are Core Web Vitals in 2026?",
+        "a": "LCP (loading), INP (responsiveness) and CLS (visual stability) — Google's user-experience metrics that affect rankings and crawl efficiency."
+      },
+      {
+        "q": "Do Core Web Vitals affect AI visibility?",
+        "a": "Indirectly. Fast, stable pages crawl better and signal quality, supporting the rest of your GEO and SEO work."
+      },
+      {
+        "q": "What's the fastest CWV win?",
+        "a": "Optimize images (modern formats, set dimensions) and defer non-critical JavaScript."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "js-rendering-seo",
+      "seo-ai-era"
+    ],
+    "date": "2026-07-06",
+    "read": "4 min"
+  },
+  {
+    "id": "internal-linking-ai",
+    "cat": "SEO",
+    "emoji": "🔗",
+    "title": "Internal Linking for AI Crawlers and Topic Authority",
+    "dek": "Smart internal links help AI understand your topic structure and find every page. Here's how to do it well.",
+    "keywords": "internal linking, topic clusters, crawlability, topical authority, SEO",
+    "sections": [
+      {
+        "h": "Links map your expertise",
+        "p": [
+          "Internal links show AI and search how your content connects, reinforcing topical authority and ensuring every page is discoverable."
+        ]
+      },
+      {
+        "h": "Build topic clusters",
+        "p": [
+          "Create a pillar page for each core topic and link it to supporting articles (and back). This cluster structure signals depth and helps engines understand your focus."
+        ]
+      },
+      {
+        "h": "Use descriptive anchors",
+        "p": [
+          "Anchor text should describe the destination in plain language. It helps users, crawlers and AI understand what each linked page is about."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How does internal linking help AI visibility?",
+        "a": "It helps AI discover every page and understand how your content connects, reinforcing topical authority around your core subjects."
+      },
+      {
+        "q": "What is a topic cluster?",
+        "a": "A pillar page on a core topic linked to and from supporting articles, signaling depth and structure to engines."
+      },
+      {
+        "q": "What anchor text should I use?",
+        "a": "Descriptive, plain-language anchors that say what the linked page is about — avoid generic 'click here'."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "content-pruning",
+      "entity-authority"
+    ],
+    "date": "2026-07-06",
+    "read": "4 min"
   }
 ]

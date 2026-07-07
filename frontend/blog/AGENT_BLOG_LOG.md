@@ -40,3 +40,29 @@ Blog now has 27 posts. Queue remaining: 26.
 - [GEO] The ROI of GEO: Is AI Visibility Worth the Effort?  →  /blog/geo-roi.html
 
 Blog now has 30 posts. Queue remaining: 23.
+
+## 2026-06-25 — published 2 article(s)
+- [GEO] Multilingual GEO: Getting Cited by AI Across Languages  →  /blog/multilingual-geo.html
+- [AEO] Featured Snippets in 2026: Still Worth Optimizing For?  →  /blog/featured-snippets-2026.html
+
+Blog now has 32 posts. Queue remaining: 21.
+
+## 2026-06-29 — published 3 article(s)
+- [AEO] HowTo Schema: The AEO Magnet for Step-by-Step Content  →  /blog/howto-schema.html
+- [AEO] Answer-First Writing: The AEO Copywriting Method  →  /blog/answer-first-writing.html
+- [AEO] Winning "People Also Ask" and AI Follow-Up Questions  →  /blog/people-also-ask.html
+
+Blog now has 35 posts. Queue remaining: 18.
+
+## 2026-07-02 — published 2 article(s)
+- [AEO] Writing Conversational Content for AI Assistants  →  /blog/conversational-content.html
+- [AEO] AEO for Healthcare: Answering Patient Questions the Right Way  →  /blog/aeo-healthcare.html
+
+Blog now has 37 posts. Queue remaining: 16.
+
+## 2026-07-06 — published 3 article(s)
+- [AEO] A Zero-Click Content Strategy That Still Wins  →  /blog/zero-click-strategy.html
+- [SEO] Core Web Vitals in 2026: What to Optimize and Why  →  /blog/core-web-vitals-2026.html
+- [SEO] Internal Linking for AI Crawlers and Topic Authority  →  /blog/internal-linking-ai.html
+
+Blog now has 40 posts. Queue remaining: 13.
