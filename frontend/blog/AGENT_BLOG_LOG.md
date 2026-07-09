@@ -66,3 +66,9 @@ Blog now has 37 posts. Queue remaining: 16.
 - [SEO] Internal Linking for AI Crawlers and Topic Authority  →  /blog/internal-linking-ai.html
 
 Blog now has 40 posts. Queue remaining: 13.
+
+## 2026-07-09 — published 2 article(s)
+- [SEO] The XML Sitemap Guide for AI and Search  →  /blog/sitemap-guide.html
+- [SEO] 7 Structured Data Mistakes That Hurt AI Visibility  →  /blog/structured-data-mistakes.html
+
+Blog now has 43 posts. Queue remaining: 11.

@@ -1346,5 +1346,126 @@
     ],
     "date": "2026-07-06",
     "read": "4 min"
+  },
+  {
+    "id": "sitemap-guide",
+    "cat": "SEO",
+    "emoji": "🗺️",
+    "title": "The XML Sitemap Guide for AI and Search",
+    "dek": "A clean sitemap helps every crawler — AI included — find and prioritize your pages. Here's how to build and submit one.",
+    "keywords": "XML sitemap, sitemap.xml, crawl, indexing, AI crawlers",
+    "sections": [
+      {
+        "h": "What a sitemap does",
+        "p": [
+          "A sitemap lists your important URLs so crawlers discover them quickly and understand which pages matter, with optional lastmod and priority hints."
+        ]
+      },
+      {
+        "h": "Build a good one",
+        "p": [
+          "Include canonical, indexable URLs only; keep it current with lastmod dates; and reference it from robots.txt so AI crawlers find it automatically."
+        ]
+      },
+      {
+        "h": "Submit and monitor",
+        "p": [
+          "Submit your sitemap in Google Search Console and Bing Webmaster Tools, and keep it updated as you publish — your blog generator can rebuild it automatically."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do AI crawlers use sitemaps?",
+        "a": "Yes — a sitemap referenced in robots.txt helps AI and search crawlers discover and prioritize your pages faster."
+      },
+      {
+        "q": "What belongs in a sitemap?",
+        "a": "Only canonical, indexable URLs, ideally with lastmod dates. Exclude redirects, duplicates and noindex pages."
+      },
+      {
+        "q": "Where do I submit my sitemap?",
+        "a": "Reference it in robots.txt and submit it in Google Search Console and Bing Webmaster Tools."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "robots-ai-guide",
+      "sitemap-guide"
+    ],
+    "date": "2026-07-09",
+    "read": "4 min"
+  },
+  {
+    "id": "structured-data-mistakes",
+    "cat": "SEO",
+    "emoji": "🧱",
+    "title": "7 Structured Data Mistakes That Hurt AI Visibility",
+    "dek": "Bad schema is worse than none. Here are the most common JSON-LD mistakes and how to fix them before they cost you citations.",
+    "keywords": "structured data mistakes, JSON-LD errors, schema validation, rich results",
+    "sections": [
+      {
+        "h": "Common schema mistakes",
+        "p": [
+          "Most schema problems come down to mismatches, omissions and invalid syntax that cause engines to ignore your markup — or distrust it."
+        ]
+      },
+      {
+        "h": "Fix them before shipping",
+        "p": [
+          "Validate every change in Google's Rich Results Test, make sure schema matches visible content, and fill required properties for each type."
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Schema mistakes vs fixes",
+      "cols": [
+        "Mistake",
+        "Fix"
+      ],
+      "rows": [
+        [
+          "Schema doesn't match visible content",
+          "Mark up only what's on the page"
+        ],
+        [
+          "Missing required properties",
+          "Fill all required fields per type"
+        ],
+        [
+          "Invalid JSON-LD syntax",
+          "Validate with Rich Results Test"
+        ],
+        [
+          "Marking up hidden/fake content",
+          "Only mark up real, visible content"
+        ],
+        [
+          "One @type doing everything",
+          "Use the correct specific types"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "q": "Is bad schema worse than no schema?",
+        "a": "Often yes — invalid or mismatched markup can be ignored or erode trust. Always validate before shipping."
+      },
+      {
+        "q": "How do I check my structured data?",
+        "a": "Use Google's Rich Results Test and Schema.org validator, and confirm the markup matches your visible content."
+      },
+      {
+        "q": "What's the most common schema mistake?",
+        "a": "Marking up content that isn't visible on the page, which engines may ignore or penalize."
+      }
+    ],
+    "related": [
+      "schema-7-types",
+      "faq-schema-howto",
+      "technical-seo-checklist"
+    ],
+    "date": "2026-07-09",
+    "read": "4 min"
   }
 ]
