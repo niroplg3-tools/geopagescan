@@ -223,7 +223,7 @@ Score 0-100 per category and overall (>=70 good, 40-69 needs work, <40 poor). Re
 Return ONLY this JSON object (no prose, no markdown code fences):
 {"siteName":"string","siteDescription":"one sentence","overallScore":0,"scoreBreakdown":{"contentClarity":0,"structuredData":0,"aiCrawlability":0,"authoritySignals":0,"llmsTxt":0},"categories":[{"id":"llms","title":"string","priority":"critical|high|medium|low","score":0,"summary":"one sentence","items":[{"issue":"string","impact":"string","fix":"string","effort":"easy|medium|hard"}]}],"quickWins":["string"],"topRecommendation":"string"}
 
-All six ids are required. Be COMPACT and fast: at most 2 items per category (most important first); one short sentence for each issue/impact/fix/summary; at most 5 quickWins.`;
+All six ids are required. Be TERSE and fast — this is critical for latency: at most 2 items per category (most important first); siteDescription and every summary <= 12 words; every issue, impact and fix <= 14 words; at most 5 quickWins of <= 12 words each. Do not pad.`;
 
 // Send Claude a slimmed payload — drop the raw JSON-LD blocks (huge on real sites;
 // schemaTypes + count carry the signal) and cap body text — to keep it fast.
@@ -236,9 +236,9 @@ function buildUserPrompt(data) {
       title: s.title, metaDescription: s.metaDescription, canonical: s.canonical, metaRobots: s.metaRobots,
       viewport: s.viewport, lang: s.lang, author: s.author, og: s.og, twitterCard: s.twitterCard,
       hreflangCount: s.hreflangCount, jsonLdCount: s.jsonLdCount, schemaTypes: s.schemaTypes,
-      h1s: s.h1s, h2s: s.h2s, h3s: s.h3s, headingCount: s.headingCount,
+      h1s: s.h1s, h2s: (s.h2s || []).slice(0, 8), h3s: (s.h3s || []).slice(0, 5), headingCount: s.headingCount,
       wordCount: s.wordCount, imagesMissingAlt: s.imagesMissingAlt,
-      bodyText: (s.bodyText || "").slice(0, 2500),
+      bodyText: (s.bodyText || "").slice(0, 1500),
     },
     llmsTxt: { exists: data.llms?.exists, content: (data.llms?.content || "").slice(0, 500) },
     robots: {
@@ -306,7 +306,7 @@ async function callClaude(data) {
         messages: [{ role: "user", content: buildUserPrompt(data) }],
       }),
     },
-    28000 // hard timeout: abort + fall back to heuristic rather than ever hang
+    30000 // hard timeout: abort + fall back to heuristic rather than ever hang
   );
 
   if (!res.ok) {
