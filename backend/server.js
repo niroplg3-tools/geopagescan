@@ -208,45 +208,45 @@ async function checkRobots(origin) {
 }
 
 // ── The expert audit system prompt (used when Claude API is available) ──────
-const SYSTEM_PROMPT = `You are GeoPageScan, a world-class expert auditor for AI search visibility. You evaluate whether a website is optimized for the generative search era across three disciplines:
+const SYSTEM_PROMPT = `You are GeoPageScan, an expert auditor for AI search visibility (GEO, AEO, SEO). You receive data scraped from a page plus its /llms.txt and /robots.txt.
 
-• GEO  — Generative Engine Optimization (being cited by ChatGPT, Claude, Gemini, Perplexity)
-• AEO  — Answer Engine Optimization (direct-answer & Q&A structure, voice)
-• SEO  — traditional technical signals that still matter
+Audit it across EXACTLY six categories, using these exact ids:
+- llms: llms.txt presence, entity clarity, FAQ for AI Q&A
+- structured-data: JSON-LD and Schema.org types
+- crawlability: robots.txt AI-bot access, sitemap, JS/video content barriers
+- authority: author/founder linking, review schema, About quality
+- content: direct-answer structure, Q&A headings, informational vs promotional
+- technical: canonical, hreflang, Open Graph, viewport, Core Web Vitals
 
-You will receive structured data scraped from a target page plus its /llms.txt and /robots.txt. Audit it across exactly SIX categories with these EXACT ids:
-  llms            — LLM Optimization (llms.txt presence, entity clarity, FAQ for AI Q&A)
-  structured-data — Structured Data & Schema (JSON-LD, Schema.org types)
-  crawlability    — AI Crawlability (robots.txt AI bot access, sitemap, JS/video content barriers)
-  authority       — Authority Signals (author/founder linking, review schema, About quality)
-  content         — Content Clarity (direct-answer structure, Q&A headings, informational vs promotional)
-  technical       — Technical SEO (canonical, hreflang, Open Graph, viewport, Core Web Vitals signals)
+Score 0-100 per category and overall (>=70 good, 40-69 needs work, <40 poor). Reward real evidence, penalize gaps; every issue needs a concrete, actionable fix.
 
-Scoring: 0-100 per category and overall. ≥70 green, 40-69 yellow, <40 red. Be rigorous and specific — reward real evidence, penalize gaps. Every issue must have a concrete, actionable fix.
+Return ONLY this JSON object (no prose, no markdown code fences):
+{"siteName":"string","siteDescription":"one sentence","overallScore":0,"scoreBreakdown":{"contentClarity":0,"structuredData":0,"aiCrawlability":0,"authoritySignals":0,"llmsTxt":0},"categories":[{"id":"llms","title":"string","priority":"critical|high|medium|low","score":0,"summary":"one sentence","items":[{"issue":"string","impact":"string","fix":"string","effort":"easy|medium|hard"}]}],"quickWins":["string"],"topRecommendation":"string"}
 
-Return ONLY valid JSON (no markdown fences, no prose) matching EXACTLY this schema:
-{
-  "siteName": "string",
-  "siteDescription": "one sentence",
-  "overallScore": 0,
-  "scoreBreakdown": { "contentClarity": 0, "structuredData": 0, "aiCrawlability": 0, "authoritySignals": 0, "llmsTxt": 0 },
-  "categories": [
-    { "id": "llms", "title": "string", "priority": "critical|high|medium|low", "score": 0, "summary": "string",
-      "items": [ { "issue": "string", "impact": "string", "fix": "string", "effort": "easy|medium|hard" } ] }
-  ],
-  "quickWins": ["string"],
-  "topRecommendation": "string"
-}
-The categories array MUST contain all six ids: llms, structured-data, crawlability, authority, content, technical.
+All six ids are required. Be COMPACT and fast: at most 2 items per category (most important first); one short sentence for each issue/impact/fix/summary; at most 5 quickWins.`;
 
-Keep the report COMPACT so it fits the output budget and returns fast: at most 3 items per category (most important first), one concise sentence for each of issue/impact/fix and for each summary, and at most 5 quickWins. Output ONLY the JSON object — no prose, no markdown fences.`;
-
+// Send Claude a slimmed payload — drop the raw JSON-LD blocks (huge on real sites;
+// schemaTypes + count carry the signal) and cap body text — to keep it fast.
 function buildUserPrompt(data) {
-  return `Audit this page for AI visibility. Here is the scraped data as JSON:\n\n${JSON.stringify(
-    data,
-    null,
-    2
-  )}\n\nReturn ONLY the JSON report described in the system prompt.`;
+  const s = data.scrape || {};
+  const slim = {
+    url: data.url,
+    host: data.host,
+    page: {
+      title: s.title, metaDescription: s.metaDescription, canonical: s.canonical, metaRobots: s.metaRobots,
+      viewport: s.viewport, lang: s.lang, author: s.author, og: s.og, twitterCard: s.twitterCard,
+      hreflangCount: s.hreflangCount, jsonLdCount: s.jsonLdCount, schemaTypes: s.schemaTypes,
+      h1s: s.h1s, h2s: s.h2s, h3s: s.h3s, headingCount: s.headingCount,
+      wordCount: s.wordCount, imagesMissingAlt: s.imagesMissingAlt,
+      bodyText: (s.bodyText || "").slice(0, 2500),
+    },
+    llmsTxt: { exists: data.llms?.exists, content: (data.llms?.content || "").slice(0, 500) },
+    robots: {
+      exists: data.robots?.exists, sitemap: data.robots?.sitemap,
+      aiBotsAllowed: data.robots?.aiBotsAllowed, aiBotsBlocked: data.robots?.aiBotsBlocked,
+    },
+  };
+  return `Scraped data:\n${JSON.stringify(slim)}\n\nReturn ONLY the JSON report.`;
 }
 
 // Robustly parse the audit JSON from Claude's text: strip markdown fences,
@@ -306,7 +306,7 @@ async function callClaude(data) {
         messages: [{ role: "user", content: buildUserPrompt(data) }],
       }),
     },
-    24000 // hard timeout: abort + fall back to heuristic rather than ever hang
+    28000 // hard timeout: abort + fall back to heuristic rather than ever hang
   );
 
   if (!res.ok) {
