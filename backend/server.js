@@ -237,7 +237,9 @@ Return ONLY valid JSON (no markdown fences, no prose) matching EXACTLY this sche
   "quickWins": ["string"],
   "topRecommendation": "string"
 }
-The categories array MUST contain all six ids: llms, structured-data, crawlability, authority, content, technical.`;
+The categories array MUST contain all six ids: llms, structured-data, crawlability, authority, content, technical.
+
+Keep the report COMPACT so it fits the output budget and returns fast: at most 3 items per category (most important first), one concise sentence for each of issue/impact/fix and for each summary, and at most 5 quickWins. Output ONLY the JSON object — no prose, no markdown fences.`;
 
 function buildUserPrompt(data) {
   return `Audit this page for AI visibility. Here is the scraped data as JSON:\n\n${JSON.stringify(
@@ -245,6 +247,45 @@ function buildUserPrompt(data) {
     null,
     2
   )}\n\nReturn ONLY the JSON report described in the system prompt.`;
+}
+
+// Robustly parse the audit JSON from Claude's text: strip markdown fences,
+// isolate the JSON object, and — if the response was truncated — repair it by
+// trimming to the last complete structure and closing open brackets.
+function parseAuditJson(raw) {
+  let text = (raw || "").trim();
+  // strip ```json ... ``` / ``` ... ``` fences if present
+  text = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+  const start = text.indexOf("{");
+  if (start === -1) throw new Error("Claude did not return JSON");
+  const body = text.slice(start);
+
+  // 1) fast path: trim to the last '}' and parse as-is
+  const lastBrace = body.lastIndexOf("}");
+  if (lastBrace !== -1) {
+    try { return JSON.parse(body.slice(0, lastBrace + 1)); } catch { /* fall through to repair */ }
+  }
+
+  // 2) truncation repair: walk the string tracking string-state + bracket depth,
+  //    cut at the last closed bracket, then append the still-open closers.
+  let inStr = false, esc = false;
+  const stack = [];       // expected closing chars, in open order
+  let cut = -1, cutStack = "";
+  for (let i = 0; i < body.length; i++) {
+    const c = body[i];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === "\\") esc = true;
+      else if (c === '"') inStr = false;
+      continue;
+    }
+    if (c === '"') inStr = true;
+    else if (c === "{" || c === "[") stack.push(c === "{" ? "}" : "]");
+    else if (c === "}" || c === "]") { stack.pop(); cut = i; cutStack = stack.join(""); }
+  }
+  if (cut === -1) throw new Error("Claude JSON is unrepairable (no complete structure)");
+  const repaired = body.slice(0, cut + 1).replace(/,\s*$/, "") + cutStack.split("").reverse().join("");
+  return JSON.parse(repaired);
 }
 
 // ── Call Claude ─────────────────────────────────────────────────────────────
@@ -260,12 +301,12 @@ async function callClaude(data) {
       },
       body: JSON.stringify({
         model: ANTHROPIC_MODEL,
-        max_tokens: 4000,
+        max_tokens: 8192, // headroom so the ~5k-token report is never truncated
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content: buildUserPrompt(data) }],
       }),
     },
-    85000
+    24000 // hard timeout: abort + fall back to heuristic rather than ever hang
   );
 
   if (!res.ok) {
@@ -274,9 +315,10 @@ async function callClaude(data) {
   }
   const json = await res.json();
   const text = (json.content || []).map((b) => b.text || "").join("");
-  const match = text.match(/\{[\s\S]*\}/);
-  if (!match) throw new Error("Claude did not return JSON");
-  return JSON.parse(match[0]);
+  if (json.stop_reason === "max_tokens") {
+    console.warn("[audit] Claude hit max_tokens — parsing with truncation repair");
+  }
+  return parseAuditJson(text);
 }
 
 // ── Heuristic auditor (no API key required) ─────────────────────────────────
