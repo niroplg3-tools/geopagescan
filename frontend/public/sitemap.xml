@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://geopagescan.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://geopagescan.com/blog.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://geopagescan.com/blog/content-pruning.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://geopagescan.com/blog/js-rendering-seo.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://geopagescan.com/blog/eeat-ai.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/sitemap-guide.html</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/structured-data-mistakes.html</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/website-health-ai-visibility.html</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

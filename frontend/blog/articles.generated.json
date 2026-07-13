@@ -1467,5 +1467,152 @@
     ],
     "date": "2026-07-09",
     "read": "4 min"
+  },
+  {
+    "id": "content-pruning",
+    "cat": "SEO",
+    "emoji": "✂️",
+    "title": "Content Pruning: Cut the Pages Dragging Down Your Authority",
+    "dek": "Thin, outdated pages dilute your topical authority for both Google and AI. Here's how to prune safely and strengthen the rest.",
+    "keywords": "content pruning, thin content, topical authority, content audit, SEO",
+    "sections": [
+      {
+        "h": "Why pruning helps",
+        "p": [
+          "Low-quality, outdated or redundant pages dilute the signals that define your expertise. Removing or consolidating them concentrates authority on the pages that matter."
+        ]
+      },
+      {
+        "h": "How to prune safely",
+        "p": [
+          "Audit pages by value and traffic, then update, consolidate or redirect the weak ones. Never delete without redirecting if a URL has links or history."
+        ]
+      },
+      {
+        "h": "Strengthen what remains",
+        "p": [
+          "Merge thin posts into comprehensive ones, refresh facts and dates, and re-link them into your topic clusters."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is content pruning?",
+        "a": "Auditing and removing, consolidating or improving low-value pages so your strongest content carries more topical authority."
+      },
+      {
+        "q": "Does pruning help AI visibility?",
+        "a": "Yes — concentrating quality signals on fewer, stronger pages makes your expertise clearer to AI and search."
+      },
+      {
+        "q": "Should I delete old pages?",
+        "a": "Only after redirecting URLs with links or history. Prefer updating or consolidating over outright deletion."
+      }
+    ],
+    "related": [
+      "internal-linking-ai",
+      "ai-content-freshness",
+      "seo-ai-era"
+    ],
+    "date": "2026-07-13",
+    "read": "4 min"
+  },
+  {
+    "id": "js-rendering-seo",
+    "cat": "SEO",
+    "emoji": "🧩",
+    "title": "JavaScript Rendering and Why AI Crawlers Skip Your Site",
+    "dek": "Many AI crawlers don't run JavaScript. If your content only appears after JS, you may be invisible. Here's how to fix it.",
+    "keywords": "JavaScript rendering, SSR, AI crawlers, crawlability, hydration",
+    "sections": [
+      {
+        "h": "The JS visibility problem",
+        "p": [
+          "Unlike Googlebot, many AI crawlers fetch raw HTML and don't execute JavaScript. If your text, links or schema only appear after client-side rendering, those crawlers see an empty shell."
+        ]
+      },
+      {
+        "h": "Serve content in the HTML",
+        "p": [
+          "Use server-side rendering or static generation so your key content, headings and JSON-LD are present in the initial HTML response, not injected later by JS."
+        ]
+      },
+      {
+        "h": "Verify what crawlers see",
+        "p": [
+          "Check your page's raw HTML (view source or curl) — if the main content isn't there, neither AI crawlers nor your audit will see it."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do AI crawlers run JavaScript?",
+        "a": "Many don't. They fetch raw HTML, so content that only appears after client-side JS rendering can be invisible to them."
+      },
+      {
+        "q": "How do I fix JS-only content?",
+        "a": "Use server-side rendering or static generation so key content and schema are in the initial HTML response."
+      },
+      {
+        "q": "How do I check what crawlers see?",
+        "a": "View the page source or curl the URL — if the main content and JSON-LD aren't in the raw HTML, crawlers likely can't read them."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "core-web-vitals-2026",
+      "invisible-to-ai"
+    ],
+    "date": "2026-07-13",
+    "read": "4 min"
+  },
+  {
+    "id": "eeat-ai",
+    "cat": "SEO",
+    "emoji": "🏅",
+    "title": "E-E-A-T in the AI Era: Trust Signals That Travel",
+    "dek": "Experience, Expertise, Authoritativeness and Trust matter to AI as much as to Google. Here's how to make them machine-readable.",
+    "keywords": "E-E-A-T, trust signals, expertise, authority, AI trust, GEO",
+    "sections": [
+      {
+        "h": "Why E-E-A-T crosses over to AI",
+        "p": [
+          "AI engines, like Google, prefer sources they can trust. Demonstrable experience, named experts and authoritative references make you a safer source to cite."
+        ]
+      },
+      {
+        "h": "Make trust signals machine-readable",
+        "p": [
+          "Add named authors with Person schema and sameAs links, show credentials and review dates, and cite authoritative sources. Mark up reviews and ratings so trust travels."
+        ]
+      },
+      {
+        "h": "Show real experience",
+        "p": [
+          "First-hand examples, original data and case studies signal genuine experience — increasingly the differentiator both Google and AI reward."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does E-E-A-T affect AI visibility?",
+        "a": "Yes. AI engines favor trustworthy sources, so named experts, authoritative references and real experience make you more citable."
+      },
+      {
+        "q": "How do I show E-E-A-T to machines?",
+        "a": "Use Person schema with sameAs links, display credentials and review dates, cite authoritative sources, and mark up reviews."
+      },
+      {
+        "q": "What is the extra 'E' in E-E-A-T?",
+        "a": "Experience — first-hand knowledge shown through examples, original data and case studies."
+      }
+    ],
+    "related": [
+      "entity-authority",
+      "reviews-ai-trust",
+      "aeo-healthcare"
+    ],
+    "date": "2026-07-13",
+    "read": "4 min"
   }
 ]

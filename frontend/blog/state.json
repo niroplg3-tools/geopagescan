@@ -26,6 +26,9 @@
     "core-web-vitals-2026",
     "internal-linking-ai",
     "sitemap-guide",
-    "structured-data-mistakes"
+    "structured-data-mistakes",
+    "content-pruning",
+    "js-rendering-seo",
+    "eeat-ai"
   ]
 }
