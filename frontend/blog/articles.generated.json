@@ -1614,5 +1614,108 @@
     ],
     "date": "2026-07-13",
     "read": "4 min"
+  },
+  {
+    "id": "image-seo-ai",
+    "cat": "SEO",
+    "emoji": "🖼️",
+    "title": "Image SEO for AI: Alt Text, Captions and Context",
+    "dek": "AI can't see your images — it reads the text around them. Here's how to make visual content count for AI visibility.",
+    "keywords": "image SEO, alt text, captions, ImageObject, AI visibility",
+    "sections": [
+      {
+        "h": "AI reads text, not pixels",
+        "p": [
+          "Most crawlers and AI engines understand images through their alt text, captions, file names and surrounding context — not the pixels themselves."
+        ]
+      },
+      {
+        "h": "Describe images well",
+        "p": [
+          "Write descriptive alt text for meaningful images, add captions where useful, use clear file names, and place images near relevant text."
+        ]
+      },
+      {
+        "h": "Mark up key images",
+        "p": [
+          "Use ImageObject in your schema for important visuals (logos, product shots) so engines can associate them with your entity."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does image SEO help AI visibility?",
+        "a": "Yes, indirectly. AI reads alt text, captions and surrounding context, so well-described images add to the signals it understands."
+      },
+      {
+        "q": "What makes good alt text?",
+        "a": "A concise, accurate description of the image's content and purpose — not keyword stuffing."
+      },
+      {
+        "q": "Should I use ImageObject schema?",
+        "a": "For important images like logos and product shots, yes — it helps engines associate them with your entity."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "schema-7-types",
+      "ecommerce-aeo"
+    ],
+    "date": "2026-07-16",
+    "read": "4 min"
+  },
+  {
+    "id": "geopagescan-score-explained",
+    "cat": "Tool",
+    "emoji": "🧮",
+    "title": "Your GeoPageScan Score, Explained Category by Category",
+    "dek": "What each of the six audit categories measures, why it matters, and the fastest way to improve each one.",
+    "keywords": "GeoPageScan score, AI visibility score, audit categories, GEO AEO SEO",
+    "sections": [
+      {
+        "h": "One score, six categories",
+        "p": [
+          "Your overall score blends six categories: LLM Optimization, Structured Data, AI Crawlability, Authority Signals, Content Clarity and Technical SEO. Each reflects a different slice of AI readiness."
+        ]
+      },
+      {
+        "h": "What moves each category",
+        "list": [
+          "LLM Optimization — publish and enrich llms.txt; add FAQ content.",
+          "Structured Data — add Organization, FAQPage, AggregateRating schema.",
+          "AI Crawlability — allow AI bots, ship a sitemap, avoid JS-only content.",
+          "Authority — named authors, sameAs links, marked-up reviews.",
+          "Content Clarity — question headings, answer-first, fewer superlatives.",
+          "Technical SEO — canonical, hreflang, Open Graph, viewport, vitals."
+        ]
+      },
+      {
+        "h": "Work the lowest scores first",
+        "p": [
+          "Start with your weakest categories and the Quick Wins, then re-scan to confirm each lift."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What does the GeoPageScan score measure?",
+        "a": "Your overall AI readiness, blended from six categories: LLM Optimization, Structured Data, AI Crawlability, Authority, Content Clarity and Technical SEO."
+      },
+      {
+        "q": "How do I raise my score fastest?",
+        "a": "Fix your lowest-scoring categories and the listed Quick Wins first — usually llms.txt, crawler access and core schema — then re-scan."
+      },
+      {
+        "q": "What's a good score?",
+        "a": "70+ is a solid foundation, 40–69 needs improvement, and below 40 signals significant gaps."
+      }
+    ],
+    "related": [
+      "introducing-geopagescan",
+      "quick-wins-playbook",
+      "measuring-ai-visibility"
+    ],
+    "date": "2026-07-16",
+    "read": "4 min"
   }
 ]
