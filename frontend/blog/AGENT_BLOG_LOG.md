@@ -85,3 +85,10 @@ Blog now has 46 posts. Queue remaining: 8.
 - [Tool] Your GeoPageScan Score, Explained Category by Category  →  /blog/geopagescan-score-explained.html
 
 Blog now has 48 posts. Queue remaining: 6.
+
+## 2026-07-20 — published 3 article(s)
+- [Tool] The 10 GEO Quick Wins You Can Ship This Week  →  /blog/quick-wins-playbook.html
+- [Tool] How to Run a Competitor AI-Visibility Audit  →  /blog/competitor-ai-audit.html
+- [Tool] The Complete GEO Checklist for 2026  →  /blog/geo-checklist-2026.html
+
+Blog now has 51 posts. Queue remaining: 3.
