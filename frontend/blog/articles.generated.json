@@ -1873,5 +1873,103 @@
     ],
     "date": "2026-07-20",
     "read": "4 min"
+  },
+  {
+    "id": "wikipedia-wikidata",
+    "cat": "GEO",
+    "emoji": "📚",
+    "title": "Wikipedia & Wikidata: The Entity Boost AI Trusts",
+    "dek": "A presence on Wikipedia or Wikidata is one of the strongest entity signals for AI. Here's how to approach it the right way.",
+    "keywords": "Wikipedia, Wikidata, entity, knowledge graph, AI trust, GEO",
+    "sections": [
+      {
+        "h": "Why these sources carry weight",
+        "p": [
+          "Wikipedia and Wikidata are heavily used to ground AI knowledge. A verifiable presence strengthens your entity and how confidently AI can describe and cite you."
+        ]
+      },
+      {
+        "h": "Earn it, don't fake it",
+        "p": [
+          "Notability rules are strict. Build genuine third-party coverage first; a Wikidata entry is more attainable than a Wikipedia article and still a strong, structured signal."
+        ]
+      },
+      {
+        "h": "Connect it back",
+        "p": [
+          "Reference your Wikidata/Wikipedia entity in your Organization schema's sameAs array so machines link your site to the entity record."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does Wikipedia help AI visibility?",
+        "a": "Yes — Wikipedia and Wikidata are major grounding sources for AI, so a verifiable presence strengthens your entity and citability."
+      },
+      {
+        "q": "Is Wikidata easier than Wikipedia?",
+        "a": "Generally yes. A structured Wikidata entry is more attainable than a notable Wikipedia article and is still a strong entity signal."
+      },
+      {
+        "q": "How do I connect it to my site?",
+        "a": "Add the Wikidata/Wikipedia URL to your Organization schema's sameAs array so engines link your entity to the record."
+      }
+    ],
+    "related": [
+      "entity-authority",
+      "ai-knowledge-graph",
+      "brand-mentions-ai"
+    ],
+    "date": "2026-07-23",
+    "read": "4 min"
+  },
+  {
+    "id": "reviews-ai-trust",
+    "cat": "GEO",
+    "emoji": "⭐",
+    "title": "How Reviews Shape AI Recommendations (and How to Mark Them Up)",
+    "dek": "Ratings are a top signal when AI recommends businesses and products. Here's how to surface and structure yours for maximum effect.",
+    "keywords": "reviews, AggregateRating, Review schema, AI recommendations, social proof",
+    "sections": [
+      {
+        "h": "Ratings drive recommendations",
+        "p": [
+          "When AI suggests businesses or products, it leans heavily on ratings and review signals. An unmarked 5-star reputation is invisible to engines that can't read it."
+        ]
+      },
+      {
+        "h": "Mark up your reviews",
+        "p": [
+          "Add AggregateRating and Review JSON-LD with ratingValue and reviewCount that match what's visible on the page, then validate it."
+        ]
+      },
+      {
+        "h": "Surface real proof",
+        "p": [
+          "Display genuine testimonials and ratings prominently, and keep them current — freshness and authenticity matter to both users and AI."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do reviews affect AI recommendations?",
+        "a": "Strongly. Ratings are a top signal when AI recommends businesses and products — but only if they're marked up so engines can read them."
+      },
+      {
+        "q": "What schema do reviews use?",
+        "a": "AggregateRating for the overall score and Review for individual reviews, with values matching the visible content."
+      },
+      {
+        "q": "Are unmarked reviews enough?",
+        "a": "No. Without Review/AggregateRating markup, AI may not factor your ratings into recommendations."
+      }
+    ],
+    "related": [
+      "schema-7-types",
+      "local-geo",
+      "eeat-ai"
+    ],
+    "date": "2026-07-23",
+    "read": "4 min"
   }
 ]
