@@ -98,3 +98,8 @@ Blog now has 51 posts. Queue remaining: 3.
 - [GEO] How Reviews Shape AI Recommendations (and How to Mark Them Up)  →  /blog/reviews-ai-trust.html
 
 Blog now has 53 posts. Queue remaining: 1.
+
+## 2026-07-27 — published 1 article(s)
+- [GEO] Why Content Freshness Matters for AI Citations  →  /blog/ai-content-freshness.html
+
+Blog now has 54 posts. Queue remaining: 0.
