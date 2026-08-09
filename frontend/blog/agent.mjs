@@ -39,9 +39,9 @@ async function loadJSON(path, fallback) {
 }
 
 async function main() {
-  // 2 or 3 per run (deterministic-ish: 3 on Mondays, else 2) unless overridden
+  // 1 high-quality post per run (weekly) unless overridden via ARTICLES_PER_RUN
   const override = Number(process.env.ARTICLES_PER_RUN);
-  const perRun = Number.isFinite(override) && override > 0 ? override : (new Date().getUTCDay() === 1 ? 3 : 2);
+  const perRun = Number.isFinite(override) && override > 0 ? override : 1;
 
   const state = await loadJSON(STATE_PATH, { publishedIds: [] });
   const generated = await loadJSON(GEN_PATH, []);

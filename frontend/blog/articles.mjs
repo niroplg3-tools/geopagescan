@@ -28,6 +28,12 @@ export const ARTICLES = [
     dek: "Everything you need to get cited by AI engines in 2026 — entity clarity, llms.txt, schema and the three pillars of GEO, explained with a concrete action plan.",
     date: "2026-05-28", read: "12 min",
     keywords: "GEO, generative engine optimization, AI visibility, get cited by ChatGPT, llms.txt, schema",
+    takeaways: [
+      "GEO makes AI engines understand, trust and cite you — the new page one.",
+      "The three pillars: entity clarity, machine-readable structure, and authority signals.",
+      "Highest-leverage first move: publish an llms.txt (most competitors haven't).",
+      "94% of sites score below 40/100 for AI visibility — early movers get cited for years.",
+    ],
     sections: [
       { h: "What is Generative Engine Optimization?", p: [
         "Generative Engine Optimization (GEO) is the discipline of structuring your website so that generative AI engines — ChatGPT, Claude, Gemini, Perplexity and Google's AI Overviews — can understand what you are, trust you, and cite you in their answers.",
@@ -140,33 +146,17 @@ export const ARTICLES = [
   },
 
   {
-    id: "geo-content", cat: "GEO", emoji: "✍️",
-    title: "GEO Content Strategy: Writing for AI Engines, Not Just Humans",
-    dek: "Question-led headings, direct answers and the informational tone AI rewards — how to write content generative engines actually quote.",
-    date: "2026-03-26", read: "9 min",
-    keywords: "GEO content, writing for AI, answer-first, question headings, informational content",
-    sections: [
-      { h: "Write the question, then answer it", p: [
-        "Reframe headings as the literal questions your audience asks, then follow each with a direct, self-contained answer. This maps perfectly to how AI extracts and quotes content." ] },
-      { h: "Facts beat adjectives", p: [
-        "\"World-class, leading, best-in-class\" tells an LLM nothing. Specific numbers, dates, named outcomes and comparisons give it something concrete to cite." ] },
-      { h: "Structure for extraction", p: [
-        "Use a clear H2/H3 hierarchy, short paragraphs, lists and tables. A wall of text is hard for both humans and machines; scannable structure wins." ] },
-    ],
-    faq: [
-      { q: "What writing style does AI prefer?", a: "Informational and factual: question-led headings, a direct answer in the first sentence, specific numbers and named entities, and minimal marketing hype." },
-      { q: "Should I keep marketing copy?", a: "Keep persuasive copy for conversion sections, but lead informational pages with plain, factual, answer-first content that AI can quote." },
-      { q: "How long should answers be?", a: "Aim for a 40–60 word direct answer immediately under each question heading, then expand with supporting detail." },
-    ],
-    related: ["aeo-guide", "geo-guide", "voice-aeo"],
-  },
-
-  {
     id: "aeo-guide", cat: "AEO", emoji: "🎯",
     title: "What Is AEO? The Complete Answer Engine Optimization Guide",
     dek: "How AEO differs from SEO and GEO, and how to win direct-answer surfaces like featured snippets, voice assistants and AI chat.",
     date: "2026-05-14", read: "10 min",
     keywords: "AEO, answer engine optimization, featured snippets, FAQPage, voice search",
+    takeaways: [
+      "AEO optimizes for being the single direct answer, not a ranked link.",
+      "Lead each section with a 40–60 word answer under a question heading.",
+      "FAQPage and HowTo schema are the highest-impact AEO markup.",
+      "Add SpeakableSpecification to optimize for voice assistants.",
+    ],
     sections: [
       { h: "What is Answer Engine Optimization?", p: [
         "Answer Engine Optimization (AEO) is optimizing for surfaces that return a single direct answer — featured snippets, voice assistants and AI chat. It overlaps with GEO but focuses on the <strong>answer format</strong> itself." ] },
@@ -198,6 +188,12 @@ export const ARTICLES = [
     dek: "A copy-paste llms.txt template and the exact sections AI engines look for — the robots.txt of the AI era, explained.",
     date: "2026-05-07", read: "9 min",
     keywords: "llms.txt, llms.txt guide, llms.txt template, AI visibility, entity summary",
+    takeaways: [
+      "llms.txt is a markdown file at your root that summarizes your site for AI.",
+      "Include an overview, services, key page URLs and contact — the facts AI wants.",
+      "It's the highest-impact, lowest-effort GEO change, and most competitors lack one.",
+      "Serve it at /llms.txt and reference it with a meta tag in your head.",
+    ],
     sections: [
       { h: "What is llms.txt?", p: [
         "llms.txt is a simple markdown file at your domain root that gives AI assistants a curated, structured summary of your site — your entity, services, key definitions, important URLs and contact info." ] },
@@ -236,6 +232,12 @@ export const ARTICLES = [
     dek: "FAQPage, LocalBusiness, Organization, Article, HowTo, AggregateRating and Product — the JSON-LD types that turn your content into AI-citable facts.",
     date: "2026-04-23", read: "11 min",
     keywords: "schema markup, JSON-LD, FAQPage, LocalBusiness, HowTo, AggregateRating, AI citations",
+    takeaways: [
+      "JSON-LD turns your content into machine-readable facts AI can cite.",
+      "The critical three: FAQPage, LocalBusiness and Organization.",
+      "Article, HowTo, AggregateRating and Product cover most other citation triggers.",
+      "Always validate with Google's Rich Results Test before shipping.",
+    ],
     sections: [
       { h: "Why is schema the AI's cheat sheet?", p: [
         "JSON-LD turns your content into structured facts an AI can ingest without guessing. These seven types cover the vast majority of citation triggers." ] },
@@ -317,6 +319,12 @@ export const ARTICLES = [
     dek: "The classic SEO signals that still matter for AI — and the tactics to retire. A clear-eyed look at SEO in the age of generative search.",
     date: "2026-05-02", read: "8 min",
     keywords: "SEO in AI era, technical SEO, entity authority, what still works, AI Overviews",
+    takeaways: [
+      "Crawlability, Core Web Vitals, canonicals and topical authority still matter.",
+      "Keyword stuffing, thin doorway pages and link schemes are dead.",
+      "Entity clarity has replaced keyword density as the core signal.",
+      "Treat SEO as the foundation and layer GEO/AEO on top.",
+    ],
     sections: [
       { h: "What still works in SEO?", p: [
         "Crawlability, fast Core Web Vitals, clean information architecture, canonical tags and genuine topical authority all still matter — AI engines lean on the same crawl infrastructure as classic search." ] },
@@ -349,6 +357,12 @@ export const ARTICLES = [
     dek: "Canonical, hreflang, Open Graph, viewport, Core Web Vitals and the crawl essentials — a practical technical SEO checklist for the AI era.",
     date: "2026-04-09", read: "10 min",
     keywords: "technical SEO checklist, canonical, hreflang, Open Graph, Core Web Vitals, sitemap",
+    takeaways: [
+      "Ship a sitemap, a sane robots.txt that allows AI bots, and canonical tags.",
+      "Use hreflang to connect language/region variants — the most common miss.",
+      "Complete Open Graph, a viewport meta, and html lang on every page.",
+      "Keep Core Web Vitals green and avoid JS-only critical content.",
+    ],
     sections: [
       { h: "Crawl & index essentials", p: [
         "Ship a sitemap, a sane robots.txt that allows AI bots, canonical tags on every page, and avoid JavaScript-only content for anything important." ] },
@@ -373,6 +387,12 @@ export const ARTICLES = [
     dek: "sameAs links, author entities and the trust graph AI engines rely on — how to become an unambiguous, well-connected entity.",
     date: "2026-03-05", read: "9 min",
     keywords: "entity authority, sameAs, knowledge graph, author entity, Wikidata, brand entity",
+    takeaways: [
+      "Search and AI think in entities — be an unambiguous, well-connected one.",
+      "Link your Organization and Person schema to profiles via sameAs.",
+      "Named, linkable authors with publish dates beat anonymous copy.",
+      "A Wikidata entry, when warranted, is a strong entity signal.",
+    ],
     sections: [
       { h: "Think in entities, not just pages", p: [
         "Both Google and LLMs think in entities — people, organizations, products. Your goal is to be an unambiguous, well-connected entity in that graph." ] },

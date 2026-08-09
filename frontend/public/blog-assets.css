@@ -74,6 +74,25 @@ img{max-width:100%;display:block}
 .post-figure{margin:26px 0;border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;background:var(--bg-3)}
 .post-figure img{width:100%;display:block}
 .post-figure figcaption{padding:12px 16px;font-family:var(--mono);font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--border-dark);text-align:center}
+.post-body h2{scroll-margin-top:90px}
+.post-takeaways{max-width:760px;margin:0 auto 8px;padding:22px 26px;border-radius:16px;background:var(--grad-soft);border:1px solid var(--border)}
+.post-takeaways h2{font-size:16px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin:0 0 14px}
+.post-takeaways ul{list-style:none;margin:0;display:grid;gap:10px}
+.post-takeaways li{position:relative;padding-left:26px;color:var(--text);font-size:15.5px;line-height:1.5}
+.post-takeaways li::before{content:"✓";position:absolute;left:0;top:0;color:var(--cyan);font-weight:700}
+.post-toc{max-width:760px;margin:22px auto 6px;padding:18px 24px;border:1px solid var(--border-dark);border-radius:14px;background:rgba(15,23,42,.4)}
+.post-toc .toc-title{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+.post-toc ol{margin:10px 0 0;padding-left:20px;display:grid;gap:6px}
+.post-toc a{color:var(--text-2);font-size:14.5px;text-decoration:none}
+.post-toc a:hover{color:var(--cyan);text-decoration:underline}
+.tools-box{max-width:760px;margin:40px auto 0}
+.tools-box h2{font-size:20px;font-weight:700;margin-bottom:16px}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool-link{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--border-dark);border-radius:14px;background:rgba(15,23,42,.5);transition:transform .2s,border-color .2s}
+.tool-link:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+.tool-link strong{color:var(--cyan);font-size:16px}
+.tool-link span{color:var(--text-2);font-size:13.5px;line-height:1.45}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr}}
 /* comparison */
 .cmp{margin:34px 0}.cmp h3{font-size:20px;font-weight:700;margin-bottom:16px}
 .cmp-scroll{overflow-x:auto;border:1px solid var(--border-dark);border-radius:14px}

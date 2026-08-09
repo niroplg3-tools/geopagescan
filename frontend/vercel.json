@@ -1,0 +1,235 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/blog/geo-content",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-content.html",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/perplexity-citations",
+      "destination": "/blog/chatgpt-cite",
+      "permanent": true
+    },
+    {
+      "source": "/blog/perplexity-citations.html",
+      "destination": "/blog/chatgpt-cite",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-overviews",
+      "destination": "/blog/seo-ai-era",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-overviews.html",
+      "destination": "/blog/seo-ai-era",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gemini-optimization",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gemini-optimization.html",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-crawler-list-2026",
+      "destination": "/blog/robots-ai-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-crawler-list-2026.html",
+      "destination": "/blog/robots-ai-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-mistakes",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-mistakes.html",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-vs-seo",
+      "destination": "/blog/seo-ai-era",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-vs-seo.html",
+      "destination": "/blog/seo-ai-era",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brand-mentions-ai",
+      "destination": "/blog/entity-authority",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brand-mentions-ai.html",
+      "destination": "/blog/entity-authority",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-for-blogs",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-for-blogs.html",
+      "destination": "/blog/geo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-startups",
+      "destination": "/blog/saas-geo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-startups.html",
+      "destination": "/blog/saas-geo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-knowledge-graph",
+      "destination": "/blog/entity-authority",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-knowledge-graph.html",
+      "destination": "/blog/entity-authority",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-roi",
+      "destination": "/blog/measuring-ai-visibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/geo-roi.html",
+      "destination": "/blog/measuring-ai-visibility",
+      "permanent": true
+    },
+    {
+      "source": "/blog/multilingual-geo",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/multilingual-geo.html",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/featured-snippets-2026",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/featured-snippets-2026.html",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/howto-schema",
+      "destination": "/blog/schema-7-types",
+      "permanent": true
+    },
+    {
+      "source": "/blog/howto-schema.html",
+      "destination": "/blog/schema-7-types",
+      "permanent": true
+    },
+    {
+      "source": "/blog/answer-first-writing",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/answer-first-writing.html",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/people-also-ask",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/people-also-ask.html",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/conversational-content",
+      "destination": "/blog/voice-aeo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/conversational-content.html",
+      "destination": "/blog/voice-aeo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/aeo-healthcare",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/aeo-healthcare.html",
+      "destination": "/blog/aeo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/core-web-vitals-2026",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/core-web-vitals-2026.html",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/internal-linking-ai",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/internal-linking-ai.html",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sitemap-guide",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sitemap-guide.html",
+      "destination": "/blog/technical-seo-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blog/structured-data-mistakes",
+      "destination": "/blog/schema-7-types",
+      "permanent": true
+    },
+    {
+      "source": "/blog/structured-data-mistakes.html",
+      "destination": "/blog/schema-7-types",
+      "permanent": true
+    }
+  ]
+}

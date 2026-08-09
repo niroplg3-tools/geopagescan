@@ -92,8 +92,11 @@ const FAQS = [
 
 const BLOG_PREVIEW = [
   { e: "🧭", tag: "GEO", t: "The Complete Guide to Generative Engine Optimization (GEO) in 2026", x: "Everything you need to get cited by AI engines — from entity clarity to llms.txt.", d: "May 2026", r: "12 min", h: "geo-guide" },
-  { e: "👻", tag: "GEO", t: "Why 94% of Websites Are Invisible to AI (And the Simple Fix)", x: "The single file and three schema types that move the needle most.", d: "May 2026", r: "7 min", h: "invisible-to-ai" },
+  { e: "🎯", tag: "AEO", t: "What Is AEO? The Complete Answer Engine Optimization Guide", x: "How to win direct-answer surfaces — featured snippets, voice and AI chat.", d: "May 2026", r: "10 min", h: "aeo-guide" },
   { e: "📑", tag: "AEO", t: "llms.txt: The Complete Guide — What It Is, Why It Matters", x: "A copy-paste template and the exact sections AI engines look for.", d: "May 2026", r: "9 min", h: "llms-txt-guide" },
+  { e: "🏷️", tag: "AEO", t: "Schema Markup for AI Search: The 7 Types That Drive Citations", x: "The JSON-LD types that turn your content into AI-citable facts.", d: "Apr 2026", r: "11 min", h: "schema-7-types" },
+  { e: "✅", tag: "SEO", t: "The Complete Technical SEO Checklist for 2026", x: "Canonical, hreflang, Open Graph, Core Web Vitals and the crawl essentials.", d: "Apr 2026", r: "10 min", h: "technical-seo-checklist" },
+  { e: "👻", tag: "GEO", t: "Why 94% of Websites Are Invisible to AI (And the Simple Fix)", x: "The single file and three schema types that move the needle most.", d: "May 2026", r: "7 min", h: "invisible-to-ai" },
 ];
 
 /* ── scoring helpers ──────────────────────────────────────────────────── */
@@ -441,7 +444,7 @@ function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const links = [["Why", "#why"], ["How it works", "#how"], ["Features", "#features"], ["FAQ", "#faq"], ["Blog", "/blog.html"]];
+  const links = [["Why", "#why"], ["How it works", "#how"], ["Features", "#features"], ["FAQ", "#faq"], ["Blog", "/blog"]];
   return (
     <nav className={"nav" + (scrolled ? " scrolled" : "")}>
       <div className="container nav-inner">
@@ -453,7 +456,7 @@ function Nav() {
           {links.map(([l, h]) => <a key={l} href={h}>{l}</a>)}
         </div>
         <div className="nav-cta">
-          <a className="btn btn-ghost" href="/blog.html">Read the blog</a>
+          <a className="btn btn-ghost" href="/blog">Read the blog</a>
           <a className="btn btn-primary nav-scan" href="#top" aria-label="Scan a site">
             <Ic.search className="nav-scan-ico" />
             <span className="nav-scan-txt">Scan a site</span>
@@ -608,7 +611,7 @@ function BlogPreview() {
         </div>
         <div className="grid grid-3">
           {BLOG_PREVIEW.map((b, i) => (
-            <a className="card blog-card reveal" key={b.h} href={`/blog/${b.h}.html`} style={{ transitionDelay: `${i * 60}ms` }}>
+            <a className="card blog-card reveal" key={b.h} href={`/blog/${b.h}`} style={{ transitionDelay: `${i * 60}ms` }}>
               <div className="blog-thumb" aria-hidden="true">{b.e}</div>
               <span className="tag" style={{ marginBottom: 12, alignSelf: "flex-start" }}>{b.tag}</span>
               <h3>{b.t}</h3><p>{b.x}</p>
@@ -617,7 +620,7 @@ function BlogPreview() {
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: 40 }}>
-          <a className="btn btn-ghost" href="/blog.html">View all 15 articles <Ic.arrow /></a>
+          <a className="btn btn-ghost" href="/blog">Browse all guides <Ic.arrow /></a>
         </div>
       </div>
     </section>
@@ -635,7 +638,7 @@ function CTA() {
           <p>Run a free scan and see exactly what to fix to get cited by the engines answering your customers' questions.</p>
           <div className="cta-btns">
             <a className="btn btn-primary" href="#top">Scan my website <Ic.arrow /></a>
-            <a className="btn btn-ghost" href="/blog.html">Read the GEO guide</a>
+            <a className="btn btn-ghost" href="/blog/geo-guide">Read the GEO guide</a>
           </div>
         </div>
       </div>
@@ -646,7 +649,7 @@ function CTA() {
 function Footer() {
   const cols = [
     ["Product", [["Audit tool", "#top"], ["Features", "#features"], ["How it works", "#how"], ["FAQ", "#faq"]]],
-    ["Learn", [["Blog", "/blog.html"], ["GEO guide", "/blog/geo-guide.html"], ["llms.txt guide", "/blog/llms-txt-guide.html"], ["What is AEO?", "/blog/aeo-guide.html"]]],
+    ["Learn", [["Blog", "/blog"], ["GEO guide", "/blog/geo-guide"], ["llms.txt guide", "/blog/llms-txt-guide"], ["What is AEO?", "/blog/aeo-guide"]]],
   ];
   return (
     <footer className="footer">
@@ -666,7 +669,7 @@ function Footer() {
         <div className="footer-bottom">
           <span>© 2026 GeoPageScan · geopagescan.com</span>
           <div className="links">
-            <a href="/blog.html">Blog</a>
+            <a href="/blog">Blog</a>
             <a href="mailto:hello@geopagescan.com">Contact</a>
           </div>
         </div>

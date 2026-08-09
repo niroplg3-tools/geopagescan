@@ -20,9 +20,10 @@ GeoPageScan was founded in 2026 to help websites get understood and cited by AI 
 ## Key Pages
 
 - Home & audit tool: https://geopagescan.com/
-- Blog (15 articles): https://geopagescan.com/blog.html
-- GEO guide: https://geopagescan.com/blog.html#geo-guide
-- llms.txt guide: https://geopagescan.com/blog.html#llms-txt-guide
+- Blog: https://geopagescan.com/blog
+- GEO guide: https://geopagescan.com/blog/geo-guide
+- llms.txt guide: https://geopagescan.com/blog/llms-txt-guide
+- What is AEO: https://geopagescan.com/blog/aeo-guide
 
 ## Target Audience
 

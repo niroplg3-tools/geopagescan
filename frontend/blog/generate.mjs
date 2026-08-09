@@ -23,7 +23,7 @@ let LOOKUP = Object.fromEntries(ARTICLES.map((a) => [a.id, a]));
 
 /* ── shared chrome ──────────────────────────────────────────────────────── */
 function header() {
-  const links = [["Why", "/#why"], ["How it works", "/#how"], ["Features", "/#features"], ["FAQ", "/#faq"], ["Blog", "/blog.html"]];
+  const links = [["Why", "/#why"], ["How it works", "/#how"], ["Features", "/#features"], ["FAQ", "/#faq"], ["Blog", "/blog"]];
   return `<nav class="nav"><div class="container nav-inner">
     <a href="/" class="brand">
       <img src="/logo.svg" width="36" height="36" alt="GeoPageScan logo" />
@@ -31,7 +31,7 @@ function header() {
     </a>
     <div class="nav-links">${links.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</div>
     <div class="nav-cta">
-      <a class="btn btn-ghost" href="/blog.html">Blog</a>
+      <a class="btn btn-ghost" href="/blog">Blog</a>
       <a class="btn btn-primary nav-scan" href="/" aria-label="Scan a site">
         <svg class="nav-scan-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         <span class="nav-scan-txt">Scan a site →</span>
@@ -43,7 +43,7 @@ function header() {
 function footer() {
   const cols = [
     ["Product", [["Audit tool", "/#top"], ["Features", "/#features"], ["How it works", "/#how"], ["FAQ", "/#faq"]]],
-    ["Learn", [["Blog", "/blog.html"], ["GEO guide", "/blog/geo-guide.html"], ["llms.txt guide", "/blog/llms-txt-guide.html"], ["What is AEO?", "/blog/aeo-guide.html"]]],
+    ["Learn", [["Blog", "/blog"], ["GEO guide", "/blog/geo-guide"], ["llms.txt guide", "/blog/llms-txt-guide"], ["What is AEO?", "/blog/aeo-guide"]]],
   ];
   return `<footer class="footer"><div class="container">
     <div class="footer-grid">
@@ -55,7 +55,7 @@ function footer() {
     </div>
     <div class="footer-bottom">
       <span>© 2026 GeoPageScan · geopagescan.com</span>
-      <div class="links"><a href="/blog.html">Blog</a><a href="mailto:hello@geopagescan.com">Contact</a></div>
+      <div class="links"><a href="/blog">Blog</a><a href="mailto:hello@geopagescan.com">Contact</a></div>
     </div>
   </div></footer>`;
 }
@@ -115,15 +115,41 @@ function svgCover(a) {
 }
 
 /* ── article body rendering ─────────────────────────────────────────────── */
+const slug = (h) => escText(h).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+
 function renderSections(a) {
   return a.sections.map((s) => {
-    let html = `<h2>${esc(s.h)}</h2>`;
+    let html = `<h2 id="${slug(s.h)}">${esc(s.h)}</h2>`;
     if (s.p) html += s.p.map((p) => `<p>${p}</p>`).join("");
     if (s.img) html += `<figure class="post-figure"><img src="${esc(s.img.src)}" alt="${esc(s.img.alt || "")}" loading="lazy" />${s.img.caption ? `<figcaption>${esc(s.img.caption)}</figcaption>` : ""}</figure>`;
     if (s.code) html += `<pre><code>${esc(s.code)}</code></pre>`;
     if (s.list) html += `<ul>${s.list.map((li) => `<li>${li}</li>`).join("")}</ul>`;
     return html;
   }).join("");
+}
+
+// Table of contents (auto from section headings) — only when there are 3+ sections.
+function renderTOC(a) {
+  if (!a.sections || a.sections.length < 3) return "";
+  return `<nav class="post-toc" aria-label="On this page"><span class="toc-title">On this page</span><ol>${
+    a.sections.map((s) => `<li><a href="#${slug(s.h)}">${esc(s.h)}</a></li>`).join("")
+  }</ol></nav>`;
+}
+
+// Key-takeaways box from an optional `takeaways` array.
+function renderTakeaways(a) {
+  if (!a.takeaways || !a.takeaways.length) return "";
+  return `<aside class="post-takeaways"><h2>Key takeaways</h2><ul>${
+    a.takeaways.map((t) => `<li>${esc(t)}</li>`).join("")
+  }</ul></aside>`;
+}
+
+// Cross-links to our other tools — genuine internal/related links (helps discovery + authority).
+function renderToolsBox() {
+  return `<aside class="tools-box"><h2>Free tools from GeoPageScan</h2><div class="tools-grid">
+    <a class="tool-link" href="/"><strong>GeoPageScan</strong><span>Score your site's AI visibility (GEO/AEO/SEO) free.</span></a>
+    <a class="tool-link" href="https://vitalsite.io/scan" target="_blank" rel="noopener"><strong>VitalSite</strong><span>Scan your website's security, visibility &amp; accessibility.</span></a>
+  </div></aside>`;
 }
 
 function renderComparison(c) {
@@ -144,13 +170,13 @@ function renderRelated(a) {
   const rel = (a.related || []).map((id) => LOOKUP[id]).filter(Boolean).slice(0, 3);
   if (!rel.length) return "";
   return `<section class="related"><h2>Keep reading</h2><div class="rel-grid">
-    ${rel.map((r) => `<a class="rel-card" href="/blog/${r.id}.html"><img src="/blog-img/${r.id}.svg" alt="${esc(r.title)}" loading="lazy" /><span class="tag">${r.cat}</span><h3>${esc(r.title)}</h3></a>`).join("")}
+    ${rel.map((r) => `<a class="rel-card" href="/blog/${r.id}"><img src="/blog-img/${r.id}.svg" alt="${esc(r.title)}" loading="lazy" /><span class="tag">${r.cat}</span><h3>${esc(r.title)}</h3></a>`).join("")}
   </div></section>`;
 }
 
 /* ── per-post page ──────────────────────────────────────────────────────── */
 function articlePage(a) {
-  const url = `${SITE.url}/blog/${a.id}.html`;
+  const url = `${SITE.url}/blog/${a.id}`;
   const img = `${SITE.url}/blog-img/${a.id}.svg`;
   const desc = escText(a.dek);
   const articleSchema = {
@@ -170,7 +196,7 @@ function articlePage(a) {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url + "/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: SITE.url + "/blog.html" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: SITE.url + "/blog" },
       { "@type": "ListItem", position: 3, name: a.title, item: url },
     ],
   };
@@ -208,7 +234,7 @@ ${fontsHead}
 ${header()}
 <main class="article-wrap">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/blog.html">Blog</a> <span>/</span> <span class="current">${esc(a.cat)}</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span> <span class="current">${esc(a.cat)}</span></nav>
     <article class="post">
       <header class="post-head">
         <span class="tag">${a.cat}</span>
@@ -217,6 +243,8 @@ ${header()}
         <div class="byline"><span>By <strong>GeoPageScan</strong></span><span>·</span><span>${fmtDate(a.date)}</span><span>·</span><span>${a.read} read</span></div>
       </header>
       <img class="cover" src="/blog-img/${a.id}.svg" alt="${esc(a.title)}" width="1200" height="630" />
+      ${renderTakeaways(a)}
+      ${renderTOC(a)}
       <div class="post-body">
         ${renderSections(a)}
         ${renderComparison(a.comparison)}
@@ -227,6 +255,7 @@ ${header()}
         <p>Run a free GeoPageScan audit and get prioritized fixes across six GEO/AEO/SEO categories.</p>
         <a class="btn btn-primary" href="/">Scan my website →</a>
       </aside>
+      ${renderToolsBox()}
       ${renderRelated(a)}
     </article>
   </div>
@@ -251,11 +280,11 @@ function indexPage(articles) {
     mainEntity: INDEX_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   };
   const blogSchema = {
-    "@context": "https://schema.org", "@type": "Blog", name: "GeoPageScan Blog", url: SITE.url + "/blog.html",
+    "@context": "https://schema.org", "@type": "Blog", name: "GeoPageScan Blog", url: SITE.url + "/blog",
     description: "Guides on GEO, AEO, llms.txt, schema and getting cited by AI search engines.",
-    blogPost: articles.map((a) => ({ "@type": "BlogPosting", headline: a.title, url: `${SITE.url}/blog/${a.id}.html`, datePublished: a.date, image: `${SITE.url}/blog-img/${a.id}.svg` })),
+    blogPost: articles.map((a) => ({ "@type": "BlogPosting", headline: a.title, url: `${SITE.url}/blog/${a.id}`, datePublished: a.date, image: `${SITE.url}/blog-img/${a.id}.svg` })),
   };
-  const cards = articles.map((a) => `<a class="post-card" data-cat="${a.cat}" href="/blog/${a.id}.html">
+  const cards = articles.map((a) => `<a class="post-card" data-cat="${a.cat}" href="/blog/${a.id}">
       <div class="card-cover"><img src="/blog-img/${a.id}.svg" alt="${esc(a.title)}" loading="lazy" width="1200" height="630" /></div>
       <span class="tag">${a.cat}</span>
       <h2>${esc(a.title)}</h2>
@@ -272,12 +301,12 @@ function indexPage(articles) {
 <meta name="description" content="Guides and playbooks on Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), llms.txt, schema markup and getting cited by AI search engines." />
 <meta name="keywords" content="GEO, AEO, AI search, llms.txt, schema, generative engine optimization, answer engine optimization" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
-<link rel="canonical" href="${SITE.url}/blog.html" />
+<link rel="canonical" href="${SITE.url}/blog" />
 <meta name="llms-txt" content="${SITE.url}/llms.txt" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="GeoPageScan Blog — GEO, AEO &amp; AI Search" />
 <meta property="og:description" content="Guides on GEO, AEO, llms.txt and getting cited by AI search engines." />
-<meta property="og:url" content="${SITE.url}/blog.html" />
+<meta property="og:url" content="${SITE.url}/blog" />
 <meta property="og:image" content="${SITE.url}/blog-img/geo-guide.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 ${fontsHead}
@@ -393,6 +422,25 @@ img{max-width:100%;display:block}
 .post-figure{margin:26px 0;border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;background:var(--bg-3)}
 .post-figure img{width:100%;display:block}
 .post-figure figcaption{padding:12px 16px;font-family:var(--mono);font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--border-dark);text-align:center}
+.post-body h2{scroll-margin-top:90px}
+.post-takeaways{max-width:760px;margin:0 auto 8px;padding:22px 26px;border-radius:16px;background:var(--grad-soft);border:1px solid var(--border)}
+.post-takeaways h2{font-size:16px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin:0 0 14px}
+.post-takeaways ul{list-style:none;margin:0;display:grid;gap:10px}
+.post-takeaways li{position:relative;padding-left:26px;color:var(--text);font-size:15.5px;line-height:1.5}
+.post-takeaways li::before{content:"✓";position:absolute;left:0;top:0;color:var(--cyan);font-weight:700}
+.post-toc{max-width:760px;margin:22px auto 6px;padding:18px 24px;border:1px solid var(--border-dark);border-radius:14px;background:rgba(15,23,42,.4)}
+.post-toc .toc-title{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+.post-toc ol{margin:10px 0 0;padding-left:20px;display:grid;gap:6px}
+.post-toc a{color:var(--text-2);font-size:14.5px;text-decoration:none}
+.post-toc a:hover{color:var(--cyan);text-decoration:underline}
+.tools-box{max-width:760px;margin:40px auto 0}
+.tools-box h2{font-size:20px;font-weight:700;margin-bottom:16px}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool-link{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--border-dark);border-radius:14px;background:rgba(15,23,42,.5);transition:transform .2s,border-color .2s}
+.tool-link:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+.tool-link strong{color:var(--cyan);font-size:16px}
+.tool-link span{color:var(--text-2);font-size:13.5px;line-height:1.45}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr}}
 /* comparison */
 .cmp{margin:34px 0}.cmp h3{font-size:20px;font-weight:700;margin-bottom:16px}
 .cmp-scroll{overflow-x:auto;border:1px solid var(--border-dark);border-radius:14px}
@@ -442,8 +490,8 @@ export async function generateBlog(articles) {
   // sitemap includes home, blog index and every post
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     `  <url><loc>${SITE.url}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n` +
-    `  <url><loc>${SITE.url}/blog.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>\n` +
-    ordered.map((a) => `  <url><loc>${SITE.url}/blog/${a.id}.html</loc><lastmod>${a.date}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join("\n") +
+    `  <url><loc>${SITE.url}/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>\n` +
+    ordered.map((a) => `  <url><loc>${SITE.url}/blog/${a.id}</loc><lastmod>${a.date}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join("\n") +
     `\n</urlset>\n`;
   await writeFile(join(PUBLIC, "sitemap.xml"), sitemap, "utf8");
 

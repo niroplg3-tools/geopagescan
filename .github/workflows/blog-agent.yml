@@ -4,7 +4,7 @@ name: Blog Agent — auto-publish
 # Vercel auto-redeploys on the push. No server required.
 on:
   schedule:
-    - cron: "0 14 * * 1,4"   # Mondays & Thursdays at 14:00 UTC (3 on Mon, 2 on Thu)
+    - cron: "0 14 * * 1"    # Mondays at 14:00 UTC — one high-quality post/week
   workflow_dispatch: {}        # allow manual runs from the Actions tab
 
 jobs:
