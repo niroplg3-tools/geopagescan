@@ -272,5 +272,54 @@
     ],
     "date": "2026-07-06",
     "read": "4 min"
+  },
+  {
+    "id": "content-pruning",
+    "cat": "SEO",
+    "emoji": "✂️",
+    "title": "Content Pruning: Cut the Pages Dragging Down Your Authority",
+    "dek": "Thin, outdated pages dilute your topical authority for both Google and AI. Here's how to prune safely and strengthen the rest.",
+    "keywords": "content pruning, thin content, topical authority, content audit, SEO",
+    "sections": [
+      {
+        "h": "Why pruning helps",
+        "p": [
+          "Low-quality, outdated or redundant pages dilute the signals that define your expertise. Removing or consolidating them concentrates authority on the pages that matter."
+        ]
+      },
+      {
+        "h": "How to prune safely",
+        "p": [
+          "Audit pages by value and traffic, then update, consolidate or redirect the weak ones. Never delete without redirecting if a URL has links or history."
+        ]
+      },
+      {
+        "h": "Strengthen what remains",
+        "p": [
+          "Merge thin posts into comprehensive ones, refresh facts and dates, and re-link them into your topic clusters."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is content pruning?",
+        "a": "Auditing and removing, consolidating or improving low-value pages so your strongest content carries more topical authority."
+      },
+      {
+        "q": "Does pruning help AI visibility?",
+        "a": "Yes — concentrating quality signals on fewer, stronger pages makes your expertise clearer to AI and search."
+      },
+      {
+        "q": "Should I delete old pages?",
+        "a": "Only after redirecting URLs with links or history. Prefer updating or consolidating over outright deletion."
+      }
+    ],
+    "related": [
+      "internal-linking-ai",
+      "ai-content-freshness",
+      "seo-ai-era"
+    ],
+    "date": "2026-08-10",
+    "read": "4 min"
   }
 ]

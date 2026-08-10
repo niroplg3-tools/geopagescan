@@ -72,3 +72,8 @@ Blog now has 40 posts. Queue remaining: 13.
 - [SEO] 7 Structured Data Mistakes That Hurt AI Visibility  →  /blog/structured-data-mistakes.html
 
 Blog now has 43 posts. Queue remaining: 11.
+
+## 2026-08-10 — published 1 article(s)
+- [SEO] Content Pruning: Cut the Pages Dragging Down Your Authority  →  /blog/content-pruning.html
+
+Blog now has 21 posts. Queue remaining: 10.
