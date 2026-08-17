@@ -321,5 +321,54 @@
     ],
     "date": "2026-08-10",
     "read": "4 min"
+  },
+  {
+    "id": "js-rendering-seo",
+    "cat": "SEO",
+    "emoji": "🧩",
+    "title": "JavaScript Rendering and Why AI Crawlers Skip Your Site",
+    "dek": "Many AI crawlers don't run JavaScript. If your content only appears after JS, you may be invisible. Here's how to fix it.",
+    "keywords": "JavaScript rendering, SSR, AI crawlers, crawlability, hydration",
+    "sections": [
+      {
+        "h": "The JS visibility problem",
+        "p": [
+          "Unlike Googlebot, many AI crawlers fetch raw HTML and don't execute JavaScript. If your text, links or schema only appear after client-side rendering, those crawlers see an empty shell."
+        ]
+      },
+      {
+        "h": "Serve content in the HTML",
+        "p": [
+          "Use server-side rendering or static generation so your key content, headings and JSON-LD are present in the initial HTML response, not injected later by JS."
+        ]
+      },
+      {
+        "h": "Verify what crawlers see",
+        "p": [
+          "Check your page's raw HTML (view source or curl) — if the main content isn't there, neither AI crawlers nor your audit will see it."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do AI crawlers run JavaScript?",
+        "a": "Many don't. They fetch raw HTML, so content that only appears after client-side JS rendering can be invisible to them."
+      },
+      {
+        "q": "How do I fix JS-only content?",
+        "a": "Use server-side rendering or static generation so key content and schema are in the initial HTML response."
+      },
+      {
+        "q": "How do I check what crawlers see?",
+        "a": "View the page source or curl the URL — if the main content and JSON-LD aren't in the raw HTML, crawlers likely can't read them."
+      }
+    ],
+    "related": [
+      "technical-seo-checklist",
+      "core-web-vitals-2026",
+      "invisible-to-ai"
+    ],
+    "date": "2026-08-17",
+    "read": "4 min"
   }
 ]

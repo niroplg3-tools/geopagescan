@@ -77,3 +77,8 @@ Blog now has 43 posts. Queue remaining: 11.
 - [SEO] Content Pruning: Cut the Pages Dragging Down Your Authority  →  /blog/content-pruning.html
 
 Blog now has 21 posts. Queue remaining: 10.
+
+## 2026-08-17 — published 1 article(s)
+- [SEO] JavaScript Rendering and Why AI Crawlers Skip Your Site  →  /blog/js-rendering-seo.html
+
+Blog now has 22 posts. Queue remaining: 9.
