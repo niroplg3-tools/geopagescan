@@ -370,5 +370,54 @@
     ],
     "date": "2026-08-17",
     "read": "4 min"
+  },
+  {
+    "id": "eeat-ai",
+    "cat": "SEO",
+    "emoji": "🏅",
+    "title": "E-E-A-T in the AI Era: Trust Signals That Travel",
+    "dek": "Experience, Expertise, Authoritativeness and Trust matter to AI as much as to Google. Here's how to make them machine-readable.",
+    "keywords": "E-E-A-T, trust signals, expertise, authority, AI trust, GEO",
+    "sections": [
+      {
+        "h": "Why E-E-A-T crosses over to AI",
+        "p": [
+          "AI engines, like Google, prefer sources they can trust. Demonstrable experience, named experts and authoritative references make you a safer source to cite."
+        ]
+      },
+      {
+        "h": "Make trust signals machine-readable",
+        "p": [
+          "Add named authors with Person schema and sameAs links, show credentials and review dates, and cite authoritative sources. Mark up reviews and ratings so trust travels."
+        ]
+      },
+      {
+        "h": "Show real experience",
+        "p": [
+          "First-hand examples, original data and case studies signal genuine experience — increasingly the differentiator both Google and AI reward."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does E-E-A-T affect AI visibility?",
+        "a": "Yes. AI engines favor trustworthy sources, so named experts, authoritative references and real experience make you more citable."
+      },
+      {
+        "q": "How do I show E-E-A-T to machines?",
+        "a": "Use Person schema with sameAs links, display credentials and review dates, cite authoritative sources, and mark up reviews."
+      },
+      {
+        "q": "What is the extra 'E' in E-E-A-T?",
+        "a": "Experience — first-hand knowledge shown through examples, original data and case studies."
+      }
+    ],
+    "related": [
+      "entity-authority",
+      "reviews-ai-trust",
+      "aeo-healthcare"
+    ],
+    "date": "2026-08-24",
+    "read": "4 min"
   }
 ]

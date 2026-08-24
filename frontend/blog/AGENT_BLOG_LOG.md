@@ -82,3 +82,8 @@ Blog now has 21 posts. Queue remaining: 10.
 - [SEO] JavaScript Rendering and Why AI Crawlers Skip Your Site  →  /blog/js-rendering-seo.html
 
 Blog now has 22 posts. Queue remaining: 9.
+
+## 2026-08-24 — published 1 article(s)
+- [SEO] E-E-A-T in the AI Era: Trust Signals That Travel  →  /blog/eeat-ai.html
+
+Blog now has 23 posts. Queue remaining: 8.
