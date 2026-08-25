@@ -646,6 +646,41 @@ function CTA() {
   );
 }
 
+function VitalSite() {
+  return (
+    <section className="section vs-section" id="vitalsite">
+      <div className="container">
+        <div className="vs-card reveal">
+          <div className="vs-glow" />
+          <div className="vs-inner">
+            <div className="vs-copy">
+              <span className="eyebrow"><span className="dot-ok" /> Also from our team</span>
+              <h2>Meet <span className="gradient-text">VitalSite</span> — your website's full health check</h2>
+              <p>
+                We build tools that keep your site strong across the whole stack. <strong>VitalSite</strong> is our
+                free website health scanner: one scan grades your site's <strong>security, visibility and
+                accessibility</strong> — SSL/TLS, security headers, HTTPS enforcement, malware &amp; blacklist checks,
+                robots &amp; sitemap and more — and hands you a scored report with clear, prioritized fixes.
+              </p>
+              <div className="vs-pillars">
+                <span><Ic.check /> Security</span>
+                <span><Ic.check /> Visibility</span>
+                <span><Ic.check /> Accessibility</span>
+              </div>
+              <a className="btn btn-primary vs-cta" href="https://vitalsite.io" target="_blank" rel="noopener">
+                Scan your site free on VitalSite <Ic.arrow />
+              </a>
+            </div>
+            <div className="vs-visual">
+              <img src="/blog-img/vitalsite-pillars.svg" alt="VitalSite checks Security, Visibility and Accessibility" loading="lazy" width="1000" height="400" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const cols = [
     ["Product", [["Audit tool", "#top"], ["Features", "#features"], ["How it works", "#how"], ["FAQ", "#faq"]]],
@@ -697,6 +732,7 @@ export default function App() {
       <FAQ />
       <BlogPreview />
       <CTA />
+      <VitalSite />
       <Footer />
     </>
   );
