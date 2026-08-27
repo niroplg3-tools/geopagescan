@@ -444,7 +444,7 @@ function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const links = [["Why", "#why"], ["How it works", "#how"], ["Features", "#features"], ["FAQ", "#faq"], ["Blog", "/blog"]];
+  const links = [["Why", "#why"], ["How it works", "#how"], ["Features", "#features"], ["FAQ", "#faq"], ["About", "/about"], ["Blog", "/blog"]];
   return (
     <nav className={"nav" + (scrolled ? " scrolled" : "")}>
       <div className="container nav-inner">
@@ -739,6 +739,7 @@ function Footer() {
         <div className="footer-bottom">
           <span>© 2026 GeoPageScan · geopagescan.com</span>
           <div className="links">
+            <a href="/about">About</a>
             <a href="/blog">Blog</a>
             <a href="mailto:hello@geopagescan.com">Contact</a>
           </div>

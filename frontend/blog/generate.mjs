@@ -23,7 +23,7 @@ let LOOKUP = Object.fromEntries(ARTICLES.map((a) => [a.id, a]));
 
 /* ── shared chrome ──────────────────────────────────────────────────────── */
 function header() {
-  const links = [["Why", "/#why"], ["How it works", "/#how"], ["Features", "/#features"], ["FAQ", "/#faq"], ["Blog", "/blog"]];
+  const links = [["Why", "/#why"], ["How it works", "/#how"], ["Features", "/#features"], ["FAQ", "/#faq"], ["About", "/about"], ["Blog", "/blog"]];
   return `<nav class="nav"><div class="container nav-inner">
     <a href="/" class="brand">
       <img src="/logo.svg" width="36" height="36" alt="GeoPageScan logo" />
@@ -55,7 +55,7 @@ function footer() {
     </div>
     <div class="footer-bottom">
       <span>© 2026 GeoPageScan · geopagescan.com</span>
-      <div class="links"><a href="/blog">Blog</a><a href="mailto:hello@geopagescan.com">Contact</a></div>
+      <div class="links"><a href="/about">About</a><a href="/blog">Blog</a><a href="mailto:hello@geopagescan.com">Contact</a></div>
     </div>
   </div></footer>`;
 }
@@ -469,7 +469,208 @@ img{max-width:100%;display:block}
 .footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--text-muted)}
 .footer-bottom .links{display:flex;gap:20px}.footer-bottom .links a:hover{color:var(--cyan)}
 @media(max-width:768px){.nav-links,.nav-cta .btn-ghost{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.post-body p,.post-body ul{font-size:16px}.nav-scan .nav-scan-txt{display:none}.nav-scan .nav-scan-ico{display:block}.nav-scan{width:46px;padding:0;gap:0}}
+/* about page */
+.about-hero{padding:60px 0 26px;position:relative;overflow:hidden}
+.about-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 340px at 74% -12%,rgba(0,229,255,.16),transparent 60%);z-index:-1}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-top:8px}
+.about-copy h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin:14px 0 0}
+.about-lead{color:var(--text-2);font-size:18px;line-height:1.72;margin:18px 0 26px;max-width:560px}
+.about-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.about-visual{position:relative}
+.about-card{width:100%;height:auto;border-radius:20px;box-shadow:0 34px 90px -44px rgba(0,229,255,.55)}
+.about-section{max-width:820px;margin:0 auto;padding:52px 24px 0}
+.about-section .eyebrow{display:block}
+.about-section h2{font-size:clamp(25px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin:10px 0 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat-card{background:linear-gradient(180deg,rgba(15,23,42,.6),rgba(10,15,30,.5));border:1px solid var(--border-dark);border-radius:16px;padding:26px 16px;text-align:center}
+.stat-num{font-size:clamp(34px,5vw,46px);font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{color:var(--text-2);font-size:13px;margin-top:10px;line-height:1.4}
+.about-prose{margin-top:18px}
+.about-prose p{color:var(--text-2);font-size:17px;line-height:1.8;margin:14px 0}
+.about-prose strong{color:var(--text)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.exp-card{background:linear-gradient(180deg,rgba(15,23,42,.6),rgba(10,15,30,.5));border:1px solid var(--border-dark);border-radius:16px;padding:24px;transition:transform .25s,border-color .25s}
+.exp-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,.5)}
+.exp-ico{font-size:26px;line-height:1}
+.exp-card h3{font-size:18px;font-weight:700;margin:12px 0 8px;letter-spacing:-.01em}
+.exp-card p{color:var(--text-2);font-size:14px;line-height:1.6}
+.about-mission{max-width:820px;margin:54px auto 0;padding:0 24px}
+.about-mission .inner{background:var(--grad-soft);border:1px solid var(--border);border-radius:20px;padding:40px}
+.about-mission h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin:10px 0 12px}
+.about-mission p{color:var(--text-2);font-size:16.5px;line-height:1.7;margin-bottom:22px;max-width:600px}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:34px}.about-visual{max-width:420px}.stats-grid{grid-template-columns:1fr 1fr}.exp-grid{grid-template-columns:1fr!important}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}.post-grid{grid-template-columns:1fr}}`;
+
+/* ── about page ─────────────────────────────────────────────────────────── */
+function aboutCardSvg() {
+  const bars = [["GEO", 96, 336], ["AEO", 90, 394], ["SEO", 95, 452]];
+  const barSvg = bars.map(([l, pct, y]) => `
+    <text x="34" y="${y - 12}" font-family="Outfit, sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">${l}</text>
+    <text x="406" y="${y - 12}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="14" fill="#00e5ff">${pct}</text>
+    <rect x="34" y="${y}" width="372" height="12" rx="6" fill="#1e293b"/>
+    <rect x="34" y="${y}" width="${Math.round(372 * pct / 100)}" height="12" rx="6" fill="url(#acac)"/>`).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" class="about-card" viewBox="0 0 440 520" role="img" aria-label="Sample GeoPageScan AI-visibility report: a score of 94 out of 100, with GEO 96, AEO 90 and SEO 95 category ratings">
+  <defs>
+    <linearGradient id="acbg" x1="0" y1="0" x2="440" y2="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0a0f1e"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+    <linearGradient id="acac" x1="0" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00e5ff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="438" height="518" rx="20" fill="url(#acbg)" stroke="rgba(124,58,237,.35)"/>
+  <g stroke="#00e5ff" stroke-opacity="0.05">${Array.from({ length: 4 }, (_, i) => `<line x1="${110 + i * 110}" y1="0" x2="${110 + i * 110}" y2="520"/>`).join("")}</g>
+  <text x="34" y="50" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#00e5ff">AI VISIBILITY REPORT</text>
+  <text x="34" y="76" font-family="Outfit, sans-serif" font-size="15" fill="#94a3b8">geopagescan.com</text>
+  <g transform="translate(116,196)">
+    <circle r="70" fill="none" stroke="#1e293b" stroke-width="14"/>
+    <circle r="70" fill="none" stroke="url(#acac)" stroke-width="14" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="26" transform="rotate(-90)"/>
+    <text y="8" text-anchor="middle" font-family="Outfit, sans-serif" font-size="54" font-weight="800" fill="#f1f5f9">94</text>
+    <text y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#94a3b8">/ 100</text>
+  </g>
+  <text x="238" y="176" font-family="Outfit, sans-serif" font-size="20" font-weight="700" fill="#f1f5f9">Strong</text>
+  <text x="238" y="202" font-family="Outfit, sans-serif" font-size="14" fill="#94a3b8">Highly visible to</text>
+  <text x="238" y="222" font-family="Outfit, sans-serif" font-size="14" fill="#94a3b8">AI answer engines</text>
+  <text x="34" y="308" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="2" fill="#475569">CATEGORY SCORES</text>
+  ${barSvg}
+  <text x="34" y="502" font-family="JetBrains Mono, monospace" font-size="12" fill="#475569">Free scan · GEO · AEO · SEO</text>
+</svg>`;
+}
+
+function aboutPage() {
+  const url = `${SITE.url}/about`;
+  const desc = "GeoPageScan is a free AI-visibility scanner built by web practitioners with 15 years of combined experience. See how visible your site is to Google and AI answer engines like ChatGPT, Claude and Perplexity — and exactly what to fix first.";
+  const STATS = [
+    ["15", "+", "Years of combined web expertise"],
+    ["6", "", "Visibility categories scored per scan"],
+    ["3", "", "AI answer engines we optimize for"],
+    ["100", "%", "Free — no signup, no credit card"],
+  ];
+  const EXPERTISE = [
+    ["🛰️", "Generative Engine Optimization", "Making your pages easy for AI engines to read, understand and quote — the new front line of discovery beyond ten blue links."],
+    ["💬", "Answer Engine Optimization", "Structuring content as clear questions and answers so ChatGPT, Claude, Perplexity and Google's AI surfaces cite you directly."],
+    ["🔍", "Technical SEO", "Crawlability, indexation, metadata and Core Web Vitals — the fundamentals that still decide whether you show up at all."],
+    ["🧩", "Structured data & schema", "JSON-LD done right — Organization, FAQPage, Article, HowTo and the types that make your content machine-readable."],
+    ["📄", "llms.txt & AI crawlability", "The emerging standard for telling AI crawlers what your site is about — and making sure nothing blocks them by accident."],
+    ["🏛️", "Content & entity authority", "Clear entity definitions, topical depth and the signals that make engines confident enough to name you in an answer."],
+  ];
+  const PRINCIPLES = [
+    ["Practitioner-built", "Every check comes from real work shipping and ranking sites — not a theoretical checklist copied from a blog post."],
+    ["Engine-aware", "We track how Google and the major AI answer engines actually read pages, and update the scan as their behaviour changes."],
+    ["Free & transparent", "The core audit is free, needs no signup, and tells you exactly why each score is what it is — no black boxes."],
+  ];
+  const schema = [
+    { "@context": "https://schema.org", "@type": "AboutPage", name: "About GeoPageScan", url, description: desc,
+      isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+      mainEntity: { "@type": "Organization", name: SITE.name, url: SITE.url, logo: `${SITE.url}/logo.svg`,
+        description: "A free AI-visibility (GEO/AEO/SEO) audit tool built by a team of web practitioners with 15 years of combined experience, helping sites become visible to search engines and AI answer engines.",
+        slogan: "Make your site visible to AI.",
+        knowsAbout: ["Generative Engine Optimization (GEO)", "Answer Engine Optimization (AEO)", "Search Engine Optimization (SEO)", "Structured data and Schema.org", "llms.txt and AI crawlability", "Web content and entity authority"] } },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url + "/" },
+      { "@type": "ListItem", position: 2, name: "About", item: url } ] },
+  ];
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About GeoPageScan — the free AI-visibility scanner | GeoPageScan</title>
+<meta name="description" content="${esc(desc)}" />
+<meta name="keywords" content="about geopagescan, ai visibility, geo, aeo, seo, answer engine optimization, generative engine optimization" />
+<meta name="author" content="GeoPageScan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="${url}" />
+<meta name="llms-txt" content="${SITE.url}/llms.txt" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="${url}" />
+<meta property="og:title" content="About GeoPageScan — the free AI-visibility scanner" />
+<meta property="og:description" content="${esc(desc)}" />
+<meta property="og:image" content="${SITE.url}/og-image.svg" />
+<meta property="og:site_name" content="GeoPageScan" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="${SITE.twitter}" />
+<meta name="twitter:title" content="About GeoPageScan — the free AI-visibility scanner" />
+<meta name="twitter:description" content="${esc(desc)}" />
+<meta name="twitter:image" content="${SITE.url}/og-image.svg" />
+${fontsHead}
+${schema.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("\n")}
+</head>
+<body>
+${header()}
+<main>
+  <section class="about-hero"><div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <span class="current">About</span></nav>
+    <div class="about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">About GeoPageScan</span>
+        <h1>We help sites get seen — by search engines <span class="gradient-text">and AI alike</span></h1>
+        <p class="about-lead">GeoPageScan is a free AI-visibility scanner built by a team of web practitioners with <strong>15 years of combined experience</strong> in SEO, structured data and site engineering. We built the tool we always wished existed: one scan that shows how visible your site is to Google and to AI answer engines like ChatGPT, Claude and Perplexity — and exactly what to fix first.</p>
+        <div class="about-cta-row">
+          <a class="btn btn-primary" href="/#top">Scan your site free</a>
+          <a class="btn btn-ghost" href="/blog">Read the blog</a>
+        </div>
+      </div>
+      <div class="about-visual">${aboutCardSvg()}</div>
+    </div>
+  </div></section>
+
+  <section class="about-section" style="max-width:1180px">
+    <div class="stats-grid">
+      ${STATS.map(([n, suf, l]) => `<div class="stat-card"><div class="stat-num" data-count="${n}" data-suffix="${suf}">${n}${suf}</div><div class="stat-label">${l}</div></div>`).join("")}
+    </div>
+  </section>
+
+  <section class="about-section">
+    <span class="eyebrow">The story</span>
+    <h2>Why we built GeoPageScan</h2>
+    <div class="about-prose">
+      <p>For fifteen years, between us, we've built, launched and optimized websites — on WordPress, Shopify, Webflow, custom React stacks and everything in between. We've chased rankings through every Google update, wired up analytics and schema, and learned the unglamorous details that decide whether a page gets found or quietly ignored.</p>
+      <p>Somewhere in the last few years, the ground shifted. People stopped scrolling ten blue links and started asking ChatGPT, Claude, Perplexity and Google's AI Overviews for the answer directly. Those engines don't just rank pages — they <strong>read</strong> them, understand them, and decide which sources are clear and trustworthy enough to quote. Being "good at SEO" was suddenly not enough; you also had to be legible to machines that summarize the web.</p>
+      <p>The problem was that almost nobody could see how they were doing on that new front. Classic SEO tools were built for keywords and backlinks, not for whether an AI can parse your entity, find your <strong>llms.txt</strong>, or lift a clean answer out of your FAQ. The few tools that touched it were enterprise-priced, one-dimensional, or hid the "why" behind a paywall. Most site owners were flying blind.</p>
+      <p>So we took the checklists we'd been running by hand on client sites for years and turned them into a single, free scanner. GeoPageScan looks at your page the way a modern engine does — across <strong>six scored categories</strong> spanning GEO, AEO and SEO — and checks the concrete signals that matter: structured data, llms.txt, crawlability, entity clarity, answer-ready content, metadata and more. Then it hands back a plain-language report and a prioritized list of what to fix first.</p>
+      <p>We kept it free on purpose. The web works better when good content is easy for both people and machines to find, and we'd rather lower the barrier than gate it. GeoPageScan is the tool we wish we'd had on every project — and we're still adding to it as the engines evolve.</p>
+    </div>
+  </section>
+
+  <section class="about-section" style="max-width:1180px">
+    <div style="text-align:center;max-width:640px;margin:0 auto"><span class="eyebrow">What we do</span><h2>Six disciplines, one score</h2></div>
+    <div class="exp-grid">${EXPERTISE.map(([i, t, d]) => `<div class="exp-card"><div class="exp-ico">${i}</div><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
+  </section>
+
+  <section class="about-section">
+    <span class="eyebrow">How we think</span>
+    <h2>Principles behind the scan</h2>
+    <div class="exp-grid">${PRINCIPLES.map(([t, d]) => `<div class="exp-card"><h3>${t}</h3><p>${d}</p></div>`).join("")}</div>
+  </section>
+
+  <section class="about-mission"><div class="inner">
+    <span class="eyebrow">The mission</span>
+    <h2>Make every site legible to AI</h2>
+    <p>Search is being rewritten in real time. Over the next few years, more of your traffic — and your credibility — will come from being the source an AI chooses to cite, not just a link on page one. Our mission is simple: make every site, from a solo blog to a growing SaaS, legible to those engines, and put the insight to do it within reach of anyone, for free.</p>
+    <div class="about-cta-row"><a class="btn btn-primary" href="/#top">Run a free scan</a><a class="btn btn-ghost" href="/blog/geo-guide">Start with the GEO guide</a></div>
+  </div></section>
+</main>
+${footer()}
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('[data-count]'));
+  if(!els.length)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)||!window.requestAnimationFrame)return;
+  els.forEach(function(el){
+    var target=parseInt(el.getAttribute('data-count'),10),suf=el.getAttribute('data-suffix')||'',done=false;
+    el.textContent='0'+suf;
+    var io=new IntersectionObserver(function(en){
+      if(en[0].isIntersecting&&!done){done=true;io.disconnect();
+        var start=null;
+        (function tick(ts){if(start===null)start=ts;var p=Math.min(1,(ts-start)/1400);el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(tick);})(performance.now());
+      }
+    },{threshold:.4});
+    io.observe(el);
+    setTimeout(function(){if(!done){done=true;io.disconnect();el.textContent=target+suf;}},2600);
+  });
+})();
+</script>
+</body>
+</html>`;
+}
 
 /* ── build everything for a given article set (newest first) ─────────────── */
 export async function generateBlog(articles) {
@@ -481,6 +682,7 @@ export async function generateBlog(articles) {
 
   await writeFile(join(PUBLIC, "blog-assets.css"), CSS, "utf8");
   await writeFile(join(PUBLIC, "blog.html"), indexPage(ordered), "utf8");
+  await writeFile(join(PUBLIC, "about.html"), aboutPage(), "utf8");
 
   for (const a of ordered) {
     await writeFile(join(PUBLIC, "blog-img", `${a.id}.svg`), svgCover(a), "utf8");
@@ -490,6 +692,7 @@ export async function generateBlog(articles) {
   // sitemap includes home, blog index and every post
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     `  <url><loc>${SITE.url}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n` +
+    `  <url><loc>${SITE.url}/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n` +
     `  <url><loc>${SITE.url}/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>\n` +
     ordered.map((a) => `  <url><loc>${SITE.url}/blog/${a.id}</loc><lastmod>${a.date}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join("\n") +
     `\n</urlset>\n`;
