@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400" role="img" aria-label="Pilotool matches you to the right AI tools across 8 categories">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1000" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#030712"/><stop offset="1" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <linearGradient id="pac" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00e5ff"/><stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="pglow" cx="0.5" cy="0.15" r="0.7"><stop offset="0" stop-color="#7c3aed" stop-opacity="0.28"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1000" height="400" fill="url(#pbg)"/>
+  <rect width="1000" height="400" fill="url(#pglow)"/>
+  <text x="500" y="56" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" letter-spacing="4" fill="#00e5ff">PILOTOOL.IO — AI TOOL FINDER</text>
+  <text x="500" y="92" text-anchor="middle" font-family="Outfit, sans-serif" font-size="26" font-weight="800" fill="#f1f5f9">Answer 4 questions &#8594; get your matches</text>
+
+  <!-- category chips: 2 rows of 4 -->
+  <g font-family="Outfit, sans-serif" font-size="18" font-weight="600" text-anchor="middle">
+    <g>
+      <rect x="70" y="140" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="170" y="175" fill="#f1f5f9">✍️  Content</text>
+      <rect x="290" y="140" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="390" y="175" fill="#f1f5f9">💻  Coding</text>
+      <rect x="510" y="140" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="610" y="175" fill="#f1f5f9">🎬  Video</text>
+      <rect x="730" y="140" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="830" y="175" fill="#f1f5f9">🔎  SEO</text>
+    </g>
+    <g>
+      <rect x="70" y="214" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="170" y="249" fill="#f1f5f9">🎨  Design</text>
+      <rect x="290" y="214" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="390" y="249" fill="#f1f5f9">🔊  Audio</text>
+      <rect x="510" y="214" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="610" y="249" fill="#f1f5f9">⚡  Productivity</text>
+      <rect x="730" y="214" width="200" height="56" rx="12" fill="rgba(15,23,42,0.6)" stroke="url(#pac)" stroke-width="1.5"/>
+      <text x="830" y="249" fill="#f1f5f9">🔁  Automation</text>
+    </g>
+  </g>
+
+  <rect x="360" y="310" width="280" height="52" rx="26" fill="none" stroke="url(#pac)" stroke-width="2"/>
+  <text x="500" y="343" text-anchor="middle" font-family="Outfit, sans-serif" font-size="20" font-weight="700" fill="#00e5ff">200+ tools · Free · No signup</text>
+</svg>

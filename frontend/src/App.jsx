@@ -681,6 +681,41 @@ function VitalSite() {
   );
 }
 
+function Pilotool() {
+  return (
+    <section className="section vs-section" id="pilotool">
+      <div className="container">
+        <div className="vs-card reveal">
+          <div className="vs-glow" />
+          <div className="vs-inner reverse">
+            <div className="vs-visual">
+              <img src="/blog-img/pilotool-finder.svg" alt="Pilotool matches you to the right AI tools across 8 categories" loading="lazy" width="1000" height="400" />
+            </div>
+            <div className="vs-copy">
+              <span className="eyebrow"><span className="dot-ok" /> Also from our team</span>
+              <h2>Meet <span className="gradient-text">Pilotool</span> — find the right AI tools in 2 minutes</h2>
+              <p>
+                Overwhelmed by thousands of AI tools? <strong>Pilotool</strong> is our free AI-tool finder. Answer four
+                quick questions about your role, task, budget and skill level, and get personalized picks from
+                <strong> 200+ AI tools across 8 categories</strong> — content, coding, video, SEO, design, audio,
+                productivity and automation. No signup, no fluff.
+              </p>
+              <div className="vs-pillars">
+                <span><Ic.check /> 200+ AI tools</span>
+                <span><Ic.check /> 8 categories</span>
+                <span><Ic.check /> Free · no signup</span>
+              </div>
+              <a className="btn btn-primary vs-cta" href="https://pilotool.io" target="_blank" rel="noopener">
+                Find your AI tools on Pilotool <Ic.arrow />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const cols = [
     ["Product", [["Audit tool", "#top"], ["Features", "#features"], ["How it works", "#how"], ["FAQ", "#faq"]]],
@@ -733,6 +768,7 @@ export default function App() {
       <BlogPreview />
       <CTA />
       <VitalSite />
+      <Pilotool />
       <Footer />
     </>
   );

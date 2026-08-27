@@ -430,6 +430,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   radial-gradient(620px 300px at 12% 0%, rgba(0, 229, 255, 0.16), transparent 60%),
   radial-gradient(560px 300px at 100% 100%, rgba(124, 58, 237, 0.22), transparent 62%); }
 .vs-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 44px; align-items: center; }
+.vs-inner.reverse { grid-template-columns: 1fr 1.25fr; }
+.vs-section + .vs-section { padding-top: 0; margin-top: -24px; }
 .vs-copy h2 { font-size: clamp(26px, 3.6vw, 42px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin: 16px 0 16px; }
 .vs-copy p { color: var(--text-2); font-size: 16.5px; line-height: 1.65; margin-bottom: 22px; max-width: 580px; }
 .vs-copy p strong { color: var(--text); }
