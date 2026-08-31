@@ -87,3 +87,8 @@ Blog now has 22 posts. Queue remaining: 9.
 - [SEO] E-E-A-T in the AI Era: Trust Signals That Travel  →  /blog/eeat-ai.html
 
 Blog now has 23 posts. Queue remaining: 8.
+
+## 2026-08-31 — published 1 article(s)
+- [SEO] Image SEO for AI: Alt Text, Captions and Context  →  /blog/image-seo-ai.html
+
+Blog now has 24 posts. Queue remaining: 7.

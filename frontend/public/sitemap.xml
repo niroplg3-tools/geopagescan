@@ -3,6 +3,7 @@
   <url><loc>https://geopagescan.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://geopagescan.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://geopagescan.com/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://geopagescan.com/blog/image-seo-ai</loc><lastmod>2026-08-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/eeat-ai</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/js-rendering-seo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geopagescan.com/blog/content-pruning</loc><lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
