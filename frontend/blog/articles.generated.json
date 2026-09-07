@@ -468,5 +468,59 @@
     ],
     "date": "2026-08-31",
     "read": "4 min"
+  },
+  {
+    "id": "geopagescan-score-explained",
+    "cat": "Tool",
+    "emoji": "🧮",
+    "title": "Your GeoPageScan Score, Explained Category by Category",
+    "dek": "What each of the six audit categories measures, why it matters, and the fastest way to improve each one.",
+    "keywords": "GeoPageScan score, AI visibility score, audit categories, GEO AEO SEO",
+    "sections": [
+      {
+        "h": "One score, six categories",
+        "p": [
+          "Your overall score blends six categories: LLM Optimization, Structured Data, AI Crawlability, Authority Signals, Content Clarity and Technical SEO. Each reflects a different slice of AI readiness."
+        ]
+      },
+      {
+        "h": "What moves each category",
+        "list": [
+          "LLM Optimization — publish and enrich llms.txt; add FAQ content.",
+          "Structured Data — add Organization, FAQPage, AggregateRating schema.",
+          "AI Crawlability — allow AI bots, ship a sitemap, avoid JS-only content.",
+          "Authority — named authors, sameAs links, marked-up reviews.",
+          "Content Clarity — question headings, answer-first, fewer superlatives.",
+          "Technical SEO — canonical, hreflang, Open Graph, viewport, vitals."
+        ]
+      },
+      {
+        "h": "Work the lowest scores first",
+        "p": [
+          "Start with your weakest categories and the Quick Wins, then re-scan to confirm each lift."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What does the GeoPageScan score measure?",
+        "a": "Your overall AI readiness, blended from six categories: LLM Optimization, Structured Data, AI Crawlability, Authority, Content Clarity and Technical SEO."
+      },
+      {
+        "q": "How do I raise my score fastest?",
+        "a": "Fix your lowest-scoring categories and the listed Quick Wins first — usually llms.txt, crawler access and core schema — then re-scan."
+      },
+      {
+        "q": "What's a good score?",
+        "a": "70+ is a solid foundation, 40–69 needs improvement, and below 40 signals significant gaps."
+      }
+    ],
+    "related": [
+      "introducing-geopagescan",
+      "quick-wins-playbook",
+      "measuring-ai-visibility"
+    ],
+    "date": "2026-09-07",
+    "read": "4 min"
   }
 ]

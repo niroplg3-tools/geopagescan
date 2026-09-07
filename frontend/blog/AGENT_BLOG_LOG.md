@@ -92,3 +92,8 @@ Blog now has 23 posts. Queue remaining: 8.
 - [SEO] Image SEO for AI: Alt Text, Captions and Context  →  /blog/image-seo-ai.html
 
 Blog now has 24 posts. Queue remaining: 7.
+
+## 2026-09-07 — published 1 article(s)
+- [Tool] Your GeoPageScan Score, Explained Category by Category  →  /blog/geopagescan-score-explained.html
+
+Blog now has 25 posts. Queue remaining: 6.
