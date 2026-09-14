@@ -522,5 +522,57 @@
     ],
     "date": "2026-09-07",
     "read": "4 min"
+  },
+  {
+    "id": "quick-wins-playbook",
+    "cat": "Tool",
+    "emoji": "🏆",
+    "title": "The 10 GEO Quick Wins You Can Ship This Week",
+    "dek": "Ten high-impact, low-effort changes that move your AI-visibility score fast — most take under an hour each.",
+    "keywords": "GEO quick wins, AI visibility checklist, llms.txt, schema, robots.txt",
+    "sections": [
+      {
+        "h": "Ship these first",
+        "list": [
+          "Publish an llms.txt at your domain root.",
+          "Allow GPTBot, ClaudeBot, PerplexityBot and Google-Extended in robots.txt.",
+          "Add Organization schema with a sameAs array.",
+          "Add FAQPage schema to your top pages.",
+          "Add AggregateRating for existing reviews.",
+          "Write a one-sentence entity definition in your hero/About.",
+          "Add a FAQ section answering your top questions.",
+          "Set canonical, viewport and html lang on every page.",
+          "Add hreflang if you have multiple languages.",
+          "Ship a sitemap and reference it in robots.txt."
+        ]
+      },
+      {
+        "h": "Then measure",
+        "p": [
+          "Re-scan after each change. Most of these take under an hour and together they typically move the score significantly."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What's the single best GEO quick win?",
+        "a": "Publishing an llms.txt — it's the highest-impact, lowest-effort change and most competitors don't have one."
+      },
+      {
+        "q": "How long do these quick wins take?",
+        "a": "Most take under an hour each; llms.txt and robots.txt take minutes."
+      },
+      {
+        "q": "How do I know they worked?",
+        "a": "Re-run a GeoPageScan audit after each change to see the score lift and any remaining gaps."
+      }
+    ],
+    "related": [
+      "geopagescan-score-explained",
+      "geo-guide",
+      "invisible-to-ai"
+    ],
+    "date": "2026-09-14",
+    "read": "4 min"
   }
 ]

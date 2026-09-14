@@ -97,3 +97,8 @@ Blog now has 24 posts. Queue remaining: 7.
 - [Tool] Your GeoPageScan Score, Explained Category by Category  →  /blog/geopagescan-score-explained.html
 
 Blog now has 25 posts. Queue remaining: 6.
+
+## 2026-09-14 — published 1 article(s)
+- [Tool] The 10 GEO Quick Wins You Can Ship This Week  →  /blog/quick-wins-playbook.html
+
+Blog now has 26 posts. Queue remaining: 5.
