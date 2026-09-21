@@ -102,3 +102,8 @@ Blog now has 25 posts. Queue remaining: 6.
 - [Tool] The 10 GEO Quick Wins You Can Ship This Week  →  /blog/quick-wins-playbook.html
 
 Blog now has 26 posts. Queue remaining: 5.
+
+## 2026-09-21 — published 1 article(s)
+- [Tool] How to Run a Competitor AI-Visibility Audit  →  /blog/competitor-ai-audit.html
+
+Blog now has 27 posts. Queue remaining: 4.

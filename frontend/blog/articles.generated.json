@@ -574,5 +574,54 @@
     ],
     "date": "2026-09-14",
     "read": "4 min"
+  },
+  {
+    "id": "competitor-ai-audit",
+    "cat": "Tool",
+    "emoji": "🔬",
+    "title": "How to Run a Competitor AI-Visibility Audit",
+    "dek": "See exactly where you stand against competitors in AI search — and find the gaps you can exploit this quarter.",
+    "keywords": "competitor audit, AI visibility benchmark, GEO competitive analysis",
+    "sections": [
+      {
+        "h": "Benchmark the field",
+        "p": [
+          "Scan your top competitors with the same audit you use on yourself. Comparing scores and category gaps shows exactly where you can leapfrog them."
+        ]
+      },
+      {
+        "h": "Find the exploitable gaps",
+        "p": [
+          "Look for categories where everyone scores low — often llms.txt and structured data. Being first to fix a shared weakness is the fastest path to citations."
+        ]
+      },
+      {
+        "h": "Check who AI cites today",
+        "p": [
+          "Ask the major engines your category's key questions and note who's cited. That's your real competitive set in AI search."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I audit a competitor's AI visibility?",
+        "a": "Run the same AI-visibility scan on their site, compare scores and category gaps, and check which sources AI cites for your shared key questions."
+      },
+      {
+        "q": "What gaps should I look for?",
+        "a": "Categories where competitors score low — often llms.txt and structured data — since being first to fix them wins citations fastest."
+      },
+      {
+        "q": "Can I scan any website?",
+        "a": "Yes. GeoPageScan works on any public URL, so you can benchmark competitors freely."
+      }
+    ],
+    "related": [
+      "agency-workflow",
+      "measuring-ai-visibility",
+      "geopagescan-score-explained"
+    ],
+    "date": "2026-09-21",
+    "read": "4 min"
   }
 ]
