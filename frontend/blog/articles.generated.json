@@ -623,5 +623,60 @@
     ],
     "date": "2026-09-21",
     "read": "4 min"
+  },
+  {
+    "id": "geo-checklist-2026",
+    "cat": "Tool",
+    "emoji": "📋",
+    "title": "The Complete GEO Checklist for 2026",
+    "dek": "A single, printable checklist covering every GEO, AEO and SEO signal that affects whether AI cites your site.",
+    "keywords": "GEO checklist, AI visibility checklist 2026, GEO AEO SEO checklist",
+    "sections": [
+      {
+        "h": "Foundations",
+        "list": [
+          "Publish and maintain llms.txt.",
+          "Allow AI crawlers; ship and submit a sitemap.",
+          "Serve key content as crawlable HTML, not JS-only."
+        ]
+      },
+      {
+        "h": "Structure & entity",
+        "list": [
+          "Organization + FAQPage schema, validated.",
+          "sameAs links and named authors (Person schema).",
+          "Marked-up reviews (AggregateRating)."
+        ]
+      },
+      {
+        "h": "Content & technical",
+        "list": [
+          "Question-led, answer-first content with specific facts.",
+          "Canonical, hreflang, Open Graph, viewport, html lang.",
+          "Green Core Web Vitals."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What's on a complete GEO checklist?",
+        "a": "Foundations (llms.txt, crawler access, crawlable HTML), structure and entity (schema, sameAs, reviews), and content and technical (answer-first content, canonical/hreflang, Core Web Vitals)."
+      },
+      {
+        "q": "How do I work through it?",
+        "a": "Tackle foundations first, then entity and structure, then content and technical — re-scanning to confirm each lift."
+      },
+      {
+        "q": "Is there a tool to check it for me?",
+        "a": "Yes. A free GeoPageScan audit checks most of this automatically and prioritizes the fixes."
+      }
+    ],
+    "related": [
+      "quick-wins-playbook",
+      "geo-guide",
+      "technical-seo-checklist"
+    ],
+    "date": "2026-09-28",
+    "read": "4 min"
   }
 ]

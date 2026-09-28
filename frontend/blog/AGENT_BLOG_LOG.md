@@ -107,3 +107,8 @@ Blog now has 26 posts. Queue remaining: 5.
 - [Tool] How to Run a Competitor AI-Visibility Audit  →  /blog/competitor-ai-audit.html
 
 Blog now has 27 posts. Queue remaining: 4.
+
+## 2026-09-28 — published 1 article(s)
+- [Tool] The Complete GEO Checklist for 2026  →  /blog/geo-checklist-2026.html
+
+Blog now has 28 posts. Queue remaining: 3.
