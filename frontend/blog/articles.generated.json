@@ -678,5 +678,54 @@
     ],
     "date": "2026-09-28",
     "read": "4 min"
+  },
+  {
+    "id": "wikipedia-wikidata",
+    "cat": "GEO",
+    "emoji": "📚",
+    "title": "Wikipedia & Wikidata: The Entity Boost AI Trusts",
+    "dek": "A presence on Wikipedia or Wikidata is one of the strongest entity signals for AI. Here's how to approach it the right way.",
+    "keywords": "Wikipedia, Wikidata, entity, knowledge graph, AI trust, GEO",
+    "sections": [
+      {
+        "h": "Why these sources carry weight",
+        "p": [
+          "Wikipedia and Wikidata are heavily used to ground AI knowledge. A verifiable presence strengthens your entity and how confidently AI can describe and cite you."
+        ]
+      },
+      {
+        "h": "Earn it, don't fake it",
+        "p": [
+          "Notability rules are strict. Build genuine third-party coverage first; a Wikidata entry is more attainable than a Wikipedia article and still a strong, structured signal."
+        ]
+      },
+      {
+        "h": "Connect it back",
+        "p": [
+          "Reference your Wikidata/Wikipedia entity in your Organization schema's sameAs array so machines link your site to the entity record."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does Wikipedia help AI visibility?",
+        "a": "Yes — Wikipedia and Wikidata are major grounding sources for AI, so a verifiable presence strengthens your entity and citability."
+      },
+      {
+        "q": "Is Wikidata easier than Wikipedia?",
+        "a": "Generally yes. A structured Wikidata entry is more attainable than a notable Wikipedia article and is still a strong entity signal."
+      },
+      {
+        "q": "How do I connect it to my site?",
+        "a": "Add the Wikidata/Wikipedia URL to your Organization schema's sameAs array so engines link your entity to the record."
+      }
+    ],
+    "related": [
+      "entity-authority",
+      "ai-knowledge-graph",
+      "brand-mentions-ai"
+    ],
+    "date": "2026-10-05",
+    "read": "4 min"
   }
 ]

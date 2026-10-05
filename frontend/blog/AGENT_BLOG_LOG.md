@@ -112,3 +112,8 @@ Blog now has 27 posts. Queue remaining: 4.
 - [Tool] The Complete GEO Checklist for 2026  →  /blog/geo-checklist-2026.html
 
 Blog now has 28 posts. Queue remaining: 3.
+
+## 2026-10-05 — published 1 article(s)
+- [GEO] Wikipedia & Wikidata: The Entity Boost AI Trusts  →  /blog/wikipedia-wikidata.html
+
+Blog now has 29 posts. Queue remaining: 2.
