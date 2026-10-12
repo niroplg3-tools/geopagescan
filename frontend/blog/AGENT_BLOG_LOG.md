@@ -117,3 +117,8 @@ Blog now has 28 posts. Queue remaining: 3.
 - [GEO] Wikipedia & Wikidata: The Entity Boost AI Trusts  →  /blog/wikipedia-wikidata.html
 
 Blog now has 29 posts. Queue remaining: 2.
+
+## 2026-10-12 — published 1 article(s)
+- [GEO] How Reviews Shape AI Recommendations (and How to Mark Them Up)  →  /blog/reviews-ai-trust.html
+
+Blog now has 30 posts. Queue remaining: 1.

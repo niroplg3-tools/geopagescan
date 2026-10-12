@@ -727,5 +727,54 @@
     ],
     "date": "2026-10-05",
     "read": "4 min"
+  },
+  {
+    "id": "reviews-ai-trust",
+    "cat": "GEO",
+    "emoji": "⭐",
+    "title": "How Reviews Shape AI Recommendations (and How to Mark Them Up)",
+    "dek": "Ratings are a top signal when AI recommends businesses and products. Here's how to surface and structure yours for maximum effect.",
+    "keywords": "reviews, AggregateRating, Review schema, AI recommendations, social proof",
+    "sections": [
+      {
+        "h": "Ratings drive recommendations",
+        "p": [
+          "When AI suggests businesses or products, it leans heavily on ratings and review signals. An unmarked 5-star reputation is invisible to engines that can't read it."
+        ]
+      },
+      {
+        "h": "Mark up your reviews",
+        "p": [
+          "Add AggregateRating and Review JSON-LD with ratingValue and reviewCount that match what's visible on the page, then validate it."
+        ]
+      },
+      {
+        "h": "Surface real proof",
+        "p": [
+          "Display genuine testimonials and ratings prominently, and keep them current — freshness and authenticity matter to both users and AI."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do reviews affect AI recommendations?",
+        "a": "Strongly. Ratings are a top signal when AI recommends businesses and products — but only if they're marked up so engines can read them."
+      },
+      {
+        "q": "What schema do reviews use?",
+        "a": "AggregateRating for the overall score and Review for individual reviews, with values matching the visible content."
+      },
+      {
+        "q": "Are unmarked reviews enough?",
+        "a": "No. Without Review/AggregateRating markup, AI may not factor your ratings into recommendations."
+      }
+    ],
+    "related": [
+      "schema-7-types",
+      "local-geo",
+      "eeat-ai"
+    ],
+    "date": "2026-10-12",
+    "read": "4 min"
   }
 ]
